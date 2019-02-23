@@ -6,6 +6,6 @@
 
 ## awesome
 
-- [awesome-indie](hhttps://github.com/icepy/awesome-indie/blob/master/README-ZH.md)：这是一份可以帮助开发者触发灵感，创建可盈利副业的资源收集项目 | (译者：[@icepy](https://github.com/icepy) [@飞猪](https://github.com/Xixi20160512) [@敏菲](https://github.com/chenmf6) [@郭可](https://github.com/sichenguo))
+- [awesome-indie](https://github.com/icepy/awesome-indie/blob/master/README-ZH.md)：这是一份可以帮助开发者触发灵感，创建可盈利副业的资源收集项目 | (译者：[@icepy](https://github.com/icepy) [@飞猪](https://github.com/Xixi20160512) [@敏菲](https://github.com/chenmf6) [@郭可](https://github.com/sichenguo))
 
 ## article
