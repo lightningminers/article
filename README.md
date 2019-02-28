@@ -17,4 +17,4 @@
 
 ## Copyright
 
-> **版权声明：** [闪电矿工翻译组](https://github.com/lightningminers/article) 译文仅用于学习、研究和交流。版权归[闪电矿工翻译组](https://github.com/lightningminers/article)、文章作者和译者所有，欢迎非商业转载。转载前请联系译者或 [管理员](https://github.com/icepy) 获取授权，并在文章开头明显位置注明本文出处、译者、校对者和闪电矿工翻译组的完整链接，违者必究。
+> **版权声明：** [闪电矿工翻译组](https://github.com/lightningminers/article) 译文仅用于学习、研究和交流。版权归 [闪电矿工翻译组](https://github.com/lightningminers/article)、文章作者和译者所有，欢迎非商业转载。转载前请联系译者或 [管理员](https://github.com/icepy) 获取授权，并在文章开头明显位置注明本文出处、译者、校对者和闪电矿工翻译组的完整链接，违者必究。
