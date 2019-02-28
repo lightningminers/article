@@ -4,28 +4,29 @@ title: ES5 to ESNext — here’s every feature added to JavaScript since 20
 link: https://medium.freecodecamp.org/es5-to-esnext-heres-every-feature-added-to-javascript-since-2015-d0c255e13c6e
 author: [Flavio Copes](https://medium.freecodecamp.org/@flaviocopes)
 ---
-# ES5 to ESNext — here’s every feature added to JavaScript since 2015
+# ES5 to ESNext —  自 2015 以来 JavaScript 新增的所有新特性
 
 ![img](https://cdn-images-1.medium.com/max/2000/1*QZppItKE3Sqdi3kZA-TNGQ.png)
 
-I wrote this article to help you move from pre-ES6 knowledge of JavaScript and get you quickly up to speed with the most recent advancements of the language.
+这篇文章的出发点是为了帮助前端开发者串联 ES6前后的 JavaScript 只是，并且可以快速了解 JavaScript 语言的最新进展。
 
-JavaScript today is in the privileged position to be the only language that can run natively in the browser, and is highly integrated and optimized for that.
+JavaScript 在当下处于特权地位，因为它是唯一可以在浏览器中运行的语言，并且是被高度集成和优化过的。
 
 The future of JavaScript is going to be brilliant. Keeping up with the changes shouldn’t be harder than it already is, and my goal here is to give you a quick yet comprehensive overview of the new stuff available to us.
+JavaScript 在未来有着极好的发展空间，跟上它的变化不会比现在更加的困难。我的目标是让你能够快速且全面的了解这门语言可以使用的新内容。
 
 [**Click here to get a PDF / ePub / Mobi version of this post to read offline**](https://flaviocopes.com/es5-to-next/)
 
-#### Table of Contents
+#### 目录
 
-[**Introduction to ECMAScript**](https://medium.com/p/d0c255e13c6e#3641)
+[**ECMAScript 简介**](https://medium.com/p/d0c255e13c6e#3641)
 
 **ES2015**
-
-- [let and const](https://medium.com/p/d0c255e13c6e#f95b)
-- [Arrow Functions](https://medium.com/p/d0c255e13c6e#1d7c)
+[TOC]
+- [let 和 const](https://medium.com/p/d0c255e13c6e#f95b)
+- [箭头函数](https://medium.com/p/d0c255e13c6e#1d7c)
 - [Classes](https://medium.com/p/d0c255e13c6e#5609)
-- [Default parameters](https://medium.com/p/d0c255e13c6e#679e)
+- [默认参数](https://medium.com/p/d0c255e13c6e#679e)
 - [Template Literals](https://medium.com/p/d0c255e13c6e#1676)
 - [Destructuring assignments](https://medium.com/p/d0c255e13c6e#c962)
 - [Enhanced Object Literals](https://medium.com/p/d0c255e13c6e#438e)
