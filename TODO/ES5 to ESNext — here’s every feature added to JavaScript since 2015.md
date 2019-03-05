@@ -1500,10 +1500,12 @@ A WeakSet is generally used by framework-level code, and only exposes these meth
 ### Map
 
 A Map data structure allows us to associate data to a key.
+Map数据结构允许我们保留数据和key值的关系
 
-#### Before ES6
+#### 在ES6之前
 
 Before its introduction, people generally used objects as maps, by associating some object or value to a specific key value:
+在引入Map数据结构之前，开发者通常把对象(Object)当作Map使用，把某个object或value值与特定的key值相关联:
 
 ```
 const car = {}
@@ -1515,19 +1517,23 @@ console.log(car.owner) //Flavio
 console.log(car['owner']) //Flavio
 ```
 
-#### Enter Map
+#### 引入Map之后
 
 ES6 introduced the Map data structure, providing us a proper tool to handle this kind of data organization.
+ES6引入了Map数据结构，为我们处理这种数据结构提供了一种合适的工具
 
 A Map is initialized by calling:
+Map的初始化:
 
 ```
 const m = new Map()
 ```
 
 #### Add items to a Map
+#### 添加条目到Map中
 
 You can add items to the map by using the `set` method:
+你可以通过`set()`方法把条目设定到map中：
 
 ```
 m.set('color', 'red')
@@ -1535,8 +1541,10 @@ m.set('age', 2)
 ```
 
 #### Get an item from a map by key
+#### 通过key值从map中获取条目
 
 And you can get items out of a map by using `get`:
+你可以通过`get()`方法把条目从map中取出来:
 
 ```
 const color = m.get('color')
@@ -1544,46 +1552,57 @@ const age = m.get('age')
 ```
 
 #### Delete an item from a map by key
+#### 通过key值从map中删除条目
 
 Use the `delete()` method:
+使用`delete()`方法：
 
 ```
 m.delete('color')
 ```
 
 #### Delete all items from a map
+#### 从map中删除所有条目
 
 Use the `clear()` method:
+使用`clear()`方法：
 
 ```
 m.clear()
 ```
 
 #### Check if a map contains an item by key
+#### 通过key值检查map中是否含有特定条目
 
 Use the `has()` method:
+使用`has()`方法
 
 ```
 const hasColor = m.has('color')
 ```
 
 #### Find the number of items in a map
+#### 获取map中的条目数量
 
 Use the `size` property:
+使用 `size` 属性:
 
 ```
 const size = m.size
 ```
 
 #### Initialize a map with values
+#### 用value值初始化一个map
 
 You can initialize a map with a set of values:
+你可以用一组value来初始化一个map：
 
 ```
 const m = new Map([['color', 'red'], ['owner', 'Flavio'], ['age', 2]])
 ```
 
 #### Map keys
+#### Map 的key值 
 
 Just like any value (object, array, string, number) can be used as the value of the key-value entry of a map item, **any value can be used as the key**, even objects.
 
