@@ -602,29 +602,28 @@ const query = gql`
 `
 ```
 
-The `styled.button` and `gql` template tags highlighted in those examples are just **functions**:
+上面两个例子中的`styled.button`和`gql`模板标签其实都是**函数**:
 
 ```
 function gql(literals, ...expressions) {}
 ```
 
-this function returns a string, which can be the result of *any* kind of computation.
+这个函数返回一个字符串，可以是*任意*类型的计算结果。
 
-`literals` is an array containing the template literal content tokenized by the expressions interpolations.
+`字面量`(literals)是一个包含了表达式插值的模板字面量的序列。
+`表达式`(expressions)包含了所有的插值。
 
-`expressions` contains all the interpolations.
-
-If we take an example above:
+举个例子：
 
 ```
 const string = `something ${1 + 2 + 3}`
 ```
 
-`literals` is an array with two items. The first is `something`, the string until the first interpolation, and the second is an empty string, the space between the end of the first interpolation (we only have one) and the end of the string.
+这个例子里面的`字面量`是一个由2个部分组成的序列。第1部分就是`something`，也就是第一个插值位置(${})之前的字符串，第2部分就是一个空字符串，从第1个插值结束的位置直到字符串的结束。
 
-`expressions` in this case is an array with a single item, `6`.
+这个例子里面的`表达式`就是只包含1个部分的序列，也就是`6`。
 
-A more complex example is:
+举一个更复杂的例子：
 
 ```
 const string = `something
@@ -633,38 +632,38 @@ new line ${1 + 2 + 3}
 test`
 ```
 
-in this case `literals` is an array where the first item is:
+这个例子里面的`字面量`的序列里面，第1个部分是：
 
 ```
 ;`something
 another `
 ```
 
-the second is:
+第2部分是：
 
 ```
 ;`
 new line `
 ```
 
-and the third is:
+第3部分是：
 
 ```
 ;`
 test`
 ```
 
-`expressions` in this case is an array with two items, `x` and `6`.
+这个例子里面的`表达式`包含了2个部分：`x`和`6`。
 
-The function that is passed those values can do anything with them, and this is the power of this kind feature.
+拿到了这些值的函数就可以对其做任意处理，这就是这个特性的威力所在。
 
-The most simple example is replicating what the string interpolation does, by joining `literals` and `expressions`:
+比如最简单的处理就是字符串插值，把`字面量`和`表达式`拼接起来：
 
 ```
 const interpolated = interpolate`I paid ${10}€`
 ```
 
-and this is how `interpolate` works:
+`插值`的过程就是：
 
 ```
 function interpolate(literals, ...expressions) {
@@ -677,9 +676,9 @@ function interpolate(literals, ...expressions) {
 }
 ```
 
-### Destructuring assignments
+### 解构赋值
 
-Given an object, you can extract just some values and put them into named variables:
+给定一个object，你可以抽取其中的一些值并且赋值给命名的变量：
 
 ```
 const person = {
@@ -691,28 +690,28 @@ const person = {
 const {firstName: name, age} = person
 ```
 
-`name` and `age` contain the desired values.
+`name`和`age`就包含了对应的值。
 
-The syntax also works on arrays:
+这个语法同样可以用到数组当中：
 
 ```
 const a = [1,2,3,4,5]
 const [first, second] = a
 ```
 
-This statement creates 3 new variables by getting the items with index 0, 1, 4 from the array `a`:
+下面这个语句创建了3个新的变量，分别取的是数组`a`的第0、1、4下标对应的值：
 
 ```
 const [first, second, , , fifth] = a
 ```
 
-### Enhanced Object Literals
+### 更强大的对象字面量
 
-In ES2015 Object Literals gained superpowers.
+ES2015赋予了对象字面量更大的威力。
 
-#### Simpler syntax to include variables
+#### 简化了包含变量的语法
 
-Instead of doing
+原来的写法：
 
 ```
 const something = 'y'
@@ -721,7 +720,7 @@ const x = {
 }
 ```
 
-you can do
+新的写法：
 
 ```
 const something = 'y'
@@ -730,9 +729,9 @@ const x = {
 }
 ```
 
-#### Prototype
+#### 原型
 
-A prototype can be specified with
+原型可以这样指定：
 
 ```
 const anObject = { y: 'y' }
@@ -754,7 +753,7 @@ const x = {
 x.test() //zoox
 ```
 
-#### Dynamic properties
+#### 动态属性
 
 ```
 const x = {
@@ -763,11 +762,11 @@ const x = {
 x.a_b //z
 ```
 
-### For-of loop
+### For-of循环
 
-ES5 back in 2009 introduced `forEach()` loops. While nice, they offered no way to break, like `for` loops always did.
+2009年的ES5引入了`forEach()`循环。虽然很好用，但是它跟`for`循环一样，没法break。
 
-ES2015 introduced the `**for-of**` **loop**, which combines the conciseness of `forEach` with the ability to break:
+ES2015引入了`**for-of**` **循环**, 就是在`forEach`的基础上加上了break的功能：
 
 ```
 //iterate over the value
@@ -781,40 +780,40 @@ for (const [i, v] of ['a', 'b', 'c'].entries()) {
 }
 ```
 
-Notice the use of `const`. This loop creates a new scope in every iteration, so we can safely use that instead of `let`.
+留意一下`const`的使用。这个循环在每次迭代中都会创建一个新的作用域，所以我们可以使用`const`来代替`let`。
 
-The difference with `for...in` is:
+它跟`for...in`的区别在于：
 
-- `for...of` **iterates over the property values**
-- `for...in` **iterates the property names**
+- `for...of` **遍历属性值**
+- `for...in` **遍历属性名**
 
 ### Promises
 
-A promise is commonly defined as **a proxy for a value that will eventually become available**.
+promise的一般定义： **它是一个代理，通过它可以最终得到一个值**.
 
-Promises are one way to deal with asynchronous code, without writing too many callbacks in your code.
+Promise是处理异步代码的一种方式，可以少写很多回调。
 
-**Async functions** use the promises API as their building block, so understanding them is fundamental even if in newer code you’ll likely use async functions instead of promises.
+**异步函数**是建立在promise API上面的，所以理解Promise是一个基本的要求。
 
-#### How promises work, in brief
+#### promise的原理简述
 
-Once a promise has been called, it will start in **pending state**. This means that the caller function continues the execution, while it waits for the promise to do its own processing, and give the caller function some feedback.
+一个promise被调用的时候，首先它是处于**pending**状态。在promise处理的过程中，调用的函数（caller）可以继续执行，直到promise给出反馈。
 
-At this point, the caller function waits for it to either return the promise in a **resolved state**, or in a **rejected state**, but as you know [JavaScript](https://flaviocopes.com/javascript/) is asynchronous, so *the function continues its execution while the promise does it work*.
+此时，调用的函数等待的promise结果要么是**resolved**状态，要么是**rejected**状态。但是由于[JavaScript](https://flaviocopes.com/javascript/)是异步的，所以*promise处理的过程中，函数会继续执行*。
 
-#### Which JS API use promises?
+#### 为什么JS API使用promises?
 
-In addition to your own code and library code, promises are used by standard modern Web APIs such as:
+除了你的代码和第三方库的代码之外，promise在用在现代的Web API中，比如：
 
-- the Battery API
-- the [Fetch API](https://flaviocopes.com/fetch-api/)
+- 电池API
+- [Fetch API](https://flaviocopes.com/fetch-api/)
 - [Service Workers](https://flaviocopes.com/service-workers/)
 
-It’s unlikely that in modern JavaScript you’ll find yourself *not* using promises, so let’s start diving right into them.
+在现代的JavaScript中，不使用promise是太可能的，所以我们来深入研究下promise吧。
 
-#### Creating a promise
+#### 创建一个promise
 
-The Promise API exposes a Promise constructor, which you initialize using `new Promise()`:
+Promise API暴露了一个Promise构造函数，可以通过`new Promise()`来初始化：
 
 ```
 let done = true
@@ -829,15 +828,13 @@ const isItDoneYet = new Promise((resolve, reject) => {
 })
 ```
 
-As you can see the promise checks the `done` global constant, and if that's true, we return a resolved promise, otherwise a rejected promise.
+promise会检查`done`这个全局变量，如果为true，就返回一个resolved promise，否则就返回一个rejected promise。
 
-Using `resolve` and `reject` we can communicate back a value, in the above case we just return a string, but it could be an object as well.
+通过`resolve`和`reject`，我们可以得到一个返回值，返回值可以是字符串也可以是对象。
 
-#### Consuming a promise
+#### 使用一个promise
 
-In the last section, we introduced how a promise is created.
-
-Now let’s see how the promise can be *consumed* or used.
+上面讲了怎么创建一个promise，下面就讲怎么使用（consume）这个promise。
 
 ```
 const isItDoneYet = new Promise()
@@ -853,17 +850,17 @@ const checkIfItsDone = () => {
 }
 ```
 
-Running `checkIfItsDone()` will execute the `isItDoneYet()` promise and will wait for it to resolve, using the `then` callback, and if there is an error, it will handle it in the `catch` callback.
+运行`checkIfItsDone()`方法时，会执行`isItDoneYet()`这个promise，并且等待它resolve的时候使用`then`回调，如果有错误，就用`catch`回调来处理。
 
-#### Chaining promises
+#### 链式promise
 
-A promise can be returned to another promise, creating a chain of promises.
+一个promise可以返回另一个promise，从而创建promise链接（chain）。
 
-A great example of chaining promises is given by the [Fetch API](https://flaviocopes.com/fetch-api), a layer on top of the XMLHttpRequest API, which we can use to get a resource and queue a chain of promises to execute when the resource is fetched.
+一个很好的例子就是[Fetch API](https://flaviocopes.com/fetch-api)，它是基于XMLHttpRequest API的一个上层API，我们可以用它来获取资源，并且在获取到资源的时候链式执行一系列promise。
 
-The Fetch API is a promise-based mechanism, and calling `fetch()` is equivalent to defining our own promise using `new Promise()`.
+Fetch API是一个基于promise的机制，调用`fetch()`相当于使用`new Promise()`来声明我们自己的promise。
 
-#### Example of chaining promises
+#### 链式promise的例子
 
 ```
 const status = response => {
@@ -884,22 +881,22 @@ fetch('/todos.json')
   })
 ```
 
-In this example, we call `fetch()` to get a list of TODO items from the `todos.json` file found in the domain root, and we create a chain of promises.
+在这个例子当中，我们调用`fetch()`，从根目录的`todos.json`文件中获取一系列的TODO项目，并且创建一个链式promise。
 
-Running `fetch()` returns a [response](https://fetch.spec.whatwg.org/#concept-response), which has many properties, and within those we reference:
+运行`fetch()`方法会返回一个[response](https://fetch.spec.whatwg.org/#concept-response)，它包含很多属性，我们从中引用如下属性：
 
-- `status`, a numeric value representing the HTTP status code
-- `statusText`, a status message, which is `OK` if the request succeeded
+- `status`, 一个数值，表示HTTP状态码
+- `statusText`, 一个状态消息，当请求成功的时候返回`OK`
 
-`response` also has a `json()` method, which returns a promise that will resolve with the content of the body processed and transformed into JSON.
+`response`还有一个`json()`方法，它返回一个promise，返回内容转换成JSON后的结果。
 
-So given those premises, this is what happens: the first promise in the chain is a function that we defined, called `status()`, that checks the response status and if it's not a success response (between 200 and 299), it rejects the promise.
+所以这些promise的调用过程就是：第一个promise执行一个我们定义的`status()`方法，检查response status，判断是否一个成功的响应(status在200和299之间)，如果不是成功的响应，就reject这个promise。
 
-This operation will cause the promise chain to skip all the chained promises listed and will skip directly to the `catch()` statement at the bottom, logging the `Request failed` text along with the error message.
+这个reject操作会导致整个链式promise跳过后面的所有promise直接到`catch()`语句，打印`Request failed`和错误消息。
 
-If that succeeds instead, it calls the json() function we defined. Since the previous promise, when successful, returned the `response` object, we get it as an input to the second promise.
+如果这个promise成功了，它会调用我们定义的json()函数。因为前面的promise成功之后返回的`response`对象，我们可以拿到并作为第2个promise的参数传入。
 
-In this case, we return the data JSON processed, so the third promise receives the JSON directly:
+在这个例子里面，我们返回了JSON序列化的数据，所以第3个promise直接接收这个JSON：
 
 ```
 .then((data) => {
@@ -907,13 +904,13 @@ In this case, we return the data JSON processed, so the third promise receives t
 })
 ```
 
-and we log it to the console.
+然后我们把它打印到console。
 
-#### Handling errors
+#### 处理错误
 
-In the above example, in the previous section, we had a `catch` that was appended to the chain of promises.
+在上一节的的例子里面，我们有一个`catch`接在链式promise后面。
 
-When anything in the chain of promises fails and raises an error or rejects the promise, the control goes to the nearest `catch()` statement down the chain.
+当promise链中的任意一个出错或者reject的时候，就会直接跳到promise链后面最近的`catch()`语句。
 
 ```
 new Promise((resolve, reject) => {
@@ -929,9 +926,9 @@ new Promise((resolve, reject) => {
 })
 ```
 
-#### Cascading errors
+#### 级联错误
 
-If inside the `catch()` you raise an error, you can append a second `catch()` to handle it, and so on.
+如果在`catch()`里面抛出一个错误，你可以在后面接上第二个`catch()`来处理这个错误，以此类推。
 
 ```
 new Promise((resolve, reject) => {
@@ -945,13 +942,13 @@ new Promise((resolve, reject) => {
   })
 ```
 
-#### Orchestrating promises
+#### 组织多个promise
 
 #### `Promise.all()`
 
-If you need to synchronize different promises, `Promise.all()` helps you define a list of promises, and execute something when they are all resolved.
+如果你要同时完成不同的promise,可以用`Promise.all()`来声明一系列的promise，然后当它们全部resolve的时候再执行一些操作。
 
-Example:
+例子：
 
 ```
 const f1 = fetch('/something.json')
@@ -965,7 +962,7 @@ Promise.all([f1, f2])
   })
 ```
 
-The ES2015 destructuring assignment syntax allows you to also do
+结合ES2015的解构赋值语法，你可以这样写：
 
 ```
 Promise.all([f1, f2]).then(([res1, res2]) => {
@@ -973,13 +970,13 @@ Promise.all([f1, f2]).then(([res1, res2]) => {
 })
 ```
 
-You are not limited to using `fetch` of course, **any promise is good to go**.
+当然这不限于使用`fetch`， **这适用于任何promise**.
 
 #### `Promise.race()`
 
-`Promise.race()` runs as soon as one of the promises you pass to it resolves, and it runs the attached callback just once with the result of the first promise resolved.
+`Promise.race()`运行所有传递进去的promise，但是只要有其中一个resolve了，就会运行后面的回调，并且只执行一次回调，回调的参数就是第一个resolve的promise返回的结果。
 
-Example:
+例子：
 
 ```
 const promiseOne = new Promise((resolve, reject) => {
@@ -993,11 +990,11 @@ Promise.race([promiseOne, promiseTwo]).then(result => {
 })
 ```
 
-### Modules
+### 模块
 
-ES Modules is the ECMAScript standard for working with modules.
+ES Module是一个关于多模块的ECMAScript标准。
 
-While Node.js has been using the CommonJS standard for years, the browser never had a module system, as every major decision such as a module system must be first standardized by ECMAScript and then implemented by the browser.
+Node.js用了CommonJS标准好几年了，但是浏览器从来没有一个模块系统，, the browser never had a module system, as every major decision such as a module system must be first standardized by ECMAScript and then implemented by the browser.
 
 This standardization process completed with ES2015 and browsers started implementing this standard trying to keep everything well aligned, working all in the same way, and now ES Modules are supported in Chrome, Safari, Edge and Firefox (since version 60).
 
