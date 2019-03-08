@@ -237,7 +237,7 @@ const myFunction = param => doSomething(param)
 Thanks to this short syntax, arrow functions **encourage the use of small functions**.
 由于这种简短的语法，使得我们可以更便捷的使用**比较简短的函数**
 
-#### 隐式 return
+#### 隐式返回
 
 箭头函数支持隐式返回：可以正常的 `return` 一个返回值但是可以不使用 `return` 关键字。
 
@@ -255,7 +255,7 @@ const myFunction = () => ({ value: 'test' })
 myFunction() //{value: 'test'}
 ```
 
-#### How `this` works in arrow functions
+#### 箭头函数中的 `this`
 
 `this` 可能是一个很难掌握的概念，因为它会根据上下文而进行变化，并且会在不同的 JavaScript的模式（是否为*严格模式*）下表现存在差异。
 
@@ -315,7 +315,7 @@ JavaScript 实现继承的方式比较罕见：[原型继承]((https://flaviocop
 This is important: JavaScript under the hood is still the same, and you can access an object prototype in the usual way.
 
 注意：class 并没有对 JavaScript 底层做修改，你仍然可以直接访问对象原型。
-#### A class definition
+#### class 定义
 
 如下是一个 class  的例子：
 
@@ -523,7 +523,7 @@ const string =
 second line'
 ```
 
-or
+或者
 
 ```js
 const string = 'first line\n' + 'second line'
