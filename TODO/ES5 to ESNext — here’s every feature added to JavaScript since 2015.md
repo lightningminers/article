@@ -999,23 +999,23 @@ Node.js用了CommonJS标准好几年了，但是浏览器从来没有一个模�
 
 This standardization process completed with ES2015 and browsers started implementing this standard trying to keep everything well aligned, working all in the same way, and now ES Modules are supported in Chrome, Safari, Edge and Firefox (since version 60).
 
-Modules are very cool, because they let you encapsulate all sorts of functionality, and expose this functionality to other JavaScript files, as libraries.
+模块非常酷，他们可以让你封装各种各样的功能，同时将这些功能作为库暴露给其他 JavaScript 文件使用。
 
-#### The ES Modules Syntax
+#### ES 模块语法
 
-The syntax to import a module is:
+引入模块的语法:
 
 ```
 import package from 'module-name'
 ```
 
-while CommonJS uses
+CommonJS 则是这样使用：
 
 ```
 const package = require('module-name')
 ```
 
-A module is a JavaScript file that **exports** one or more values (objects, functions or variables), using the `export` keyword. For example, this module exports a function that returns a string uppercase:
+一个模块是一个 JavaScript 文件，这个文件使用 `export` 关键字 **exports** 一个或多个值（对象、函数或者变量）。例如，下面这个模块提供了一个将字符串变成大写形式的函数：
 
 > *uppercase.js*
 
@@ -1023,63 +1023,63 @@ A module is a JavaScript file that **exports** one or more values (objects, func
 export default str => str.toUpperCase()
 ```
 
-In this example, the module defines a single, **default export**, so it can be an anonymous function. Otherwise it would need a name to distinguish it from other exports.
+在这个例子中，这个模块定义了唯一一个 **default export**，因此可以是一个匿名函数。否则，需要一个名称来和其他 **exports** 做区分。
 
-Now, **any other JavaScript module** can import the functionality offered by uppercase.js by importing it.
+现在，**任何其他的 JavaScript 模块** 可以通过 **import** 导入 **uppercase.js** 的这个功能。
 
-An HTML page can add a module by using a `<script>` tag with the special `type="module"` attribute:
+一个 HTML 页面可以通过使用了特殊的 `type=module` 属性的 `<script>` 标签添加一个模块。
 
 ```
 <script type="module" src="index.js"></script>
 ```
 
-> *Note: this module import behaves like a* `*defer*` *script load. See* [*efficiently load JavaScript with defer and async*](https://flaviocopes.com/javascript-async-defer/)
+> *注意: 这个模块导入的行为就像 `*defer*` 脚本加载一样。具体可以看* [*efficiently load JavaScript with defer and async*](https://flaviocopes.com/javascript-async-defer/)
 
-It’s important to note that any script loaded with `type="module"` is loaded in strict mode.
+需要特别注意的是，任何通过 `type="module"` 载入的脚本会使用 *strict mode* 加载。
 
-In this example, the `uppercase.js` module defines a **default export**, so when we import it, we can assign it a name we prefer:
+在这个例子中，`uppercase.js` 模块定义了一个 **default export**，因此当我们在导入它的时候，我们可以给他起一个任何我们喜欢的名字：
 
 ```
 import toUpperCase from './uppercase.js'
 ```
 
-and we can use it:
+同时我们可以这样使用它:
 
 ```
 toUpperCase('test') //'TEST'
 ```
 
-You can also use an absolute path for the module import, to reference modules defined on another domain:
+你也可以通过一个绝对路径来导入模块，下面是一个引用来自其他域底下定义的模块的例子：
 
 ```
 import toUpperCase from 'https://flavio-es-modules-example.glitch.me/uppercase.js'
 ```
 
-This is also valid import syntax:
+下面同样是一些合法的 *import*语法：
 
 ```
 import { toUpperCase } from '/uppercase.js'
 import { toUpperCase } from '../uppercase.js'
 ```
 
-This is not:
+下面是错误的使用:
 
 ```
 import { toUpperCase } from 'uppercase.js'
 import { toUpperCase } from 'utils/uppercase.js'
 ```
 
-It’s either absolute, or has a `./` or `/` before the name.
+因为这里既不是使用绝对地址，也不是使用的相对地址。
 
-#### Other import/export options
+#### 其它的 import/export 语法
 
-We saw this example above:
+我们了解了上面的例子：
 
 ```
 export default str => str.toUpperCase()
 ```
 
-This creates one default export. In a file however you can export more than one thing, by using this syntax:
+这里生成了一个 *default export*。然而，你可以通过下面的语法在一个文件里面 *export* 多个功能：
 
 ```
 const a = 1
@@ -1087,33 +1087,32 @@ const b = 2
 const c = 3
 export { a, b, c }
 ```
-
-Another module can import all those exports using
+另外一个模块可以使用下面的方式 *import* 所有这些 *exports*：
 
 ```
 import * from 'module'
 ```
 
-You can import just a few of those exports, using the destructuring assignment:
+你也可以通过解构赋值的方式仅仅 *import* 一部分 *exports*：
 
 ```
 import { a } from 'module'
 import { a, b } from 'module'
 ```
 
-You can rename any import, for convenience, using `as`:
+为了方便，你还可以使用 `as` 重命名任何 *import* 的东西：
 
 ```
 import { a, b as two } from 'module'
 ```
 
-You can import the default export, and any non-default export by name, like in this common React import:
+你可以导入模块中的默认出口以及通过名称导入任何非默认的出口：
 
 ```
 import React, { Component } from 'react'
 ```
 
-You can see an ES Modules example here: <https://glitch.com/edit/#!/flavio-es-modules-example?path=index.html>
+这是一篇关于 ES 模块的文章，可以看一下： <https://glitch.com/edit/#!/flavio-es-modules-example?path=index.html>
 
 #### CORS
 
