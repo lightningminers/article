@@ -1999,39 +1999,35 @@ After
 I did something //after 3s
 ```
 
-#### Promise all the things
+#### 关于 Promise
 
-Prepending the `async` keyword to any function means that the function will return a promise.
+将 `async` 关键字标记在任何函数上，意味着这个函数都将返回一个 Promise，即使这个函数没有显式的返回，它在内部也会返回一个 Promise，这就是下面这份代码有效的原因：
 
-Even if it’s not doing so explicitly, it will internally make it return a promise.
-
-This is why this code is valid:
-
-```
+``` javascript
 const aFunction = async () => {
   return 'test'
 }
 aFunction().then(alert) // This will alert 'test'
 ```
 
-and it’s the same as:
+下面的例子也一样:
 
-```
+```javascript
 const aFunction = async () => {
   return Promise.resolve('test')
 }
 aFunction().then(alert) // This will alert 'test'
 ```
 
-#### The code is much simpler to read
+#### 更易于阅读的代码
 
-As you can see in the example above, our code looks very simple. Compare it to code using plain promises, with chaining and callback functions.
+正如上述的例子，我们将它与普通回调函数或链式函数进行比较，我们的代码看起来非常的简单。
 
-And this is a very simple example, the major benefits will arise when the code is much more complex.
+这是一个很简单的例子，当代码足够复杂时，它会产生更多的收益。
 
-For example here’s how you would get a JSON resource, and parse it, using promises:
+例如，使用 Promise 来获取 JSON 资源并解析它：
 
-```
+```javascript
 const getFirstUserData = () => {
   return fetch('/users.json') // get users list
     .then(response => response.json()) // parse JSON
@@ -2042,9 +2038,9 @@ const getFirstUserData = () => {
 getFirstUserData()
 ```
 
-And here is the same functionality provided using await/async:
+这是使用 async/await 实现相同功能的例子：
 
-```
+```javascript
 const getFirstUserData = async () => {
   const response = await fetch('/users.json') // get users list
   const users = await response.json() // parse JSON
@@ -2056,11 +2052,12 @@ const getFirstUserData = async () => {
 getFirstUserData()
 ```
 
-#### Multiple async functions in series
+#### 串行多个异步功能
 
-Async functions can be chained very easily, and the syntax is much more readable than with plain promises:
+async 函数非常容易，并且它的语法比 Promise 更易读。
 
-```
+
+```javascript
 const promiseToDoSomething = () => {
   return new Promise(resolve => {
     setTimeout(() => resolve('I did something'), 10000)
@@ -2079,141 +2076,144 @@ watchOverSomeoneWatchingSomeoneDoingSomething().then(res => {
 })
 ```
 
-Will print:
+打印结果:
 
 ```
 I did something and I watched and I watched as well
 ```
 
-#### Easier debugging
+#### 更简单的调试
 
-Debugging promises is hard because the debugger will not step over asynchronous code.
+调试 Promise 就很困难，因为调试器无法跨越异步代码，但调试 async/await 就非常的简单，调试器会像调试同步代码一样来处理它。
 
-Async/await makes this very easy because to the compiler it’s just like synchronous code.
+### 共享内存和原子
 
-### Shared Memory and Atomics
+WebWorkers 可以在浏览器中创建多线程程序。
 
-WebWorkers are used to create multithreaded programs in the browser.
+它们通过事件的方式来传递消息，从 ES2017 开始，你可以使用 `SharedArrayBuffer` 在每一个 Worker 中和它们的创建者之间共享内存数组.
 
-They offer a messaging protocol via events. Since ES2017, you can create a shared memory array between web workers and their creator, using a `SharedArrayBuffer`.
-
+由于不知道写入内存部分需要多长的周期来广播，因此在读取值时，任何类型的写入操作都会完成，`Atomics` 可以避免 竞争条件的发生。
 Since it’s unknown how much time writing to a shared memory portion takes to propagate, **Atomics** are a way to enforce that when reading a value, any kind of writing operation is completed.
 
-Any more detail on this [can be found in the spec proposal](https://github.com/tc39/ecmascript_sharedmem/blob/master/TUTORIAL.md), which has since been implemented.
+关于它的更多细节可以在[proposal](https://github.com/tc39/ecmascript_sharedmem/blob/master/TUTORIAL.md)中找到。
 
 ------
 
-This was ES2017. Let me now introduce the ES2018 features
+这是 ES2017，接下来我将介绍 ES2018 的功能。
 
 ------
 
 ### Rest/Spread Properties
 
-ES2015 introduced the concept of a **rest element** when working with **array destructuring**:
+ES2015 引入了解构数组的方法，当你使用时：
 
-```
+```javascript
 const numbers = [1, 2, 3, 4, 5]
 [first, second, ...others] = numbers
 ```
 
-and **spread elements**:
+and **展开参数**:
 
-```
+```javascript
 const numbers = [1, 2, 3, 4, 5]
 const sum = (a, b, c, d, e) => a + b + c + d + e
 const sum = sum(...numbers)
 ```
 
-ES2018 introduces the same but for objects.
+ES2018 为对象引入了同样的功能。
 
-**Rest properties**:
+**解构**:
 
-```
+```javascript
 const { first, second, ...others } = { first: 1, second: 2, third: 3, fourth: 4, fifth: 5 }
 first // 1
 second // 2
 others // { third: 3, fourth: 4, fifth: 5 }
 ```
 
-**Spread properties** allow to create a new object by combining the properties of the object passed after the spread operator:
+**展开熟悉** 允许通过组合在展开运算符之后传递的对象属性而创建新对象：
 
-```
+```javascript
 const items = { first, second, ...others }
 items //{ first: 1, second: 2, third: 3, fourth: 4, fifth: 5 }
 ```
 
-### Asynchronous iteration
+### 异步迭代器
 
 The new construct `for-await-of` allows you to use an async iterable object as the loop iteration:
 
-```
+`for-await-of` 允许你使用异步可迭代对象做为循环迭代：
+
+
+```javascript
 for await (const line of readLines(filePath)) {
   console.log(line)
 }
 ```
 
-Since this uses `await`, you can use it only inside `async` functions, like a normal `await`.
+因为它使用的了 `await`，因此你只能在 `async` 函数中使用它。
 
 ### Promise.prototype.finally()
 
-When a promise is fulfilled, successfully it calls the `then()` methods, one after another.
+当一个 Promise 是 fulfilled 时，它会一个接一个的调用 then。
 
-If something fails during this, the `then()` methods are jumped and the `catch()` method is executed.
+如果在这个过程中发生了错误，则会跳过 `then` 而执行 `catch`。
 
-`finally()` allow you to run some code regardless of the successful or not successful execution of the promise:
+而 `finally()` 允许你运行一些代码，无论是成功还是失败：
 
-```
+```javascript
 fetch('file.json')
   .then(data => data.json())
   .catch(error => console.error(error))
   .finally(() => console.log('finished'))
 ```
 
-### Regular Expression improvements
+### 正则表达式改进
 
-ES2018 introduced a number of improvements regarding Regular Expressions. I recommend my tutorial on them, available at <https://flaviocopes.com/javascript-regular-expressions/>.
+ES2018 对正则表达式引入了许多改进，这些都可以在 <https://flaviocopes.com/javascript-regular-expressions/> 上找到。
 
-Here are the ES2018 specific additions.
+以下是关于 ES2018 正则表达式改进的具体补充：
 
-#### RegExp lookbehind assertions: match a string depending on what precedes it
+#### RegExp lookbehind assertions: 根据前面的内容匹配字符串
 
-This is a lookahead: you use `?=` to match a string that's followed by a specific substring:
+这是一个 lookahead: 你可以使用 `?=` 来匹配字符串，后面跟随一个特定的字符串：
 
-```
+```javascript
 /Roger(?=Waters)/
 /Roger(?= Waters)/.test('Roger is my dog') //false
 /Roger(?= Waters)/.test('Roger is my dog and Roger Waters is a famous musician') //true
 ```
 
-`?!` performs the inverse operation, matching if a string is **not** followed by a specific substring:
+`?!` 可以执行逆操作，如果匹配的字符串是**no**而不是在此后跟随特定的子字符串的话：
 
-```
+```javascript
 /Roger(?!Waters)/
 /Roger(?! Waters)/.test('Roger is my dog') //true
 /Roger(?! Waters)/.test('Roger Waters is a famous musician') //false
 ```
 
-Lookaheads use the `?=` symbol. They were already available.
 
-**Lookbehinds**, a new feature, uses `?<=`.
+Lookaheads 使用 `?=` Symbol，它们已经可以用了。
 
-```
+**Lookbehinds**, 是一个新功能使用`?<=`.
+
+```javascript
 /(?<=Roger) Waters/
 /(?<=Roger) Waters/.test('Pink Waters is my dog') //false
 /(?<=Roger) Waters/.test('Roger is my dog and Roger Waters is a famous musician') //true
 ```
 
-A lookbehind is negated using `?<!`:
+如果一个 lookbehind 是否定，那么使用 `?>!`:
 
-```
+```javascript
 /(?<!Roger) Waters/
 /(?<!Roger) Waters/.test('Pink Waters is my dog') //true
 /(?<!Roger) Waters/.test('Roger is my dog and Roger Waters is a famous musician') //false
 ```
 
-#### Unicode property escapes `\p{…}` and `\P{…}`
+#### Unicode属性转义 `\p{…}` and `\P{…}`
 
-In a regular expression pattern you can use `\d` to match any digit, `\s` to match any character that's not a white space, `\w` to match any alphanumeric character, and so on.
+在正则表达式模式中，你可以使用 `\d` 来匹配任意的数字，`\s` 来匹配任意不是空格的字符串，`\w` 来匹配任意字母数字字符串，以此类推。
 
 This new feature extends this concept to all Unicode characters introducing `\p{}` and is negation `\P{}`.
 
