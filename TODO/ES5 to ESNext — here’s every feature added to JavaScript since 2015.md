@@ -1601,14 +1601,15 @@ You can initialize a map with a set of values:
 const m = new Map([['color', 'red'], ['owner', 'Flavio'], ['age', 2]])
 ```
 
-#### Map keys
 #### Map 的key值 
 
 Just like any value (object, array, string, number) can be used as the value of the key-value entry of a map item, **any value can be used as the key**, even objects.
+任何值(对象，数组，字符串，数字)都可以用作一个map这种key-value键值对的value，**任何值也可以用作key**，即使是object对象。
 
 If you try to get a non-existing key using `get()` out of a map, it will return `undefined`.
+如果你想通过`get()`方法从map中获取不存在的key值，它将会返回`undefined`
 
-#### Weird situations you’ll almost never find in real life
+#### 在真实世界中你几乎不可能找到的诡异情况
 
 ```
 const m = new Map()
@@ -1619,9 +1620,10 @@ m.set(+0, 'test')
 m.get(-0) //test
 ```
 
-#### Iterate over map keys
+#### 使用Iterate迭代器获取map的keys值
 
 Map offers the `keys()` method we can use to iterate on all the keys:
+Map提供了`keys()`方法，通过该方法我们可以迭代出所有的key值:
 
 ```
 for (const k of m.keys()) {
@@ -1629,41 +1631,37 @@ for (const k of m.keys()) {
 }
 ```
 
-#### Iterate over map values
+#### 使用Iterate迭代器获取map的values值
 
-The Map object offers the `values()` method we can use to iterate on all the values:
-
+Map提供了`values()`方法，通过该方法我们可以迭代出所有的value值:
 ```
 for (const v of m.values()) {
   console.log(v)
 }
 ```
 
-#### Iterate over map key, value pairs
+#### 使用Iterate迭代器获取key-value组成的键值对
 
-The Map object offers the `entries()` method we can use to iterate on all the values:
-
+Map提供了`entries()`方法，通过该方法我们可以迭代出所有的键值对:
 ```
 for (const [k, v] of m.entries()) {
   console.log(k, v)
 }
 ```
-
-which can be simplified to
-
+使用方法还可以简化为：
 ```
 for (const [k, v] of m) {
   console.log(k, v)
 }
 ```
 
-#### Convert the map keys into an array
+#### 将map的keys值转换为数组
 
 ```
 const a = [...m.keys()]
 ```
 
-#### Convert the map values into an array
+#### 将map的values值转换为数组
 
 ```
 const a = [...m.values()]
@@ -1672,40 +1670,46 @@ const a = [...m.values()]
 #### WeakMap
 
 A WeakMap is a special kind of map.
+WeakMap是一种特殊的map
 
 In a map object, items are never garbage collected. A WeakMap instead lets all its items be freely garbage collected. Every key of a WeakMap is an object. When the reference to this object is lost, the value can be garbage collected.
+在map对象中，它上面的数据永远不会被垃圾回收，WeakMap替而代之的是它允许在它上面定义的数据可以被自由的垃圾回收走，WeakMap的每一个key都是一个对象，当指向该对象的指针丢失，与之对应的value就会被垃圾回收走。
 
-Here are the main differences:
+这是主要的不同之处：
 
-1. you cannot iterate over the keys or values (or key-values) of a WeakMap
-2. you cannot clear all items from a WeakMap
-3. you cannot check its size
+1. 你不可以在WeakMap上迭代keys值和values值(或者key-value键值对)
+2. 你不可以从WeakMap上清除所有条目
+3. 你不可以获取WeakMap的大小
 
 A WeakMap exposes those methods, which are equivalent to the Map ones:
+WeakMap提供了如下几种方法，这些方法和Map中的一致：
 
 - `get(k)`
 - `set(k, v)`
 - `has(k)`
 - `delete(k)`
 
-The use cases of a WeakMap are less evident than the ones of a Map, and you might never find the need for them, but essentially it can be used to build a memory-sensitive cache that is not going to interfere with garbage collection, or for careful encapsulation and information hiding.
+关于WeakMap的用例不如Map的用例那么明显，你可能永远也不会发现那里会用到它，但从实际出发来说，WeakMap可以构建不会干扰到垃圾回收机制的内存敏感性缓存，或者用于封装的严谨性及信息的隐藏性需求。
 
-### Generators
+### Generators生成器
 
-Generators are a special kind of function with the ability to pause itself, and resume later, allowing other code to run in the meantime.
+Generators是一种特殊的函数，它能够暂停自身的执行并在一会后再继续运行，从而允许其它的代码在此期间运行。
 
-See the full JavaScript Generators Guide for a detailed explanation of the topic.
+有关该主题的详细说明，请参阅完整的“javascript生成器指南”
 
-The code decides that it has to wait, so it lets other code “in the queue” to run, and keeps the right to resume its operations “when the thing it’s waiting for” is done.
+代码决定它必须等待，因此它允许队列中的其它代码运行，并保留“当它等待的事情”完成时恢复其操作的权利。
 
-All this is done with a single, simple keyword: `yield`. When a generator contains that keyword, the execution is halted.
+所有这一切都是通过一个简单的关键字“yield`”完成的。当生成器包含该关键字时，将停止执行。
 
-A generator can contain many `yield` keywords, thus halting itself multiple times, and it's identified by the `*function` keyword, which is not to be confused with the pointer dereference operator used in lower level programming languages such as C, C++ or Go.
+generator生成器可以包含许多`yield`关键字，从而使自己能多次停止运行，它是由`*function`关键字标识，不要将其与C、C++或Go等低级语言中使用的取消指针引用操作符混淆。
 
 Generators enable whole new paradigms of programming in JavaScript, allowing:
+Generators支持JavaScript中全新的编程范式，包括：
 
 - 2-way communication while a generator is running
+- 在generator运行时支持双向通信
 - long-lived while loops which do not freeze your program
+- 不会“冻结”长期运行在程序中的while循环
 
 Here is an example of a generator which explains how it all works.
 
