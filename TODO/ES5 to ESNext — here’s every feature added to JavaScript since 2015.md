@@ -2272,38 +2272,38 @@ The `s` flag, short for *single line*, causes the `.` to match new line characte
 
 ### ESNext
 
-What’s next? ESNext.
+什么是 ESNext ？
 
-ESNext is a name that always indicates the next version of JavaScript.
+ESNext 是一个始终指向下一个版本 JavaScript 的名称。
 
-The current ECMAScript version is **ES2018**. It was released in June 2018.
+当前的 ECMAScript 版本是 **ES2018**，它于2018年6月被发布。
 
-Historically JavaScript editions have been standardized during the summer, so we can expect **ECMAScript 2019** to be released in summer 2019.
+历史上 JavaScript 标准化的版本都是在夏季被发布，因此我们可以预期 **ECMAScript 2019** 将于 2019 年的夏季被发布。
 
-So at the time of writing, ES2018 has been released, and **ESNext is ES2019**
+所以在编写本文时 ES2018 已经被发布，因此 ESNext 指的是 ES2019。
 
-Proposals to the ECMAScript standard are organized in stages. Stages 1–3 are an incubator of new features, and features reaching Stage 4 are finalized as part of the new standard.
+ECMAScript 标准的提案是分阶段组织的，第一到第三阶段属于功能性的孵化，第四阶段的功能才最终确定为新标准的一部分。
 
-At the time of writing we have a number of features at **Stage 4**. I will introduce them in this section. The latest versions of the major browsers should already implement most of those.
+在编写本文时主要浏览器都实现了第四阶段大部分的功能，因此我将在本文中介绍它们。
 
-Some of those changes are mostly for internal use, but it’s also good to know what is going on.
+其中一些变化主要在内部使用，但知道发生了什么这也很好。
 
-There are other features at Stage 3, which might be promoted to Stage 4 in the next few months, and you can check them out on this GitHub repository: <https://github.com/tc39/proposals>.
+第三阶段还有一些其他功能，可能会在接下来的几个月内升级到第四阶段，你可以在这个 Github 仓库中查看它们：<https://github.com/tc39/proposals>。
 
 ### Array.prototype.{flat,flatMap}
 
-`flat()` is a new array instance method that can create a one-dimensional array from a multidimensional array.
+`flat()` 是一个新的数组实例方法，它可以将多维数组转化成一维数组。
 
-Example:
+例子:
 
-```
+```javascript
 ['Dog', ['Sheep', 'Wolf']].flat()
 //[ 'Dog', 'Sheep', 'Wolf' ]
 ```
 
-By default it only “flats” up to one level, but you can add a parameter to set the number of levels you want to flat the array to. Set it to `Infinity` to have unlimited levels:
+默认情况下它只能将二维的数组转化成一维的数组，但你可以添加一个参数来确定要展开的级别，如果你将这个参数设置为 `Infinity` 那么它将展开无限的级别到一维数组：
 
-```
+```javascript
 ['Dog', ['Sheep', ['Wolf']]].flat()
 //[ 'Dog', 'Sheep', [ 'Wolf' ] ]
 ['Dog', ['Sheep', ['Wolf']]].flat(2)
@@ -2312,11 +2312,11 @@ By default it only “flats” up to one level, but you can add a parameter to s
 //[ 'Dog', 'Sheep', 'Wolf' ]
 ```
 
-If you are familiar with the JavaScript `map()` method of an array, you know that using it you can execute a function on every element of an array.
+如果你熟悉数组的 `map` 方法，那么你就知道使用它可以对数组的每个元素执行一个函数。
 
-`flatMap()` is a new Array instance method that combines `flat()` with `map()`. It's useful when calling a function that returns an array in the map() callback, but you want your resulted array to be flat:
+`flatMap()` 是一个新的数组实例方法，它将 `flat()` 和 `map` 结合了起来，当你期望在`map`函数中做一些处理时这非常有用，同时又希望结果如同 `flat` ：
 
-```
+```javascript
 ['My dog', 'is awesome'].map(words => words.split(' '))
 //[ [ 'My', 'dog' ], [ 'is', 'awesome' ] ]
 ['My dog', 'is awesome'].flatMap(words => words.split(' '))
