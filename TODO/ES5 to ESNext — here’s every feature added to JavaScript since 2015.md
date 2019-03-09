@@ -1073,7 +1073,7 @@ import { toUpperCase } from 'utils/uppercase.js'
 
 #### 其它的 import/export 语法
 
-我们了解了上面的例子：
+我们了解了上面的例子： 
 
 ```
 export default str => str.toUpperCase()
@@ -1114,115 +1114,115 @@ import React, { Component } from 'react'
 
 这是一篇关于 ES 模块的文章，可以看一下： <https://glitch.com/edit/#!/flavio-es-modules-example?path=index.html>
 
-#### CORS
+#### CORS(跨域资源共享)
 
-Modules are fetched using CORS. This means that if you reference scripts from other domains, they must have a valid CORS header that allows cross-site loading (like `Access-Control-Allow-Origin: *`)
+进行远程获取模块的时候是遵循 CORS 机制的。这意味着当你引用远程模块的时候，必须使用合法的 CORS 请求头来允许跨域访问（例如：`Access-Control-Allow-Origin: *`）。
 
-#### What about browsers that do not support modules?
+#### 对于不支持模块的浏览器应该怎么做？
 
-Use a combination of `type="module"` and `nomodule`:
+结合 `type="module"`、`nomodule` 一起使用：
 
 ```
 <script type="module" src="module.js"></script>
 <script nomodule src="fallback.js"></script>
 ```
 
-#### Wrapping up modules
+#### 包装模块
 
-ES Modules are one of the biggest features introduced in modern browsers. They are part of ES6 but the road to implement them has been long.
+ES 模块是现代浏览器中的一大特性。这些特性是 ES6 规范中的一部分，要在浏览器中全部实现这些特性的路还很漫长。
 
-We can now use them! But we must also remember that having more than a few modules is going to have a performance hit on our pages, as it’s one more step that the browser must perform at runtime.
+我们现在就能使用它们！但是我们同样需要知道，有一些模块会对我们的页面性能产生性能影响。因为浏览器必须要在运行时执行它们。
 
-Webpack is probably going to still be a huge player even if ES Modules land in the browser, but having such a feature directly built in the language is huge for a unification of how modules work client-side and on Node.js as well.
+Webpack 可能仍然会被大量使用，即使 ES 模块可以在浏览器中执行。但是语言内置这个特性对于客户端和 nodejs 在使用模块的时候是一种巨大的统一。
 
-### New String methods
+### 新的字符串方法
 
-Any string value got some new instance methods:
+任何字符串有了一些实例方法：
 
 - `repeat()`
 - `codePointAt()`
 
 #### repeat()
 
-Repeats the strings for the specified number of times:
+根据指定的次数重复字符串：
 
 ```
 'Ho'.repeat(3) //'HoHoHo'
 ```
 
-Returns an empty string if there is no parameter, or the parameter is `0`. If the parameter is negative you'll get a RangeError.
+没有提供参数以及使用 `0` 作为参数的时候返回空字符串。如果给一个负数参数则会得到一个 `RangeError` 的错误。
 
 #### codePointAt()
 
-This method can be used to handle Unicode characters that cannot be represented by a single 16-bit Unicode unit, but need 2 instead.
+这个方法能用在处理那些需要 2 个 UTF-16 单元表示的字符上。
 
-Using `charCodeAt()` you need to retrieve the first, and the second, and combine them. Using `codePointAt()` you get the whole character in one call.
+使用 `charCodeAt` 的话，你需要先分别得到两个 UTF-16 的编码然后结合它们。但是使用 `codePointAt()` 你可以直接得到整个字符。
 
-For example, this Chinese character “𠮷” is composed by 2 UTF-16 (Unicode) parts:
+下面是一个例子，中文的 “𠮷” 是由两个 UTF-16 编码组合而成的：
 
 ```
 "𠮷".charCodeAt(0).toString(16) //d842
 "𠮷".charCodeAt(1).toString(16) //dfb7
 ```
 
-If you create a new character by combining those unicode characters:
+如果你将两个 unicode 字符组合起来：
 
 ```
 "\ud842\udfb7" //"𠮷"
 ```
 
-You can get the same result sign `codePointAt()`:
+你也可以用 `codePointAt()` 得到同样的结果:
 
 ```
 "𠮷".codePointAt(0) //20bb7
 ```
 
-If you create a new character by combining those unicode characters:
+如果你将得到的 unicode 编码组合起来：
 
 ```
 "\u{20bb7}" //"𠮷"
 ```
 
-More on Unicode and working with it in my [Unicode guide](https://flaviocopes.com/unicode/).
+更多关于 Unicode 的使用方法，参考我的[Unicode guide](https://flaviocopes.com/unicode/)。
 
-### New Object methods
+### 新的对象方法
 
-ES2015 introduced several static methods under the Object namespace:
+ES2015 在 Object 类下引入了一些静态方法：
 
-- `Object.is()` determines if two values are the same value
-- `Object.assign()` used to shallow copy an object
-- `Object.setPrototypeOf` sets an object prototype
+- `Object.is()` 确定两个值是不是同一个
+- `Object.assign()` 用来浅拷贝一个对象
+- `Object.setPrototypeOf` 设置一个对象的原型
 
 #### Object.is()
 
-This methods aims to help comparing values.
+这个方法用来帮助比较对象的值：
 
-Usage:
+使用方式:
 
 ```
 Object.is(a, b)
 ```
 
-The result is always `false` unless:
+返回值在下列情况之外一直是 `false`：
 
-- `a` and `b` are the same exact object
-- `a` and `b` are equal strings (strings are equal when composed by the same characters)
-- `a` and `b` are equal numbers (numbers are equal when their value is equal)
-- `a` and `b` are both `undefined`, both `null`, both `NaN`, both `true` or both `false`
+- `a` 和 `b` 是同一个对象
+- `a` 和 `b` 是相等的字符串(用同样的字符组合在一起的字符串是相等的)
+- `a` 和 `b` 是相等的数字
+- `a` 和 `b` 都是 `undefined`, `null`, `NaN`, `true` 或者都是 `false`
 
-`0` and `-0` are different values in JavaScript, so pay attention in this special case (convert all to `+0` using the `+` unary operator before comparing, for example).
+`0` 和 `-0` 在 JavaScript 里面是不同的值, 所以对这种情况要多加小心（例如在比较之前，使用 `+` 一元操作符将所有值转换成 `+0`）。
 
 #### Object.assign()
 
-Introduced in `ES2015`, this method copies all the **enumerable own properties** of one or more objects into another.
+在 `ES2015` 版本中引入，这个方法拷贝所有给出的对象中的可枚举的自身属性到另一个对象中。
 
-Its primary use case is to create a shallow copy of an object.
+这个 API 的基本用法是创建一个对象的浅拷贝。
 
 ```
 const copied = Object.assign({}, original)
 ```
 
-Being a shallow copy, values are cloned, and objects references are copied (not the objects themselves), so if you edit an object property in the original object, that’s modified also in the copied object, since the referenced inner object is the same:
+作为浅拷贝，值会被复制，对象则是拷贝其引用（不是对象本身），因此当你修改了源对象的一个属性值，这个修改也会在拷贝出的对象中生效，因为内部引用的对象是相同的。:
 
 ```
 const original = {
@@ -1238,7 +1238,7 @@ copied.name //Fiesta
 copied.car.color //yellow
 ```
 
-I mentioned “one or more”:
+我之前提到过，源对象可以是`一个或者多个`:
 
 ```
 const wisePerson = {
@@ -1253,15 +1253,15 @@ console.log(wiseAndFoolishPerson) //{ isWise: true, isFoolish: true }
 
 #### Object.setPrototypeOf()
 
-Set the prototype of an object. Accepts two arguments: the object and the prototype.
+设置一个对象的原型。可以接受两个参数：对象以及原型。
 
-Usage:
+使用方法:
 
 ```
 Object.setPrototypeOf(object, prototype)
 ```
 
-Example:
+例子:
 
 ```
 const animal = {
@@ -1280,42 +1280,42 @@ dog.isAnimal //true
 dog.isMammal //true
 ```
 
-### The spread operator
+### 展开操作符
 
-You can expand an array, an object or a string using the spread operator `...`
+你可以展开一个数组、一个对象甚至是一个字符串，通过使用展开操作符 `...`。
 
-Let’s start with an array example. Given
+让我们以数组来举例，给出：
 
 ```
 const a = [1, 2, 3]
 ```
 
-you can create a new array using
+你可以使用下面的方式创建出一个新的数组：
 
 ```
 const b = [...a, 4, 5, 6]
 ```
 
-You can also create a copy of an array using
+你也可以像下面这样创建一个数组的拷贝：
 
 ```
 const c = [...a]
 ```
 
-This works for objects as well. Clone an object with:
+这中方式对于对象仍然有效。使用下面的方式克隆一个对象：
 
 ```
 const newObj = { ...oldObj }
 ```
 
-Using strings, the spread operator creates an array with each char in the string:
+用在字符串上的时候，展开操作符会以字符串中的每一个字符创建一个数组：
 
 ```
 const hey = 'hey'
 const arrayized = [...hey] // ['h', 'e', 'y']
 ```
 
-This operator has some pretty useful applications. The most important one is the ability to use an array as function argument in a very simple way:
+这个操作符有一些非常有用的应用。其中最重要的一点就是以一种非常简单的方式使用数组作为函数参数的能力：
 
 ```
 const f = (foo, bar) => {}
@@ -1323,16 +1323,16 @@ const a = [1, 2]
 f(...a)
 ```
 
-(In the past you could do this using `f.apply(null, a)` but that's not as nice and readable.)
+（在之前的语法规范中，你只能通过 `f.apply(null, a)` 的方式来实现，但是这种方式不是很友好和易读。）
 
-The **rest element** is useful when working with **array destructuring**:
+剩余参数（**rest element**）在和数组解构（**array destructuring**）搭配使用的时候非常有用。
 
 ```
 const numbers = [1, 2, 3, 4, 5]
 [first, second, ...others] = numbers
 ```
 
-and **spread elements**:
+下面是展开元素 （**spread elements**）:
 
 ```
 const numbers = [1, 2, 3, 4, 5]
@@ -1340,9 +1340,9 @@ const sum = (a, b, c, d, e) => a + b + c + d + e
 const sum = sum(...numbers)
 ```
 
-ES2018 introduces rest properties, which are the same but for objects.
+ES2018 引入了 **剩余属性** ，同样的操作符但是只能用在对象上。
 
-**Rest properties**:
+剩余属性（**Rest properties**）:
 
 ```
 const { first, second, ...others } = {
@@ -1357,7 +1357,7 @@ second // 2
 others // { third: 3, fourth: 4, fifth: 5 }
 ```
 
-**Spread properties** allow us to create a new object by combining the properties of the object passed after the spread operator:
+属性展开（**Spread properties**）允许我们结合跟在 `...` 操作符之后对象的属性：
 
 ```
 const items = { first, second, ...others }
@@ -1366,67 +1366,66 @@ items //{ first: 1, second: 2, third: 3, fourth: 4, fifth: 5 }
 
 ### Set
 
-A Set data structure allows us to add data to a container.
+一个 Set 数据结构允许我们在一个容器里面增加数据。
 
-A Set is a collection of objects or primitive types (strings, numbers or booleans), and you can think of it as a Map where values are used as map keys, with the map value always being a boolean true.
+一个 Set 是一个对象或者基础数据类型（strings、numbers或者booleans）的集合，你可以将它看作是一个 Map，其中值作为映射键，map 值始终为 true。
 
-#### Initialize a Set
+#### 初始化一个 Set
 
-A Set is initialized by calling:
+Set 可以通过下面的方式初始化：
 
 ```
 const s = new Set()
 ```
 
-#### Add items to a Set
+#### 向 Set 中添加一项
 
-You can add items to the Set by using the `add` method:
+你可以使用 `add` 方法向 Set 中添加项：
 
 ```
 s.add('one')
 s.add('two')
 ```
+Set 仅会存贮唯一的元素，因此多次调用 `s.add('one')` 不会重复添加新的元素。
 
-A set only stores unique elements, so calling `s.add('one')` multiple times won't add new items.
+你不可以同时向 set 中加入多个元素。你需要多次调用 `add()` 方法。
 
-You can’t add multiple elements to a set at the same time. You need to call `add()` multiple times.
+#### 检查元素是否在 set 中
 
-#### Check if an item is in the set
-
-Once an element is in the set, we can check if the set contains it:
+我们可以通过下面的方式检查元素是否在 set 中：
 
 ```
 s.has('one') //true
 s.has('three') //false
 ```
 
-#### Delete an item from a Set by key
+#### 从 set 中删除一个元素：
 
-Use the `delete()` method:
+使用 `delete()` 方法：
 
 ```
 s.delete('one')
 ```
 
-#### Determine the number of items in a Set
+#### 确定 set 中元素的数量
 
-Use the `size` property:
+使用 `size` 属性：
 
 ```
 s.size
 ```
 
-#### Delete all items from a Set
+#### 删除 set 中的全部元素
 
-Use the `clear()` method:
+使用 `clear()` 方法：
 
 ```
 s.clear()
 ```
 
-#### Iterate the items in a Set
+#### 对 set 进行迭代
 
-Use the `keys()` or `values()` methods - they are equivalent:
+使用 `keys()` 或者 `values()` 方法 - 它们等价于下面的代码：
 
 ```
 for (const k of s.keys()) {
@@ -1437,22 +1436,22 @@ for (const k of s.values()) {
 }
 ```
 
-The `entries()` method returns an iterator, which you can use like this:
+`entries()` 方法返回一个迭代器，你可以这样使用它：
 
 ```
 const i = s.entries()
 console.log(i.next())
 ```
 
-calling `i.next()` will return each element as a `{ value, done = false }`object until the iterator ends, at which point `done` is `true`.
+调用 `i.next()` 将会以 `{ value, done = false }` 对象的形式返回每一个元素，直到迭代结束，这时 `done` 是 `true`。
 
-You can also use the forEach() method on the set:
+你也可以调用 set 的 `forEach()` 方法：
 
 ```
 s.forEach(v => console.log(v))
 ```
 
-or you can just use the set in a for..of loop:
+或者你就直接使用 `for..of` 循环吧：
 
 ```
 for (const k of s) {
@@ -1460,15 +1459,15 @@ for (const k of s) {
 }
 ```
 
-#### Initialize a Set with values
+#### 使用一些初始值初始化一个 set
 
-You can initialize a Set with a set of values:
+你可以使用一些值初始化一个 set：
 
 ```
 const s = new Set([1, 2, 3, 4])
 ```
 
-#### Convert the Set keys into an array
+#### 将 set 转换位一个数组
 
 ```
 const a = [...s.keys()]
@@ -1476,19 +1475,19 @@ const a = [...s.keys()]
 const a = [...s.values()]
 ```
 
-#### A WeakSet
+#### WeakSet
 
-A WeakSet is a special kind of Set.
+一个 WeakSet 是一个特殊的 Set.
 
-In a Set, items are never garbage collected. A WeakSet instead lets all its items be freely garbage collected. Every key of a WeakSet is an object. When the reference to this object is lost, the value can be garbage collected.
+在 set 中，元素不会被 gc（垃圾回收）。一个 weakSet 让它的所有元素都是可以被 gc 的。weakSet 中的每个键都是一个对象。当这个对象的引用消失的时候，对应的值就可以被 gc 了。
 
-Here are the main differences:
+下面是主要的不同点：
 
-1. you cannot iterate over the WeakSet
-2. you cannot clear all items from a WeakSet
-3. you cannot check its size
+1. WeakSet 不可迭代
+2. 你不能清空 weakSet 中的所有元素
+3. 不能够得到 weakSet 的大小
 
-A WeakSet is generally used by framework-level code, and only exposes these methods:
+一个 weakSet 通常是在框架级别的代码中使用，仅仅暴露了下面的方法：
 
 - add()
 - has()
@@ -1496,7 +1495,7 @@ A WeakSet is generally used by framework-level code, and only exposes these meth
 
 ### Map
 
-A Map data structure allows us to associate data to a key.
+Map 数据结构就是一个键值对。
 
 #### Before ES6
 
