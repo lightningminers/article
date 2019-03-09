@@ -2092,8 +2092,7 @@ WebWorkers 可以在浏览器中创建多线程程序。
 
 它们通过事件的方式来传递消息，从 ES2017 开始，你可以使用 `SharedArrayBuffer` 在每一个 Worker 中和它们的创建者之间共享内存数组.
 
-由于不知道写入内存部分需要多长的周期来广播，因此在读取值时，任何类型的写入操作都会完成，`Atomics` 可以避免 竞争条件的发生。
-Since it’s unknown how much time writing to a shared memory portion takes to propagate, **Atomics** are a way to enforce that when reading a value, any kind of writing operation is completed.
+由于不知道写入内存部分需要多长的周期来广播，因此在读取值时，任何类型的写入操作都会完成，`Atomics` 可以避免竞争条件的发生。
 
 关于它的更多细节可以在[proposal](https://github.com/tc39/ecmascript_sharedmem/blob/master/TUTORIAL.md)中找到。
 
@@ -2131,7 +2130,7 @@ second // 2
 others // { third: 3, fourth: 4, fifth: 5 }
 ```
 
-**展开熟悉** 允许通过组合在展开运算符之后传递的对象属性而创建新对象：
+**展开属性** 允许通过组合在展开运算符之后传递的对象属性而创建新对象：
 
 ```javascript
 const items = { first, second, ...others }
@@ -2139,8 +2138,6 @@ items //{ first: 1, second: 2, third: 3, fourth: 4, fifth: 5 }
 ```
 
 ### 异步迭代器
-
-The new construct `for-await-of` allows you to use an async iterable object as the loop iteration:
 
 `for-await-of` 允许你使用异步可迭代对象做为循环迭代：
 
@@ -2217,44 +2214,46 @@ Lookaheads 使用 `?=` Symbol，它们已经可以用了。
 
 This new feature extends this concept to all Unicode characters introducing `\p{}` and is negation `\P{}`.
 
-Any unicode character has a set of properties. For example `Script`determines the language family, `ASCII` is a boolean that's true for ASCII characters, and so on. You can put this property in the graph parentheses, and the regex will check for that to be true:
+这个新功能扩展了unicode字符，引入了 `\p{}` 来处理
 
-```
+任何 unicode 字符都有一组属性，例如 `script` 确认语言，`ASCII` 是一个布尔值用于检查 ASCII 字符。你可以将此属性方在() 中，正则表达式将来检查是否为真。 
+
+```javascript
 /^\p{ASCII}+$/u.test('abc')   //✅
 /^\p{ASCII}+$/u.test('ABC@')  //✅
 /^\p{ASCII}+$/u.test('ABC🙃') //❌
 ```
 
-`ASCII_Hex_Digit` is another boolean property, that checks if the string only contains valid hexadecimal digits:
+`ASCII_Hex_Digit` 是另一个布尔值，用于检查字符串是否包含有效的十六进制数字：
 
-```
+```javascript
 /^\p{ASCII_Hex_Digit}+$/u.test('0123456789ABCDEF') //✅
 /^\p{ASCII_Hex_Digit}+$/u.test('h')                //❌
 ```
 
-There are many other boolean properties, which you just check by adding their name in the graph parentheses, including `Uppercase`, `Lowercase`, `White_Space`, `Alphabetic`, `Emoji` and more:
+此外，还有很多其他的属性。你可以在()中添加它们的名字来检查它们，包括 `Uppercase`, `Lowercase`, `White_Space`, `Alphabetic`, `Emoji`等等：
 
-```
+```javascript
 /^\p{Lowercase}$/u.test('h') //✅
 /^\p{Uppercase}$/u.test('H') //✅
 /^\p{Emoji}+$/u.test('H')   //❌
 /^\p{Emoji}+$/u.test('🙃🙃') //✅
 ```
 
-In addition to those binary properties, you can check any of the unicode character properties to match a specific value. In this example, I check if the string is written in the greek or latin alphabet:
+除了二进制属性外，你还可以检查任何 unicode 字符属性以匹配特定的值，在这个例子中，我检查字符串是用希腊语还是拉丁字母写的：
 
-```
+```javascript
 /^\p{Script=Greek}+$/u.test('ελληνικά') //✅
 /^\p{Script=Latin}+$/u.test('hey') //✅
 ```
 
-Read more about all the properties you can use [directly on the proposal](https://github.com/tc39/proposal-regexp-unicode-property-escapes).
+阅读[ttps://github.com/tc39/proposal-regexp-unicode-property-escapes](ttps://github.com/tc39/proposal-regexp-unicode-property-escapes) 获取使用所有属性的详细信息。
 
 #### Named capturing groups
 
 In ES2018 a capturing group can be assigned to a name, rather than just being assigned a slot in the result array:
 
-```
+```javascript
 const re = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/
 const result = re.exec('2015-01-02')
 // result.groups.year === '2015';
@@ -2328,11 +2327,11 @@ If you are familiar with the JavaScript `map()` method of an array, you know tha
 
 ### Optional catch binding
 
-Sometimes we don’t need to have a parameter bound to the catch block of a try/catch.
+有时候我们并不需要将参数绑定到 try/catch 中。
 
-We previously had to do:
+在以前我们不得不这样做：
 
-```js
+```javascript
 try {
   //...
 } catch (e) {
@@ -2340,9 +2339,9 @@ try {
 }
 ```
 
-Even if we never had to use `e` to analyze the error. We can now simply omit it:
+即使我们从来没有通过 `e` 来分析错误，但现在我们可以简单的省略它：
 
-```
+```javascript
 try {
   //...
 } catch {
@@ -2354,16 +2353,18 @@ try {
 
 Objects have an `entries()` method, since ES2017.
 
-It returns an array containing all the object own properties, as an array of `[key, value]` pairs:
+从 ES2017 开始 Object将有一个 `entries()` 方法。
 
-```
+它将返回一个包含所有对象自身属性的数组的数组，如`[key, value]`：
+
+```javascript
 const person = { name: 'Fred', age: 87 }
 Object.entries(person) // [['name', 'Fred'], ['age', 87]]
 ```
 
-ES2019 introduces a new `Object.fromEntries()` method, which can create a new object from such array of properties:
+ES2019 引入了一个新的 `Object.fromEntries()` 方法，它可以从上述的属性数组中创建一个新的对象：
 
-```
+```javascript
 const person = { name: 'Fred', age: 87 }
 const entries = Object.entries(person)
 const newPerson = Object.fromEntries(entries)
@@ -2373,13 +2374,13 @@ person !== newPerson //true
 
 ### String.prototype.{trimStart,trimEnd}
 
-This feature has been part of v8/Chrome for almost a year now, and it’s going to be standardized in ES2019.
+这些功能已经被 v8/Chrome 实现了近一年的时间，它将在 ES2019 中实现标准化。
 
 #### `trimStart()`
 
-Return a new string with removed white space from the start of the original string
+删除字符串首部的空格并返回一个新的字符串：
 
-```
+```javascript
 'Testing'.trimStart() //'Testing'
 ' Testing'.trimStart() //'Testing'
 ' Testing '.trimStart() //'Testing '
@@ -2388,9 +2389,9 @@ Return a new string with removed white space from the start of the original stri
 
 #### `trimEnd()`
 
-Return a new string with removed white space from the end of the original string
+删除字符串尾部的空格并返回一个新的字符串：
 
-```
+```javascript
 'Testing'.trimEnd() //'Testing'
 ' Testing'.trimEnd() //' Testing'
 ' Testing '.trimEnd() //' Testing'
@@ -2399,46 +2400,48 @@ Return a new string with removed white space from the end of the original string
 
 ### Symbol.prototype.description
 
-You can now retrieve the description of a symbol by accessing its `description`property instead of having to use the `toString()` method:
+现在你可以使用 `description` 来获取 Symbol 的值，而不必使用 `toString()` 方法：
 
-```
+```javascript
 const testSymbol = Symbol('Test')
 testSymbol.description // 'Test'
 ```
 
 ### JSON improvements
 
-Before this change, the line separator (\u2028) and paragraph separator (\u2029) symbols were not allowed in strings parsed as JSON.
+在此之前 JSON 字符串中不允许使用分隔符（\u2028）和分隔符（\u2029）。
 
-Using JSON.parse(), those characters resulted in a `SyntaxError` but now they parse correctly, as defined by the JSON standard.
+使用 JSON.parse 时，这些字符会导致一个 `SyntaxError` 错误，但现在它们可以正确的解析并如 JSON 标准定义的那样。
 
 ### Well-formed JSON.stringify()
 
-Fixes the `JSON.stringify()` output when it processes surrogate UTF-8 code points (U+D800 to U+DFFF).
+修复 `JSON.stringify()` 在处理 UTF-8 code points (U+D800 to U+DFFF)。
 
-Before this change calling `JSON.stringify()` would return a malformed Unicode character (a "�").
+在修复之前，调用 `JSON.stringify()` 将返回格式错误的 Unicode 字符，如（a "�")。
 
-Now those surrogate code points can be safely represented as strings using `JSON.stringify()`, and transformed back into their original representation using `JSON.parse()`.
+现在你可以安全放心的使用 `JSON.stringify()` 转成字符串，也可以使用 `JSON.parse()` 将它转换回原始表示的形态。
 
 ### Function.prototype.toString()
 
-Functions have always had an instance method called `toString()` which return a string containing the function code.
+函数总会有一个 `toString` 方法，它将返回一个包含函数代码的字符串。
 
-ES2019 introduced a change to the return value to avoid stripping comments and other characters like whitespace, exactly representing the function as it was defined.
+ES2019 对返回值做了修改，以避免剥离注释和其他字符串（如：空格），将更准确的表示函数的定义。
 
 If previously we had
 
-```
+以前也许我们这样过：
+
+```javascript
 function /* this is bar */ bar () {}
 ```
 
-The behavior was this:
+当时的行为：
 
 ```
 bar.toString() //'function bar() {}
 ```
 
-now the new behavior is:
+现在的行为：
 
 ```
 bar.toString(); // 'function /* this is bar */ bar () {}'
@@ -2446,6 +2449,6 @@ bar.toString(); // 'function /* this is bar */ bar () {}'
 
 ------
 
-Wrapping up, I hope this article helped you catch up on some of the latest JavaScript additions, and the new features we’ll see in 2019.
+总结一下，我希望这篇文章可以帮助你了解一些最新的 JavaScript 以及我们在 2019 年即将看见的内容。
 
 [**Click here to get a PDF / ePub / Mobi version of this post to read offline**](https://flaviocopes.com/es5-to-next/)
