@@ -12,30 +12,29 @@ author: [Flavio Copes](https://medium.freecodecamp.org/@flaviocopes)
 
 JavaScript 在当下处于特权地位，因为它是唯一可以在浏览器中运行的语言，并且是被高度集成和优化过的。
 
-The future of JavaScript is going to be brilliant. Keeping up with the changes shouldn’t be harder than it already is, and my goal here is to give you a quick yet comprehensive overview of the new stuff available to us.
 JavaScript 在未来有着极好的发展空间，跟上它的变化不会比现在更加的困难。我的目标是让你能够快速且全面的了解这门语言可以使用的新内容。
 
-[**Click here to get a PDF / ePub / Mobi version of this post to read offline**](https://flaviocopes.com/es5-to-next/)
+[**点击这里获取 PDF/ePub/Mobi 版本**](https://flaviocopes.com/es5-to-next/)
 
 #### 目录
 
 [**ECMAScript 简介**](https://medium.com/p/d0c255e13c6e#3641)
 
 **ES2015**
-[TOC]
-- [let 和 const](https://medium.com/p/d0c255e13c6e#f95b)
+
+- [let 和 const](#let和const)
 - [箭头函数](https://medium.com/p/d0c255e13c6e#1d7c)
-- [Classes](https://medium.com/p/d0c255e13c6e#5609)
+- [类](https://medium.com/p/d0c255e13c6e#5609)
 - [默认参数](https://medium.com/p/d0c255e13c6e#679e)
-- [Template Literals](https://medium.com/p/d0c255e13c6e#1676)
-- [Destructuring assignments](https://medium.com/p/d0c255e13c6e#c962)
-- [Enhanced Object Literals](https://medium.com/p/d0c255e13c6e#438e)
-- [For-of loop](https://medium.com/p/d0c255e13c6e#3189)
+- [模板字符串](https://medium.com/p/d0c255e13c6e#1676)
+- [结构赋值](https://medium.com/p/d0c255e13c6e#c962)
+- [增强的对象字面量](https://medium.com/p/d0c255e13c6e#438e)
+- [For-of 循环](https://medium.com/p/d0c255e13c6e#3189)
 - [Promises](https://medium.com/p/d0c255e13c6e#6295)
-- [Modules](https://medium.com/p/d0c255e13c6e#1250)
-- [New String methods](https://medium.com/p/d0c255e13c6e#b1bc)
-- [New Object methods](https://medium.com/p/d0c255e13c6e#928f)
-- [The spread operator](https://medium.com/p/d0c255e13c6e#c80e)
+- [模块](https://medium.com/p/d0c255e13c6e#1250)
+- [String 的新方法](https://medium.com/p/d0c255e13c6e#b1bc)
+- [Object 的新方法](https://medium.com/p/d0c255e13c6e#928f)
+- [展开运算符](https://medium.com/p/d0c255e13c6e#c80e)
 - [Set](https://medium.com/p/d0c255e13c6e#62ad)
 - [Map](https://medium.com/p/d0c255e13c6e#c981)
 - [Generators](https://medium.com/p/d0c255e13c6e#c668)
@@ -43,28 +42,28 @@ JavaScript 在未来有着极好的发展空间，跟上它的变化不会比现
 **ES2016**
 
 - [Array.prototype.includes()](https://medium.com/p/d0c255e13c6e#b599)
-- [Exponentiation Operator](https://medium.com/p/d0c255e13c6e#2050)
+- [求幂运算符](https://medium.com/p/d0c255e13c6e#2050)
 
 **ES2017**
 
-- [String padding](https://medium.com/p/d0c255e13c6e#95af)
+- [String 填充 padding](https://medium.com/p/d0c255e13c6e#95af)
 - [Object.values()](https://medium.com/p/d0c255e13c6e#21cc)
 - [Object.entries()](https://medium.com/p/d0c255e13c6e#b188)
 - [Object.getOwnPropertyDescriptors()](https://medium.com/p/d0c255e13c6e#4d8c)
-- [Trailing commas](https://medium.com/p/d0c255e13c6e#9e68)
-- [Shared Memory and Atomics](https://medium.com/p/d0c255e13c6e#6bc5)
+- [尾后逗号](https://medium.com/p/d0c255e13c6e#9e68)
+- [共享内存 and 原子操作](https://medium.com/p/d0c255e13c6e#6bc5)
 
 **ES2018**
 
 - [Rest/Spread Properties](https://medium.com/p/d0c255e13c6e#63f6)
 - [Asynchronous iteration](https://medium.com/p/d0c255e13c6e#301d)
 - [Promise.prototype.finally()](https://medium.com/p/d0c255e13c6e#d396)
-- [Regular Expression improvements](https://medium.com/p/d0c255e13c6e#3fa1)
+- [正则表达式改进](https://medium.com/p/d0c255e13c6e#3fa1)
 
 [**ESNext**](https://medium.com/p/d0c255e13c6e#241b)
 
 - [Array.prototype.{flat,flatMap}](https://medium.com/p/d0c255e13c6e#24dc)
-- [Optional catch binding](https://medium.com/p/d0c255e13c6e#7b25)
+- [try/catch 可选的参数绑定](https://medium.com/p/d0c255e13c6e#7b25)
 - [Object.fromEntries()](https://medium.com/p/d0c255e13c6e#8aed)
 - [String.prototype.{trimStart,trimEnd}](https://medium.com/p/d0c255e13c6e#ae63)
 - [Symbol.prototype.description](https://medium.com/p/d0c255e13c6e#4954)
@@ -72,50 +71,50 @@ JavaScript 在未来有着极好的发展空间，跟上它的变化不会比现
 - [Well-formed JSON.stringify()](https://medium.com/p/d0c255e13c6e#835a)
 - [Function.prototype.toString()](https://medium.com/p/d0c255e13c6e#b38b)
 
-### Introduction to ECMAScript
+### ECMAScript 简介
 
-Whenever you read about JavaScript you’ll inevitably see one of these terms: ES3, ES5, ES6, ES7, ES8, ES2015, ES2016, ES2017, ECMAScript 2017, ECMAScript 2016, ECMAScript 2015… what do they mean?
+每当阅读 JavaScript 相关的文章时，我都会经常遇到如下术语： ES3, ES5, ES6, ES7, ES8, ES2015, ES2016, ES2017, ECMAScript 2017, ECMAScript 2016, ECMAScript 2015 等等，那么它们是指代的是什么？
 
-They are all referring to a **standard**, called ECMAScript.
+它们指代的都是一个名为 ECMAScript 的标准。
 
-ECMAScript is **the standard upon which JavaScript is based**, and it’s often abbreviated to **ES**.
+JavaScript 就是基于这个标准实现的，ECMAScript 经常缩写为 ES。
 
-Beside JavaScript, other languages implement(ed) ECMAScript, including:
+除了 JavaScript 以外，其它基于 ECMAScript 实现语言包括：
 
-- *ActionScript* (the Flash scripting language), which is losing popularity since Flash will be officially discontinued in 2020
-- *JScript* (the Microsoft scripting dialect), since at the time JavaScript was supported only by Netscape and the browser wars were at their peak, Microsoft had to build its own version for Internet Explorer
+- *ActionScript* ( Flash 脚本语言)，由于 Adobe 将于 2020 年末停止对 Flash 的支持而逐渐失去热度。
+- *JScript* (微软开发的脚本语言),在第一次浏览器大战最激烈的时期，JavaScript 只被Netscape所支持，微软必须为 Internet Explorer 构建自己的脚本语言。
 
-but of course JavaScript is the **most popular** and widely used implementation of ES.
+但是现在**流传最广**、影响最大的基于 ES 标准的语言实现无疑就是 JavaScript了
 
-Why this weird name? `Ecma International` is a Swiss standards association who is in charge of defining international standards.
+ECMAScript 这个奇怪的名称起源是什么呢？**Ecma International** 是瑞士标准协会，负责制定国际标准。
 
-When JavaScript was created, it was presented by Netscape and Sun Microsystems to Ecma and they gave it the name ECMA-262 alias **ECMAScript**.
+JavaScript 被创建以后，经由 Netscape 和 Sun Microsystems 公司提交给欧洲计算机制造商协会进行标准化，被采纳的 ECMA-262 又被称为  **ECMAScript**。
 
 [This press release by Netscape and Sun Microsystems](https://web.archive.org/web/20070916144913/http://wp.netscape.com/newsref/pr/newsrelease67.html) (the maker of Java) might help figure out the name choice, which might include legal and branding issues by Microsoft which was in the committee, [according to Wikipedia](https://en.wikipedia.org/wiki/ECMAScript).
 
-After IE9, Microsoft stopped branding its ES support in browsers as JScript and started calling it JavaScript (at least, I could not find references to it any more).
+在 IE9 之后，在微软的浏览器中就看不到对 JScript 这个命名的引用，取而代之的是统称为 JavaScript。
 
-So as of 201x, the only popular language supporting the ECMAScript spec is JavaScript.
+因此，截至201x，JavaScript 成为最流行的基于 ECMAScript 规范实现的语言。
 
-#### Current ECMAScript version
+#### ECMAScript 当前的版本。
 
-The current ECMAScript version is **ES2018**.
+目前的最新的 ECMAScript 版本是 **ES2018**。
 
-It was released in June 2018.
+于 2018 年 6 月发布。
 
-#### What is TC39
+#### TC39 是什么？
 
-TC39 is the committee that evolves JavaScript.
+TC39（Technical Committee 39）是一个推动 JavaScript 发展的委员会。
 
-The members of TC39 are companies involved in JavaScript and browser vendors, including Mozilla, Google, Facebook, Apple, Microsoft, Intel, PayPal, SalesForce and others.
+C39的成员是 它的成员包括各个主流浏览器厂商以及业务与浏览器紧密相连的公司，其中包括 Mozilla，Google ，Facebook，Apple，Microsoft，Intel，PayPal，SalesForce等。
 
-Every standard version proposal must go through various stages, [which are explained here](https://tc39.github.io/process-document/).
+每个标准版本提案都必须经过四个不同的阶段，[这里有详细的解释](https://tc39.github.io/process-document/)。
 
 #### ES Versions
 
-I found it puzzling why sometimes an ES version is referenced by edition number and sometimes by year, and I am confused by the year by chance being -1 on the number, which adds to the general confusion around JS/ES 😄
+令我费解的是 ES 版本的命名依据有时根据迭代的版本号，有时却根据年份来进行命名。而这个命名的不确定性又使得人们更加容易混淆 JS/ES 这个两个概念😄。
 
-Before ES2015, ECMAScript specifications were commonly called by their edition. So ES5 is the official name for the ECMAScript specification update published in 2009.
+在 ES2015 之前，ECMAScript 各个版本的命名规范通常与跟着标准的版本更新保持一致。因此，2009年 ECMAScript 规范更新以后的的正式版本是 ES5。
 
 Why does this happen? During the process that led to ES2015, the name was changed from ES6 to ES2015, but since this was done late, people still referenced it as ES6, and the community has not left the edition naming behind — *the world is still calling ES releases by edition number*.
 
@@ -125,144 +124,146 @@ This table should clear things up a bit:
 
 ![img](https://cdn-images-1.medium.com/max/1600/1*ta8eBjBIGeJucahugjlopg.png)
 
-Let’s dive into the specific features added to JavaScript since ES5. Let’s start with the ES2015 features.
+接下啦我们来深入了解 JavaScript 自 ES5 以来增加的特性。
 
-### let and const
+### let和const
 
-Until ES2015, `var` was the only construct available for defining variables.
+ES2015 之前, `var` 是唯一可以用来声明变量的语句。
 
-```
+```js
 var a = 0
 ```
 
-If you forget to add `var` you will be assigning a value to an undeclared variable, and the results might vary.
+上面语句如果你遗漏了 `var`，那么你会把这个值（0）赋给一个未声明的变量，其中声明和未声明变量之间存在一些差异。
 
-In modern environments, with strict mode enabled, you will get an error. In older environments (or with strict mode disabled) this will initialize the variable and assign it to the global object.
+在现代浏览器开启严格模式时，给未声明的变量赋值会抛出 ReferenceError 异常，在较老的浏览器（或者禁用严格模式）的情况下，未声明的变量在执行赋值操作时会隐式的变为全局对象的属性。
 
-If you don’t initialize the variable when you declare it, it will have the `undefined` value until you assign a value to it.
+当你声明一个变量却没有进行初始化，那么它的值直到你对它进行赋值操作之前都是 `undefined` 。
 
-```
+```js
 var a //typeof a === 'undefined'
 ```
 
-You can redeclare the variable many times, overriding it:
+你可以对一个变量进行多次变量，后面声明语句会覆盖之前的：
 
-```
+```js
 var a = 1
 var a = 2
 ```
 
-You can also declare multiple variables at once in the same statement:
+你也可以在一条声明语句中一次声明多个变量：
 
-```
+```js
 var a = 1, b = 2
 ```
 
-The **scope** is the portion of code where the variable is visible.
+**作用域**是可访问变量的集合。
 
-A variable initialized with `var` outside of any function is assigned to the global object, has a global scope and is visible everywhere. A variable initialized with `var` inside a function is assigned to that function, it's local and is visible only inside it, just like a function parameter.
+在函数外部用声明 `var` 声明的变量会成为全局变量的属性，这种变量可以在全局作用域中被访问到。而在函数内部声明的变量只能在函数局部作用域被访问到，在这点上类似于函数参数。
 
-Any variable defined in a function with the same name as a global variable takes precedence over the global variable, shadowing it.
+在函数中定义的局部变量名如何跟全局变量重名，那么局部变量的优先级更高，在函数内无法访问到同名的全局变量。
 
-It’s important to understand that a block (identified by a pair of curly braces) does not define a new scope. A new scope is only created when a function is created, because `var` does not have block scope, but function scope.
+需要注意的是，`var` 是没有块级作用域（标识符是一对花括号）的，但是 `var` 是有函数作用域的，所以在新创建的块级作用域或者是函数作用域里面声明变量会覆盖全局同名变量，因为 `var` 在这两种情况下没有创建新的作用域。
 
-Inside a function, any variable defined in it is visible throughout all the function code, even if the variable is declared at the end of the function it can still be referenced in the beginning, because JavaScript before executing the code actually *moves all variables on top* (something that is called **hoisting**). To avoid confusion, always declare variables at the beginning of a function.
+在函数内部，其中定义的任何变量在所有函数代码中都是可见的，因为JavaScript在执行代码之前实际上将所有变量都移到了顶层（被称为悬挂的东西）。
+在函数的内部定义的变量在整个函数作用域中都是可见（可访问），即使变量是在函数体末尾被声明，但是仍然可以再函数体开头部分被引用，因为 JavaScript存在**变量提升**机制。为避免混淆，请在函数开头声明变量，养成良好的编码规范。
 
 #### Using `let`
 
-`let` is a new feature introduced in ES2015 and it's essentially a block scoped version of `var`. Its scope is limited to the block, statement or expression where it's defined, and all the contained inner blocks.
+`let` 是ES2015中引入的新功能，它本质上是具有块级作用域的 `var` 。它可以被当前作用域（函数以及块级作用域）以及子级作用域访问到。
 
-Modern JavaScript developers might choose to only use `let` and completely discard the use of `var`.
+现代 JavaScript 开发者在 `let` 和 `var` 的选择中可能会更倾向于前者。
 
-> *If* `*let*` *seems an obscure term, just read* `*let color = 'red'*` *as* let the color be red *and it all makes much more sense*
+> **如果** `*let*` **看起来比较抽象，那么试着读一下这段代码** `*let color = 'red'*`就好像是 让颜色变为红色，这样可能会更加有感性的认识（译者：这段我真的不会翻译了）。
 
 Defining `let` outside of any function - contrary to `var` - does not create a global variable.
 
 #### Using `const`
 
-Variables declared with `var` or `let` can be changed later on in the program, and reassigned. Once a `const` is initialized, its value can never be changed again, and it can't be reassigned to a different value.
+使用变量 `var` 或 `let` 声明的变量可以被重新赋值。 使用 `const` 声明的变量一经初始化，它的值就永远不能再改变，即不可重新被赋值。
 
-```
+```js
 const a = 'test'
 ```
 
-We can’t assign a different literal to the `a` const. We can however mutate `a` if it's an object that provides methods that mutate its contents.
+我们不能再为 `a` 进行赋值操作。然而，`a` 如果它是一个具有属性或者方法的对象，那么我们可以改变它的属性或者方法。
 
-`const` does not provide immutability, just makes sure that the reference can't be changed.
+`const` 并不意味着具有不可变性，只是保证用 `const` 声明的变量的引用地址不被变更。
 
-`const` has block scope, same as `let`.
+类似于 `let`，`const` 也具有块级作用域。
 
-Modern JavaScript developers might choose to always use `const` for variables that don't need to be reassigned later in the program, because we should always use the simplest construct available to avoid making errors down the road.
+现代 JavaScript 开发者在遇到不会进行二次赋值的变量声明时，应该尽量使用 `const`。
 
-### Arrow Functions
+### 箭头函数
 
-Arrow functions, since their introduction, changed forever how JavaScript code looks (and works).
+箭头函数的引入极大的改变了代码的书写风格和一些工作机制。
 
-In my opinion this change was so welcome that you now rarely see the usage of the `function` keyword in modern codebases. Although that has still its usage.
+在我看来，箭头函数很受开发者欢迎，现在很少在比较新的代码库中看到 `function` 关键字了，虽然它并未被废弃。
 
-Visually, it’s a simple and welcome change, which allows you to write functions with a shorter syntax, from:
+箭头函数看起来会更加的简洁，因为它允许您你使用更短的语法来书写函数：
 
-```
+```js
 const myFunction = function() {
   //...
 }
 ```
 
-to
+到
 
-```
+```js
 const myFunction = () => {
   //...
 }
 ```
 
-If the function body contains just a single statement, you can omit the brackets and write all on a single line:
+如果函数体重只包含一条语句，你甚至可以省略括号并直接书写这条语句：
 
-```
+```js
 const myFunction = () => doSomething()
 ```
 
-Parameters are passed in the parentheses:
+参数在括号中传递：
 
-```
+```js
 const myFunction = (param1, param2) => doSomething(param1, param2)
 ```
 
-If you have one (and just one) parameter, you could omit the parentheses completely:
+如果该函数**只有一个**参数，那么可以省略掉括号：
 
-```
+```js
 const myFunction = param => doSomething(param)
 ```
 
 Thanks to this short syntax, arrow functions **encourage the use of small functions**.
+由于这种简短的语法，使得我们可以更便捷的使用**比较简短的函数**
 
-#### Implicit return
+#### 隐式返回
 
-Arrow functions allow you to have an implicit return: values are returned without having to use the `return` keyword.
+箭头函数支持隐式返回：可以正常的 `return` 一个返回值但是可以不使用 `return` 关键字。
 
-It works when there is a one-line statement in the function body:
+隐式返回只在函数体内只包含一条语句的情况下生效：
 
-```
+```js
 const myFunction = () => 'test'
 myFunction() //'test'
 ```
 
-Another example, when returning an object, remember to wrap the curly brackets in parentheses to avoid it being considered the wrapping function body brackets:
+需要注意的一种情况，当返回一个对象时，记得将大括号括在括号中以避免产生歧义，误将其（大括号）解析为函数体的大括号。
 
-```
+```js
 const myFunction = () => ({ value: 'test' })
 myFunction() //{value: 'test'}
 ```
 
-#### How `this` works in arrow functions
+#### 箭头函数中的 `this`
 
-`this` is a concept that can be complicated to grasp, as it varies a lot depending on the context and also varies depending on the mode of JavaScript (*strict mode* or not).
+`this` 可能是一个很难掌握的概念，因为它会根据上下文而进行变化，并且会在不同的 JavaScript的模式（是否为*严格模式*）下表现存在差异。
 
-It’s important to clarify this concept because arrow functions behave very differently compared to regular functions.
+理解 `this` 这个概念对于箭头函数的使用很重要，因为与常规函数相比，箭头函数的表现非常不同。
 
-When defined as a method of an object, in a regular function `this` refers to the object, so you can do:
+对象的方法为常规函数时，方法中的`this`指向这个对象，因此可以这样做：
 
-```
+```js
 const car = {
   model: 'Fiesta',
   manufacturer: 'Ford',
@@ -272,11 +273,11 @@ const car = {
 }
 ```
 
-calling `car.fullName()` will return `"Ford Fiesta"`.
+执行 `car.fullName()` 会返回 `"Ford Fiesta"`。
 
-The `this` scope with arrow functions is **inherited** from the execution context. An arrow function does not bind `this` at all, so its value will be looked up in the call stack, so in this code `car.fullName()` will not work, and will return the string `"undefined undefined"`:
+如果上述方法使用是是箭头函数，由于箭头中的 `this` 的作用域继承自执行上下文，箭头函数自身不绑定 `this`，因此 `this` 的值将在调用堆栈中查找，因此在此代码 `car.fullName()` 中不会返回常规函数那样的结果，实际会返回字符串 "undefined undefined"：
 
-```
+```js
 const car = {
   model: 'Fiesta',
   manufacturer: 'Ford',
@@ -286,15 +287,15 @@ const car = {
 }
 ```
 
-Due to this, arrow functions are not suited as object methods.
+因此，箭头函数不适合作为对象方法。
 
-Arrow functions cannot be used as constructors either, when instantiating an object will raise a `TypeError`.
+同样，箭头函数也不适合使用在作为创建构造函数,因为在实例化对象时会抛出 `TypeError`。
 
-This is where regular functions should be used instead, **when dynamic context is not needed**.
+所以在**不需要动态上下文时**请使用常规函数。
 
-This is also a problem when handling events. DOM Event listeners set `this` to be the target element, and if you rely on `this` in an event handler, a regular function is necessary:
+当然，在事件监听器上使用箭头函数也会存在问题。因为 DOM 事件侦听器会自动将 `this` 与目标元素绑定，如果该事件处理程序的逻辑依赖 `this`，那么需要常规函数：
 
-```
+```js
 const link = document.querySelector('#link')
 link.addEventListener('click', () => {
   // this === window
@@ -307,17 +308,18 @@ link.addEventListener('click', function() {
 
 ### Classes
 
-JavaScript has quite an uncommon way to implement inheritance: prototypical inheritance. [Prototypal inheritance](https://flaviocopes.com/javascript-prototypal-inheritance/), while in my opinion great, is unlike most other popular programming language’s implementation of inheritance, which is class-based.
+JavaScript 实现继承的方式比较罕见：[原型继承]((https://flaviocopes.com/javascript-prototypal-inheritance/))。原型继承虽然在我看来很棒，但与其他大多数流行的编程语言的继承实现机制不同，后者是基于类的。
 
-People coming from Java or Python or other languages had a hard time understanding the intricacies of prototypal inheritance, so the ECMAScript committee decided to sprinkle syntactic sugar on top of prototypical inheritance so that it resembles how class-based inheritance works in other popular implementations.
+因此 Java、Python 或其他语言的开发者很难理解原型继承的方式，因此 ECMAScript 委员会决定在原型继承之上实现 class 的语法糖，这样便于就跟其他基于类的继承语言的开发者更好的理解 JavaScript 代码。
 
 This is important: JavaScript under the hood is still the same, and you can access an object prototype in the usual way.
 
-#### A class definition
+注意：class 并没有对 JavaScript 底层做修改，你仍然可以直接访问对象原型。
+#### class 定义
 
-This is how a class looks.
+如下是一个 class  的例子：
 
-```
+```js
 class Person {
   constructor(name) {
     this.name = name
@@ -328,24 +330,24 @@ class Person {
 }
 ```
 
-A class has an identifier, which we can use to create new objects using `new ClassIdentifier()`.
+ class 具有一个标识符，我们可以使用 `new ClassIdentifier()` 来创建一个对象实例。
 
-When the object is initialized, the `constructor` method is called, with any parameters passed.
+初始化对象时，调用 `constructor`方法，并将参数传递给此方法。
 
-A class also has as many methods as it needs. In this case `hello` is a method and can be called on all objects derived from this class:
+类声明语句中也可以增加类需要的一些原型方法。在这种情况下 `hello` 是 `Person` 类的一个原型方法，可以在这个类的对象实例上调用：
 
-```
+```js
 const flavio = new Person('Flavio')
 flavio.hello()
 ```
 
-#### Class inheritance
+#### Class 继承
 
-A class can extend another class, and objects initialized using that class inherit all the methods of both classes.
+一个类还可以通过 `extends` 创建子类，通过子类实例化出来的队形可以继承这两个类的所有方法。
 
-If the inherited class has a method with the same name as one of the classes higher in the hierarchy, the closest method takes precedence:
+如果子类中的方法与父类中的方法名重复，那么子类中的同名方法优先级更高：
 
-```
+```js
 class Programmer extends Person {
   hello() {
     return super.hello() + ' I am a programmer.'
@@ -355,19 +357,19 @@ const flavio = new Programmer('Flavio')
 flavio.hello()
 ```
 
-(the above program prints “*Hello, I am Flavio. I am a programmer.*”)
+(上述代码会打印出：“*Hello, I am Flavio. I am a programmer.*”)
 
 Classes do not have explicit class variable declarations, but you must initialize any variable in the constructor.
 
-Inside a class, you can reference the parent class calling `super()`.
+在子类中，你可以通过调用`super()`引用父类。
 
-#### Static methods
+#### 静态方法
 
-Normally methods are defined on the instance, not on the class.
+在类中，通常会把方法直接挂载到实例对象上，直接在实例对象上可以调用。
 
-Static methods are executed on the class instead:
+而实例方法则是直接使用类名来调用，而不是通过对象实例调用：
 
-```
+```js
 class Person {
   static genericHello() {
     return 'Hello'
@@ -376,17 +378,17 @@ class Person {
 Person.genericHello() //Hello
 ```
 
-#### Private methods
+#### 私有方法
 
-JavaScript does not have a built-in way to define private or protected methods.
+JavaScript 没有内置真正意义上的受保护的私有方法。
 
-There are workarounds, but I won’t describe them here.
+社区有解决方法，但我不会在这里做讲解。
 
-#### Getters and setters
+#### Getters 和 setters
 
-You can add methods prefixed with `get` or `set` to create a getter and setter, which are two different pieces of code that are executed based on what you are doing: accessing the variable, or modifying its value.
+你可以通过增加方法 前缀 `get` 或者 `set` 创建一个 getter 和 setter, getter 和 setter会在你去获取特定值或者修改特定值的时候执行 `get` 或者 `set`内的相关方法。
 
-```
+```js
 class Person {
   constructor(name) {
     this._name = name
@@ -400,9 +402,9 @@ class Person {
 }
 ```
 
-If you only have a getter, the property cannot be set, and any attempt at doing so will be ignored:
+如果您只有一个 getter，则无法设置该属性，并且设置此属性的操作都会被忽略：
 
-```
+```js
 class Person {
   constructor(name) {
     this._name = name
@@ -413,9 +415,9 @@ class Person {
 }
 ```
 
-If you only have a setter, you can change the value but not access it from the outside:
+如果您只有一个 setter，则无法设置该属性，并且设置此属性的操作都会被忽略：
 
-```
+```js
 class Person {
   constructor(name) {
     this._name = name
@@ -426,34 +428,34 @@ class Person {
 }
 ```
 
-### Default parameters
+### 默认参数
 
-This is a `doSomething` function which accepts `param1`.
+函数 `doSomething`  接收一个 `param1` 参数。
 
-```
+```js
 const doSomething = (param1) => {
 }
 ```
 
-We can add a default value for `param1` if the function is invoked without specifying a parameter:
+我们可以给 *param1* 设定默认值，如果在调用函数时未传入参数，那么该参数自动设定未默认值。
 
-```
+```js
 const doSomething = (param1 = 'test') => {
 }
 ```
 
-This works for more parameters as well, of course:
+当然，这中机制同样适用于多个参数：
 
-```
+```js
 const doSomething = (param1 = 'test', param2 = 'test2') => {
 }
 ```
 
-What if you have an unique object with parameters values in it?
+假如你的函数是一个具有特定属性的对象改怎么处理？
 
-Once upon a time, if we had to pass an object of options to a function, in order to have default values of those options if one of them was not defined, you had to add a little bit of code inside the function:
+曾几何时，如果我们必须需要取一个对象的特定属性值，为了做兼容处理（对象格式不正确），你必须在函数中添加一些代码：
 
-```
+```js
 const colorize = (options) => {
   if (!options) {
     options = {}
@@ -463,128 +465,127 @@ const colorize = (options) => {
 }
 ```
 
-With destructuring you can provide default values, which simplifies the code a lot:
+通过解构，你可以给队形的特定属性提供默认值，而这样则可以大大简化代码。
 
-```
+```js
 const colorize = ({ color = 'yellow' }) => {
   ...
 }
 ```
 
-If no object is passed when calling our `colorize` function, similarly we can assign an empty object by default:
+如果在调用 `colorize` 函数时没有传递任何对象，我们同样可以得到一个默认对象作为参数以供使用：
 
-```
+```js
 const spin = ({ color = 'yellow' } = {}) => {
   ...
 }
 ```
 
-### Template Literals
+### 模板字符串
 
-Template Literals allow you to work with strings in a novel way compared to ES5 and below.
+模板字符串不同于 ES5 以前的版本，你可以用新颖的方式使用字符串。
 
-The syntax at a first glance is very simple, just use backticks instead of single or double quotes:
+这个语法看起来非常简便，只需要使用一个反引号替换掉单引号或双引号：
 
-```
+```js
 const a_string = `something`
 ```
 
-They are unique because they provide a lot of features that normal strings built with quotes do not, in particular:
+这个用法是第一无二的，因为它提供了许多普通字符串所没有的功能，如下：
 
-- they offer a great syntax to define multiline strings
-- they provide an easy way to interpolate variables and expressions in strings
-- they allow you to create DSLs with template tags (DSL means domain specific language, and it’s for example used in React by Styled Components, to define CSS for a component)
+- 它为定义多行字符串提供了一个很好的语法
+- 它提供了一种在字符串中插入变量和表达式的简单方法
+- 它允许您创建带有模板标签的DSL ( DSL意味着特定于域的语言，例如，它在“由样式化组件反应”中用于定义组件的CSS )
 
-Let’s dive into each of these in detail.
+下面让我们深入每个功能的细节。
 
-#### Multiline strings
+#### 多行字符串
 
-Pre-ES6, to create a string spanning over two lines you had to use the `\`character at the end of a line:
+在 ES6 标准之前，创建跨越两行的字符串只能在一行的结尾使用 '\' 字符：
 
-```
+```js
 const string =
   'first part \
 second part'
 ```
 
-This allows to create a string on 2 lines, but it’s rendered on just one line:
+这样使得你创建的字符串虽然跨越了两汉，但是渲染时仍然表现成一行：
 
-```
+```js
 first part second part
 ```
 
-To render the string on multiple lines as well, you explicitly need to add `\n` at the end of each line, like this:
+需要渲染为多行的话，需要在一行结尾添加 '\n'，比如这样：
 
-```
+```js
 const string =
   'first line\n \
 second line'
 ```
 
-or
+或者
 
-```
+```js
 const string = 'first line\n' + 'second line'
 ```
 
-Template literals make multiline strings much simpler.
+模板字符串使得定义多行字符串变得更加简便。
 
-Once a template literal is opened with the backtick, you just press enter to create a new line, with no special characters, and it’s rendered as-is:
+一个模板字符串由一个反引号开始，你只需要按下回车键来创建新的一行，不需要插入特殊符号，最终的渲染效果如下所示：
 
-```
+```js
 const string = `Hey
 this
 string
 is awesome!`
 ```
 
-Keep in mind that space is meaningful, so doing this:
+需要特别留意空格在这里是有特殊意义的，如果这样做的话：
 
-```
+```js
 const string = `First
                 Second`
 ```
 
-is going to create a string like this:
+那么它会创建出像下面的字符串：
 
-```
+```js
 First
                 Second
 ```
 
-an easy way to fix this problem is by having an empty first line, and appending the trim() method right after the closing backtick, which will eliminate any space before the first character:
-
-```
+有一个简单的方法可以修复这个问题，只需要将第一行置为空，然后添加了右边的翻译好后调用一个 trim() 方法，就可以消除第一个字符前的所有空格：
+```js
 const string = `
 First
 Second`.trim()
 ```
 
-#### Interpolation
+#### 插值
 
-Template literals provide an easy way to interpolate variables and expressions into strings.
+模板字符串提供了插入变量和表达式的便捷方法
 
-You do so by using the `${...}` syntax:
+你只需要使用 ${...} 语法
 
-```
+```js
 const var = 'test'
 const string = `something ${var}` //something test
 ```
 
-inside the `${}` you can add anything, even expressions:
+在 ${} 里面你可以加入任何东西，甚至是表达式：
 
-```
+```js
 const string = `something ${1 + 2 + 3}`
 const string2 = `something ${foo() ? 'x' : 'y'}`
 ```
 
 #### Template tags
 
-Tagged templates is one feature that might sound less useful at first for you, but it’s actually used by lots of popular libraries around, like Styled Components or Apollo, the GraphQL client/server lib, so it’s essential to understand how it works.
+标记模板可能是一个听起来不太有用的功能，但它实际上被许多流行的库使用，如 Styled Components 、Apollo 、GraphQL客户端/服务器库，因此了解它的工作原理至关重要。
 
-In Styled Components template tags are used to define CSS strings:
+在 Styled Components 模板标签中用于定义CSS字符串
 
-```
+```js
 const Button = styled.button`
   font-size: 1.5em;
   background-color: black;
@@ -592,9 +593,9 @@ const Button = styled.button`
 `
 ```
 
-In Apollo template tags are used to define a GraphQL query schema:
+在 Apollo 中，模板标签用于定义 GraphQL 查询模式：
 
-```
+```js
 const query = gql`
   query {
     ...
@@ -602,29 +603,28 @@ const query = gql`
 `
 ```
 
-The `styled.button` and `gql` template tags highlighted in those examples are just **functions**:
+上面两个例子中的`styled.button`和`gql`模板标签其实都是**函数**:
 
 ```
 function gql(literals, ...expressions) {}
 ```
 
-this function returns a string, which can be the result of *any* kind of computation.
+这个函数返回一个字符串，可以是*任意*类型的计算结果。
 
-`literals` is an array containing the template literal content tokenized by the expressions interpolations.
+`字面量`(literals)是一个包含了表达式插值的模板字面量的序列。
+`表达式`(expressions)包含了所有的插值。
 
-`expressions` contains all the interpolations.
-
-If we take an example above:
+举个例子：
 
 ```
 const string = `something ${1 + 2 + 3}`
 ```
 
-`literals` is an array with two items. The first is `something`, the string until the first interpolation, and the second is an empty string, the space between the end of the first interpolation (we only have one) and the end of the string.
+这个例子里面的`字面量`是一个由2个部分组成的序列。第1部分就是`something`，也就是第一个插值位置(${})之前的字符串，第2部分就是一个空字符串，从第1个插值结束的位置直到字符串的结束。
 
-`expressions` in this case is an array with a single item, `6`.
+这个例子里面的`表达式`就是只包含1个部分的序列，也就是`6`。
 
-A more complex example is:
+举一个更复杂的例子：
 
 ```
 const string = `something
@@ -633,38 +633,38 @@ new line ${1 + 2 + 3}
 test`
 ```
 
-in this case `literals` is an array where the first item is:
+这个例子里面的`字面量`的序列里面，第1个部分是：
 
 ```
 ;`something
 another `
 ```
 
-the second is:
+第2部分是：
 
 ```
 ;`
 new line `
 ```
 
-and the third is:
+第3部分是：
 
 ```
 ;`
 test`
 ```
 
-`expressions` in this case is an array with two items, `x` and `6`.
+这个例子里面的`表达式`包含了2个部分：`x`和`6`。
 
-The function that is passed those values can do anything with them, and this is the power of this kind feature.
+拿到了这些值的函数就可以对其做任意处理，这就是这个特性的威力所在。
 
-The most simple example is replicating what the string interpolation does, by joining `literals` and `expressions`:
+比如最简单的处理就是字符串插值，把`字面量`和`表达式`拼接起来：
 
 ```
 const interpolated = interpolate`I paid ${10}€`
 ```
 
-and this is how `interpolate` works:
+`插值`的过程就是：
 
 ```
 function interpolate(literals, ...expressions) {
@@ -677,9 +677,9 @@ function interpolate(literals, ...expressions) {
 }
 ```
 
-### Destructuring assignments
+### 解构赋值
 
-Given an object, you can extract just some values and put them into named variables:
+给定一个object，你可以抽取其中的一些值并且赋值给命名的变量：
 
 ```
 const person = {
@@ -691,28 +691,28 @@ const person = {
 const {firstName: name, age} = person
 ```
 
-`name` and `age` contain the desired values.
+`name`和`age`就包含了对应的值。
 
-The syntax also works on arrays:
+这个语法同样可以用到数组当中：
 
 ```
 const a = [1,2,3,4,5]
 const [first, second] = a
 ```
 
-This statement creates 3 new variables by getting the items with index 0, 1, 4 from the array `a`:
+下面这个语句创建了3个新的变量，分别取的是数组`a`的第0、1、4下标对应的值：
 
 ```
 const [first, second, , , fifth] = a
 ```
 
-### Enhanced Object Literals
+### 更强大的对象字面量
 
-In ES2015 Object Literals gained superpowers.
+ES2015赋予了对象字面量更大的威力。
 
-#### Simpler syntax to include variables
+#### 简化了包含变量的语法
 
-Instead of doing
+原来的写法：
 
 ```
 const something = 'y'
@@ -721,7 +721,7 @@ const x = {
 }
 ```
 
-you can do
+新的写法：
 
 ```
 const something = 'y'
@@ -730,9 +730,9 @@ const x = {
 }
 ```
 
-#### Prototype
+#### 原型
 
-A prototype can be specified with
+原型可以这样指定：
 
 ```
 const anObject = { y: 'y' }
@@ -754,7 +754,7 @@ const x = {
 x.test() //zoox
 ```
 
-#### Dynamic properties
+#### 动态属性
 
 ```
 const x = {
@@ -763,11 +763,11 @@ const x = {
 x.a_b //z
 ```
 
-### For-of loop
+### For-of循环
 
-ES5 back in 2009 introduced `forEach()` loops. While nice, they offered no way to break, like `for` loops always did.
+2009年的ES5引入了`forEach()`循环。虽然很好用，但是它跟`for`循环一样，没法break。
 
-ES2015 introduced the `**for-of**` **loop**, which combines the conciseness of `forEach` with the ability to break:
+ES2015引入了`**for-of**` **循环**, 就是在`forEach`的基础上加上了break的功能：
 
 ```
 //iterate over the value
@@ -781,40 +781,40 @@ for (const [i, v] of ['a', 'b', 'c'].entries()) {
 }
 ```
 
-Notice the use of `const`. This loop creates a new scope in every iteration, so we can safely use that instead of `let`.
+留意一下`const`的使用。这个循环在每次迭代中都会创建一个新的作用域，所以我们可以使用`const`来代替`let`。
 
-The difference with `for...in` is:
+它跟`for...in`的区别在于：
 
-- `for...of` **iterates over the property values**
-- `for...in` **iterates the property names**
+- `for...of` **遍历属性值**
+- `for...in` **遍历属性名**
 
 ### Promises
 
-A promise is commonly defined as **a proxy for a value that will eventually become available**.
+promise的一般定义： **它是一个代理，通过它可以最终得到一个值**.
 
-Promises are one way to deal with asynchronous code, without writing too many callbacks in your code.
+Promise是处理异步代码的一种方式，可以少写很多回调。
 
-**Async functions** use the promises API as their building block, so understanding them is fundamental even if in newer code you’ll likely use async functions instead of promises.
+**异步函数**是建立在promise API上面的，所以理解Promise是一个基本的要求。
 
-#### How promises work, in brief
+#### promise的原理简述
 
-Once a promise has been called, it will start in **pending state**. This means that the caller function continues the execution, while it waits for the promise to do its own processing, and give the caller function some feedback.
+一个promise被调用的时候，首先它是处于**pending**状态。在promise处理的过程中，调用的函数（caller）可以继续执行，直到promise给出反馈。
 
-At this point, the caller function waits for it to either return the promise in a **resolved state**, or in a **rejected state**, but as you know [JavaScript](https://flaviocopes.com/javascript/) is asynchronous, so *the function continues its execution while the promise does it work*.
+此时，调用的函数等待的promise结果要么是**resolved**状态，要么是**rejected**状态。但是由于[JavaScript](https://flaviocopes.com/javascript/)是异步的，所以*promise处理的过程中，函数会继续执行*。
 
-#### Which JS API use promises?
+#### 为什么JS API使用promises?
 
-In addition to your own code and library code, promises are used by standard modern Web APIs such as:
+除了你的代码和第三方库的代码之外，promise在用在现代的Web API中，比如：
 
-- the Battery API
-- the [Fetch API](https://flaviocopes.com/fetch-api/)
+- 电池API
+- [Fetch API](https://flaviocopes.com/fetch-api/)
 - [Service Workers](https://flaviocopes.com/service-workers/)
 
-It’s unlikely that in modern JavaScript you’ll find yourself *not* using promises, so let’s start diving right into them.
+在现代的JavaScript中，不使用promise是太可能的，所以我们来深入研究下promise吧。
 
-#### Creating a promise
+#### 创建一个promise
 
-The Promise API exposes a Promise constructor, which you initialize using `new Promise()`:
+Promise API暴露了一个Promise构造函数，可以通过`new Promise()`来初始化：
 
 ```
 let done = true
@@ -829,15 +829,13 @@ const isItDoneYet = new Promise((resolve, reject) => {
 })
 ```
 
-As you can see the promise checks the `done` global constant, and if that's true, we return a resolved promise, otherwise a rejected promise.
+promise会检查`done`这个全局变量，如果为true，就返回一个resolved promise，否则就返回一个rejected promise。
 
-Using `resolve` and `reject` we can communicate back a value, in the above case we just return a string, but it could be an object as well.
+通过`resolve`和`reject`，我们可以得到一个返回值，返回值可以是字符串也可以是对象。
 
-#### Consuming a promise
+#### 使用一个promise
 
-In the last section, we introduced how a promise is created.
-
-Now let’s see how the promise can be *consumed* or used.
+上面讲了怎么创建一个promise，下面就讲怎么使用（consume）这个promise。
 
 ```
 const isItDoneYet = new Promise()
@@ -853,17 +851,17 @@ const checkIfItsDone = () => {
 }
 ```
 
-Running `checkIfItsDone()` will execute the `isItDoneYet()` promise and will wait for it to resolve, using the `then` callback, and if there is an error, it will handle it in the `catch` callback.
+运行`checkIfItsDone()`方法时，会执行`isItDoneYet()`这个promise，并且等待它resolve的时候使用`then`回调，如果有错误，就用`catch`回调来处理。
 
-#### Chaining promises
+#### 链式promise
 
-A promise can be returned to another promise, creating a chain of promises.
+一个promise可以返回另一个promise，从而创建promise链接（chain）。
 
-A great example of chaining promises is given by the [Fetch API](https://flaviocopes.com/fetch-api), a layer on top of the XMLHttpRequest API, which we can use to get a resource and queue a chain of promises to execute when the resource is fetched.
+一个很好的例子就是[Fetch API](https://flaviocopes.com/fetch-api)，它是基于XMLHttpRequest API的一个上层API，我们可以用它来获取资源，并且在获取到资源的时候链式执行一系列promise。
 
-The Fetch API is a promise-based mechanism, and calling `fetch()` is equivalent to defining our own promise using `new Promise()`.
+Fetch API是一个基于promise的机制，调用`fetch()`相当于使用`new Promise()`来声明我们自己的promise。
 
-#### Example of chaining promises
+#### 链式promise的例子
 
 ```
 const status = response => {
@@ -884,22 +882,22 @@ fetch('/todos.json')
   })
 ```
 
-In this example, we call `fetch()` to get a list of TODO items from the `todos.json` file found in the domain root, and we create a chain of promises.
+在这个例子当中，我们调用`fetch()`，从根目录的`todos.json`文件中获取一系列的TODO项目，并且创建一个链式promise。
 
-Running `fetch()` returns a [response](https://fetch.spec.whatwg.org/#concept-response), which has many properties, and within those we reference:
+运行`fetch()`方法会返回一个[response](https://fetch.spec.whatwg.org/#concept-response)，它包含很多属性，我们从中引用如下属性：
 
-- `status`, a numeric value representing the HTTP status code
-- `statusText`, a status message, which is `OK` if the request succeeded
+- `status`, 一个数值，表示HTTP状态码
+- `statusText`, 一个状态消息，当请求成功的时候返回`OK`
 
-`response` also has a `json()` method, which returns a promise that will resolve with the content of the body processed and transformed into JSON.
+`response`还有一个`json()`方法，它返回一个promise，返回内容转换成JSON后的结果。
 
-So given those premises, this is what happens: the first promise in the chain is a function that we defined, called `status()`, that checks the response status and if it's not a success response (between 200 and 299), it rejects the promise.
+所以这些promise的调用过程就是：第一个promise执行一个我们定义的`status()`方法，检查response status，判断是否一个成功的响应(status在200和299之间)，如果不是成功的响应，就reject这个promise。
 
-This operation will cause the promise chain to skip all the chained promises listed and will skip directly to the `catch()` statement at the bottom, logging the `Request failed` text along with the error message.
+这个reject操作会导致整个链式promise跳过后面的所有promise直接到`catch()`语句，打印`Request failed`和错误消息。
 
-If that succeeds instead, it calls the json() function we defined. Since the previous promise, when successful, returned the `response` object, we get it as an input to the second promise.
+如果这个promise成功了，它会调用我们定义的json()函数。因为前面的promise成功之后返回的`response`对象，我们可以拿到并作为第2个promise的参数传入。
 
-In this case, we return the data JSON processed, so the third promise receives the JSON directly:
+在这个例子里面，我们返回了JSON序列化的数据，所以第3个promise直接接收这个JSON：
 
 ```
 .then((data) => {
@@ -907,13 +905,13 @@ In this case, we return the data JSON processed, so the third promise receives t
 })
 ```
 
-and we log it to the console.
+然后我们把它打印到console。
 
-#### Handling errors
+#### 处理错误
 
-In the above example, in the previous section, we had a `catch` that was appended to the chain of promises.
+在上一节的的例子里面，我们有一个`catch`接在链式promise后面。
 
-When anything in the chain of promises fails and raises an error or rejects the promise, the control goes to the nearest `catch()` statement down the chain.
+当promise链中的任意一个出错或者reject的时候，就会直接跳到promise链后面最近的`catch()`语句。
 
 ```
 new Promise((resolve, reject) => {
@@ -929,9 +927,9 @@ new Promise((resolve, reject) => {
 })
 ```
 
-#### Cascading errors
+#### 级联错误
 
-If inside the `catch()` you raise an error, you can append a second `catch()` to handle it, and so on.
+如果在`catch()`里面抛出一个错误，你可以在后面接上第二个`catch()`来处理这个错误，以此类推。
 
 ```
 new Promise((resolve, reject) => {
@@ -945,13 +943,13 @@ new Promise((resolve, reject) => {
   })
 ```
 
-#### Orchestrating promises
+#### 组织多个promise
 
 #### `Promise.all()`
 
-If you need to synchronize different promises, `Promise.all()` helps you define a list of promises, and execute something when they are all resolved.
+如果你要同时完成不同的promise,可以用`Promise.all()`来声明一系列的promise，然后当它们全部resolve的时候再执行一些操作。
 
-Example:
+例子：
 
 ```
 const f1 = fetch('/something.json')
@@ -965,7 +963,7 @@ Promise.all([f1, f2])
   })
 ```
 
-The ES2015 destructuring assignment syntax allows you to also do
+结合ES2015的解构赋值语法，你可以这样写：
 
 ```
 Promise.all([f1, f2]).then(([res1, res2]) => {
@@ -973,13 +971,13 @@ Promise.all([f1, f2]).then(([res1, res2]) => {
 })
 ```
 
-You are not limited to using `fetch` of course, **any promise is good to go**.
+当然这不限于使用`fetch`， **这适用于任何promise**.
 
 #### `Promise.race()`
 
-`Promise.race()` runs as soon as one of the promises you pass to it resolves, and it runs the attached callback just once with the result of the first promise resolved.
+`Promise.race()`运行所有传递进去的promise，但是只要有其中一个resolve了，就会运行后面的回调，并且只执行一次回调，回调的参数就是第一个resolve的promise返回的结果。
 
-Example:
+例子：
 
 ```
 const promiseOne = new Promise((resolve, reject) => {
@@ -993,31 +991,31 @@ Promise.race([promiseOne, promiseTwo]).then(result => {
 })
 ```
 
-### Modules
+### 模块
 
-ES Modules is the ECMAScript standard for working with modules.
+ES Module是一个关于多模块的ECMAScript标准。
 
-While Node.js has been using the CommonJS standard for years, the browser never had a module system, as every major decision such as a module system must be first standardized by ECMAScript and then implemented by the browser.
+Node.js用了CommonJS标准好几年了，但是浏览器从来没有一个模块系统，, the browser never had a module system, as every major decision such as a module system must be first standardized by ECMAScript and then implemented by the browser.
 
 This standardization process completed with ES2015 and browsers started implementing this standard trying to keep everything well aligned, working all in the same way, and now ES Modules are supported in Chrome, Safari, Edge and Firefox (since version 60).
 
-Modules are very cool, because they let you encapsulate all sorts of functionality, and expose this functionality to other JavaScript files, as libraries.
+模块非常酷，他们可以让你封装各种各样的功能，同时将这些功能作为库暴露给其他 JavaScript 文件使用。
 
-#### The ES Modules Syntax
+#### ES 模块语法
 
-The syntax to import a module is:
+引入模块的语法:
 
 ```
 import package from 'module-name'
 ```
 
-while CommonJS uses
+CommonJS 则是这样使用：
 
 ```
 const package = require('module-name')
 ```
 
-A module is a JavaScript file that **exports** one or more values (objects, functions or variables), using the `export` keyword. For example, this module exports a function that returns a string uppercase:
+一个模块是一个 JavaScript 文件，这个文件使用 `export` 关键字 **exports** 一个或多个值（对象、函数或者变量）。例如，下面这个模块提供了一个将字符串变成大写形式的函数：
 
 > *uppercase.js*
 
@@ -1025,63 +1023,63 @@ A module is a JavaScript file that **exports** one or more values (objects, func
 export default str => str.toUpperCase()
 ```
 
-In this example, the module defines a single, **default export**, so it can be an anonymous function. Otherwise it would need a name to distinguish it from other exports.
+在这个例子中，这个模块定义了唯一一个 **default export**，因此可以是一个匿名函数。否则，需要一个名称来和其他 **exports** 做区分。
 
-Now, **any other JavaScript module** can import the functionality offered by uppercase.js by importing it.
+现在，**任何其他的 JavaScript 模块** 可以通过 **import** 导入 **uppercase.js** 的这个功能。
 
-An HTML page can add a module by using a `<script>` tag with the special `type="module"` attribute:
+一个 HTML 页面可以通过使用了特殊的 `type=module` 属性的 `<script>` 标签添加一个模块。
 
 ```
 <script type="module" src="index.js"></script>
 ```
 
-> *Note: this module import behaves like a* `*defer*` *script load. See* [*efficiently load JavaScript with defer and async*](https://flaviocopes.com/javascript-async-defer/)
+> *注意: 这个模块导入的行为就像 `*defer*` 脚本加载一样。具体可以看* [*efficiently load JavaScript with defer and async*](https://flaviocopes.com/javascript-async-defer/)
 
-It’s important to note that any script loaded with `type="module"` is loaded in strict mode.
+需要特别注意的是，任何通过 `type="module"` 载入的脚本会使用 *strict mode* 加载。
 
-In this example, the `uppercase.js` module defines a **default export**, so when we import it, we can assign it a name we prefer:
+在这个例子中，`uppercase.js` 模块定义了一个 **default export**，因此当我们在导入它的时候，我们可以给他起一个任何我们喜欢的名字：
 
 ```
 import toUpperCase from './uppercase.js'
 ```
 
-and we can use it:
+同时我们可以这样使用它:
 
 ```
 toUpperCase('test') //'TEST'
 ```
 
-You can also use an absolute path for the module import, to reference modules defined on another domain:
+你也可以通过一个绝对路径来导入模块，下面是一个引用来自其他域底下定义的模块的例子：
 
 ```
 import toUpperCase from 'https://flavio-es-modules-example.glitch.me/uppercase.js'
 ```
 
-This is also valid import syntax:
+下面同样是一些合法的 *import*语法：
 
 ```
 import { toUpperCase } from '/uppercase.js'
 import { toUpperCase } from '../uppercase.js'
 ```
 
-This is not:
+下面是错误的使用:
 
 ```
 import { toUpperCase } from 'uppercase.js'
 import { toUpperCase } from 'utils/uppercase.js'
 ```
 
-It’s either absolute, or has a `./` or `/` before the name.
+因为这里既不是使用绝对地址，也不是使用的相对地址。
 
-#### Other import/export options
+#### 其它的 import/export 语法
 
-We saw this example above:
+我们了解了上面的例子： 
 
 ```
 export default str => str.toUpperCase()
 ```
 
-This creates one default export. In a file however you can export more than one thing, by using this syntax:
+这里生成了一个 *default export*。然而，你可以通过下面的语法在一个文件里面 *export* 多个功能：
 
 ```
 const a = 1
@@ -1089,143 +1087,142 @@ const b = 2
 const c = 3
 export { a, b, c }
 ```
-
-Another module can import all those exports using
+另外一个模块可以使用下面的方式 *import* 所有这些 *exports*：
 
 ```
 import * from 'module'
 ```
 
-You can import just a few of those exports, using the destructuring assignment:
+你也可以通过解构赋值的方式仅仅 *import* 一部分 *exports*：
 
 ```
 import { a } from 'module'
 import { a, b } from 'module'
 ```
 
-You can rename any import, for convenience, using `as`:
+为了方便，你还可以使用 `as` 重命名任何 *import* 的东西：
 
 ```
 import { a, b as two } from 'module'
 ```
 
-You can import the default export, and any non-default export by name, like in this common React import:
+你可以导入模块中的默认出口以及通过名称导入任何非默认的出口：
 
 ```
 import React, { Component } from 'react'
 ```
 
-You can see an ES Modules example here: <https://glitch.com/edit/#!/flavio-es-modules-example?path=index.html>
+这是一篇关于 ES 模块的文章，可以看一下： <https://glitch.com/edit/#!/flavio-es-modules-example?path=index.html>
 
-#### CORS
+#### CORS(跨域资源共享)
 
-Modules are fetched using CORS. This means that if you reference scripts from other domains, they must have a valid CORS header that allows cross-site loading (like `Access-Control-Allow-Origin: *`)
+进行远程获取模块的时候是遵循 CORS 机制的。这意味着当你引用远程模块的时候，必须使用合法的 CORS 请求头来允许跨域访问（例如：`Access-Control-Allow-Origin: *`）。
 
-#### What about browsers that do not support modules?
+#### 对于不支持模块的浏览器应该怎么做？
 
-Use a combination of `type="module"` and `nomodule`:
+结合 `type="module"`、`nomodule` 一起使用：
 
 ```
 <script type="module" src="module.js"></script>
 <script nomodule src="fallback.js"></script>
 ```
 
-#### Wrapping up modules
+#### 包装模块
 
-ES Modules are one of the biggest features introduced in modern browsers. They are part of ES6 but the road to implement them has been long.
+ES 模块是现代浏览器中的一大特性。这些特性是 ES6 规范中的一部分，要在浏览器中全部实现这些特性的路还很漫长。
 
-We can now use them! But we must also remember that having more than a few modules is going to have a performance hit on our pages, as it’s one more step that the browser must perform at runtime.
+我们现在就能使用它们！但是我们同样需要知道，有一些模块会对我们的页面性能产生性能影响。因为浏览器必须要在运行时执行它们。
 
-Webpack is probably going to still be a huge player even if ES Modules land in the browser, but having such a feature directly built in the language is huge for a unification of how modules work client-side and on Node.js as well.
+Webpack 可能仍然会被大量使用，即使 ES 模块可以在浏览器中执行。但是语言内置这个特性对于客户端和 nodejs 在使用模块的时候是一种巨大的统一。
 
-### New String methods
+### 新的字符串方法
 
-Any string value got some new instance methods:
+任何字符串有了一些实例方法：
 
 - `repeat()`
 - `codePointAt()`
 
 #### repeat()
 
-Repeats the strings for the specified number of times:
+根据指定的次数重复字符串：
 
 ```
 'Ho'.repeat(3) //'HoHoHo'
 ```
 
-Returns an empty string if there is no parameter, or the parameter is `0`. If the parameter is negative you'll get a RangeError.
+没有提供参数以及使用 `0` 作为参数的时候返回空字符串。如果给一个负数参数则会得到一个 `RangeError` 的错误。
 
 #### codePointAt()
 
-This method can be used to handle Unicode characters that cannot be represented by a single 16-bit Unicode unit, but need 2 instead.
+这个方法能用在处理那些需要 2 个 UTF-16 单元表示的字符上。
 
-Using `charCodeAt()` you need to retrieve the first, and the second, and combine them. Using `codePointAt()` you get the whole character in one call.
+使用 `charCodeAt` 的话，你需要先分别得到两个 UTF-16 的编码然后结合它们。但是使用 `codePointAt()` 你可以直接得到整个字符。
 
-For example, this Chinese character “𠮷” is composed by 2 UTF-16 (Unicode) parts:
+下面是一个例子，中文的 “𠮷” 是由两个 UTF-16 编码组合而成的：
 
 ```
 "𠮷".charCodeAt(0).toString(16) //d842
 "𠮷".charCodeAt(1).toString(16) //dfb7
 ```
 
-If you create a new character by combining those unicode characters:
+如果你将两个 unicode 字符组合起来：
 
 ```
 "\ud842\udfb7" //"𠮷"
 ```
 
-You can get the same result sign `codePointAt()`:
+你也可以用 `codePointAt()` 得到同样的结果:
 
 ```
 "𠮷".codePointAt(0) //20bb7
 ```
 
-If you create a new character by combining those unicode characters:
+如果你将得到的 unicode 编码组合起来：
 
 ```
 "\u{20bb7}" //"𠮷"
 ```
 
-More on Unicode and working with it in my [Unicode guide](https://flaviocopes.com/unicode/).
+更多关于 Unicode 的使用方法，参考我的[Unicode guide](https://flaviocopes.com/unicode/)。
 
-### New Object methods
+### 新的对象方法
 
-ES2015 introduced several static methods under the Object namespace:
+ES2015 在 Object 类下引入了一些静态方法：
 
-- `Object.is()` determines if two values are the same value
-- `Object.assign()` used to shallow copy an object
-- `Object.setPrototypeOf` sets an object prototype
+- `Object.is()` 确定两个值是不是同一个
+- `Object.assign()` 用来浅拷贝一个对象
+- `Object.setPrototypeOf` 设置一个对象的原型
 
 #### Object.is()
 
-This methods aims to help comparing values.
+这个方法用来帮助比较对象的值：
 
-Usage:
+使用方式:
 
 ```
 Object.is(a, b)
 ```
 
-The result is always `false` unless:
+返回值在下列情况之外一直是 `false`：
 
-- `a` and `b` are the same exact object
-- `a` and `b` are equal strings (strings are equal when composed by the same characters)
-- `a` and `b` are equal numbers (numbers are equal when their value is equal)
-- `a` and `b` are both `undefined`, both `null`, both `NaN`, both `true` or both `false`
+- `a` 和 `b` 是同一个对象
+- `a` 和 `b` 是相等的字符串(用同样的字符组合在一起的字符串是相等的)
+- `a` 和 `b` 是相等的数字
+- `a` 和 `b` 都是 `undefined`, `null`, `NaN`, `true` 或者都是 `false`
 
-`0` and `-0` are different values in JavaScript, so pay attention in this special case (convert all to `+0` using the `+` unary operator before comparing, for example).
+`0` 和 `-0` 在 JavaScript 里面是不同的值, 所以对这种情况要多加小心（例如在比较之前，使用 `+` 一元操作符将所有值转换成 `+0`）。
 
 #### Object.assign()
 
-Introduced in `ES2015`, this method copies all the **enumerable own properties** of one or more objects into another.
+在 `ES2015` 版本中引入，这个方法拷贝所有给出的对象中的可枚举的自身属性到另一个对象中。
 
-Its primary use case is to create a shallow copy of an object.
+这个 API 的基本用法是创建一个对象的浅拷贝。
 
 ```
 const copied = Object.assign({}, original)
 ```
 
-Being a shallow copy, values are cloned, and objects references are copied (not the objects themselves), so if you edit an object property in the original object, that’s modified also in the copied object, since the referenced inner object is the same:
+作为浅拷贝，值会被复制，对象则是拷贝其引用（不是对象本身），因此当你修改了源对象的一个属性值，这个修改也会在拷贝出的对象中生效，因为内部引用的对象是相同的。:
 
 ```
 const original = {
@@ -1241,7 +1238,7 @@ copied.name //Fiesta
 copied.car.color //yellow
 ```
 
-I mentioned “one or more”:
+我之前提到过，源对象可以是`一个或者多个`:
 
 ```
 const wisePerson = {
@@ -1256,15 +1253,15 @@ console.log(wiseAndFoolishPerson) //{ isWise: true, isFoolish: true }
 
 #### Object.setPrototypeOf()
 
-Set the prototype of an object. Accepts two arguments: the object and the prototype.
+设置一个对象的原型。可以接受两个参数：对象以及原型。
 
-Usage:
+使用方法:
 
 ```
 Object.setPrototypeOf(object, prototype)
 ```
 
-Example:
+例子:
 
 ```
 const animal = {
@@ -1283,42 +1280,42 @@ dog.isAnimal //true
 dog.isMammal //true
 ```
 
-### The spread operator
+### 展开操作符
 
-You can expand an array, an object or a string using the spread operator `...`
+你可以展开一个数组、一个对象甚至是一个字符串，通过使用展开操作符 `...`。
 
-Let’s start with an array example. Given
+让我们以数组来举例，给出：
 
 ```
 const a = [1, 2, 3]
 ```
 
-you can create a new array using
+你可以使用下面的方式创建出一个新的数组：
 
 ```
 const b = [...a, 4, 5, 6]
 ```
 
-You can also create a copy of an array using
+你也可以像下面这样创建一个数组的拷贝：
 
 ```
 const c = [...a]
 ```
 
-This works for objects as well. Clone an object with:
+这中方式对于对象仍然有效。使用下面的方式克隆一个对象：
 
 ```
 const newObj = { ...oldObj }
 ```
 
-Using strings, the spread operator creates an array with each char in the string:
+用在字符串上的时候，展开操作符会以字符串中的每一个字符创建一个数组：
 
 ```
 const hey = 'hey'
 const arrayized = [...hey] // ['h', 'e', 'y']
 ```
 
-This operator has some pretty useful applications. The most important one is the ability to use an array as function argument in a very simple way:
+这个操作符有一些非常有用的应用。其中最重要的一点就是以一种非常简单的方式使用数组作为函数参数的能力：
 
 ```
 const f = (foo, bar) => {}
@@ -1326,16 +1323,16 @@ const a = [1, 2]
 f(...a)
 ```
 
-(In the past you could do this using `f.apply(null, a)` but that's not as nice and readable.)
+（在之前的语法规范中，你只能通过 `f.apply(null, a)` 的方式来实现，但是这种方式不是很友好和易读。）
 
-The **rest element** is useful when working with **array destructuring**:
+剩余参数（**rest element**）在和数组解构（**array destructuring**）搭配使用的时候非常有用。
 
 ```
 const numbers = [1, 2, 3, 4, 5]
 [first, second, ...others] = numbers
 ```
 
-and **spread elements**:
+下面是展开元素 （**spread elements**）:
 
 ```
 const numbers = [1, 2, 3, 4, 5]
@@ -1343,9 +1340,9 @@ const sum = (a, b, c, d, e) => a + b + c + d + e
 const sum = sum(...numbers)
 ```
 
-ES2018 introduces rest properties, which are the same but for objects.
+ES2018 引入了 **剩余属性** ，同样的操作符但是只能用在对象上。
 
-**Rest properties**:
+剩余属性（**Rest properties**）:
 
 ```
 const { first, second, ...others } = {
@@ -1360,7 +1357,7 @@ second // 2
 others // { third: 3, fourth: 4, fifth: 5 }
 ```
 
-**Spread properties** allow us to create a new object by combining the properties of the object passed after the spread operator:
+属性展开（**Spread properties**）允许我们结合跟在 `...` 操作符之后对象的属性：
 
 ```
 const items = { first, second, ...others }
@@ -1369,67 +1366,66 @@ items //{ first: 1, second: 2, third: 3, fourth: 4, fifth: 5 }
 
 ### Set
 
-A Set data structure allows us to add data to a container.
+一个 Set 数据结构允许我们在一个容器里面增加数据。
 
-A Set is a collection of objects or primitive types (strings, numbers or booleans), and you can think of it as a Map where values are used as map keys, with the map value always being a boolean true.
+一个 Set 是一个对象或者基础数据类型（strings、numbers或者booleans）的集合，你可以将它看作是一个 Map，其中值作为映射键，map 值始终为 true。
 
-#### Initialize a Set
+#### 初始化一个 Set
 
-A Set is initialized by calling:
+Set 可以通过下面的方式初始化：
 
 ```
 const s = new Set()
 ```
 
-#### Add items to a Set
+#### 向 Set 中添加一项
 
-You can add items to the Set by using the `add` method:
+你可以使用 `add` 方法向 Set 中添加项：
 
 ```
 s.add('one')
 s.add('two')
 ```
+Set 仅会存贮唯一的元素，因此多次调用 `s.add('one')` 不会重复添加新的元素。
 
-A set only stores unique elements, so calling `s.add('one')` multiple times won't add new items.
+你不可以同时向 set 中加入多个元素。你需要多次调用 `add()` 方法。
 
-You can’t add multiple elements to a set at the same time. You need to call `add()` multiple times.
+#### 检查元素是否在 set 中
 
-#### Check if an item is in the set
-
-Once an element is in the set, we can check if the set contains it:
+我们可以通过下面的方式检查元素是否在 set 中：
 
 ```
 s.has('one') //true
 s.has('three') //false
 ```
 
-#### Delete an item from a Set by key
+#### 从 set 中删除一个元素：
 
-Use the `delete()` method:
+使用 `delete()` 方法：
 
 ```
 s.delete('one')
 ```
 
-#### Determine the number of items in a Set
+#### 确定 set 中元素的数量
 
-Use the `size` property:
+使用 `size` 属性：
 
 ```
 s.size
 ```
 
-#### Delete all items from a Set
+#### 删除 set 中的全部元素
 
-Use the `clear()` method:
+使用 `clear()` 方法：
 
 ```
 s.clear()
 ```
 
-#### Iterate the items in a Set
+#### 对 set 进行迭代
 
-Use the `keys()` or `values()` methods - they are equivalent:
+使用 `keys()` 或者 `values()` 方法 - 它们等价于下面的代码：
 
 ```
 for (const k of s.keys()) {
@@ -1440,22 +1436,22 @@ for (const k of s.values()) {
 }
 ```
 
-The `entries()` method returns an iterator, which you can use like this:
+`entries()` 方法返回一个迭代器，你可以这样使用它：
 
 ```
 const i = s.entries()
 console.log(i.next())
 ```
 
-calling `i.next()` will return each element as a `{ value, done = false }`object until the iterator ends, at which point `done` is `true`.
+调用 `i.next()` 将会以 `{ value, done = false }` 对象的形式返回每一个元素，直到迭代结束，这时 `done` 是 `true`。
 
-You can also use the forEach() method on the set:
+你也可以调用 set 的 `forEach()` 方法：
 
 ```
 s.forEach(v => console.log(v))
 ```
 
-or you can just use the set in a for..of loop:
+或者你就直接使用 `for..of` 循环吧：
 
 ```
 for (const k of s) {
@@ -1463,15 +1459,15 @@ for (const k of s) {
 }
 ```
 
-#### Initialize a Set with values
+#### 使用一些初始值初始化一个 set
 
-You can initialize a Set with a set of values:
+你可以使用一些值初始化一个 set：
 
 ```
 const s = new Set([1, 2, 3, 4])
 ```
 
-#### Convert the Set keys into an array
+#### 将 set 转换位一个数组
 
 ```
 const a = [...s.keys()]
@@ -1479,19 +1475,19 @@ const a = [...s.keys()]
 const a = [...s.values()]
 ```
 
-#### A WeakSet
+#### WeakSet
 
-A WeakSet is a special kind of Set.
+一个 WeakSet 是一个特殊的 Set.
 
-In a Set, items are never garbage collected. A WeakSet instead lets all its items be freely garbage collected. Every key of a WeakSet is an object. When the reference to this object is lost, the value can be garbage collected.
+在 set 中，元素不会被 gc（垃圾回收）。一个 weakSet 让它的所有元素都是可以被 gc 的。weakSet 中的每个键都是一个对象。当这个对象的引用消失的时候，对应的值就可以被 gc 了。
 
-Here are the main differences:
+下面是主要的不同点：
 
-1. you cannot iterate over the WeakSet
-2. you cannot clear all items from a WeakSet
-3. you cannot check its size
+1. WeakSet 不可迭代
+2. 你不能清空 weakSet 中的所有元素
+3. 不能够得到 weakSet 的大小
 
-A WeakSet is generally used by framework-level code, and only exposes these methods:
+一个 weakSet 通常是在框架级别的代码中使用，仅仅暴露了下面的方法：
 
 - add()
 - has()
@@ -1957,39 +1953,35 @@ After
 I did something //after 3s
 ```
 
-#### Promise all the things
+#### 关于 Promise
 
-Prepending the `async` keyword to any function means that the function will return a promise.
+将 `async` 关键字标记在任何函数上，意味着这个函数都将返回一个 Promise，即使这个函数没有显式的返回，它在内部也会返回一个 Promise，这就是下面这份代码有效的原因：
 
-Even if it’s not doing so explicitly, it will internally make it return a promise.
-
-This is why this code is valid:
-
-```
+``` javascript
 const aFunction = async () => {
   return 'test'
 }
 aFunction().then(alert) // This will alert 'test'
 ```
 
-and it’s the same as:
+下面的例子也一样:
 
-```
+```javascript
 const aFunction = async () => {
   return Promise.resolve('test')
 }
 aFunction().then(alert) // This will alert 'test'
 ```
 
-#### The code is much simpler to read
+#### 更易于阅读的代码
 
-As you can see in the example above, our code looks very simple. Compare it to code using plain promises, with chaining and callback functions.
+正如上述的例子，我们将它与普通回调函数或链式函数进行比较，我们的代码看起来非常的简单。
 
-And this is a very simple example, the major benefits will arise when the code is much more complex.
+这是一个很简单的例子，当代码足够复杂时，它会产生更多的收益。
 
-For example here’s how you would get a JSON resource, and parse it, using promises:
+例如，使用 Promise 来获取 JSON 资源并解析它：
 
-```
+```javascript
 const getFirstUserData = () => {
   return fetch('/users.json') // get users list
     .then(response => response.json()) // parse JSON
@@ -2000,9 +1992,9 @@ const getFirstUserData = () => {
 getFirstUserData()
 ```
 
-And here is the same functionality provided using await/async:
+这是使用 async/await 实现相同功能的例子：
 
-```
+```javascript
 const getFirstUserData = async () => {
   const response = await fetch('/users.json') // get users list
   const users = await response.json() // parse JSON
@@ -2014,11 +2006,12 @@ const getFirstUserData = async () => {
 getFirstUserData()
 ```
 
-#### Multiple async functions in series
+#### 串行多个异步功能
 
-Async functions can be chained very easily, and the syntax is much more readable than with plain promises:
+async 函数非常容易，并且它的语法比 Promise 更易读。
 
-```
+
+```javascript
 const promiseToDoSomething = () => {
   return new Promise(resolve => {
     setTimeout(() => resolve('I did something'), 10000)
@@ -2037,182 +2030,184 @@ watchOverSomeoneWatchingSomeoneDoingSomething().then(res => {
 })
 ```
 
-Will print:
+打印结果:
 
 ```
 I did something and I watched and I watched as well
 ```
 
-#### Easier debugging
+#### 更简单的调试
 
-Debugging promises is hard because the debugger will not step over asynchronous code.
+调试 Promise 就很困难，因为调试器无法跨越异步代码，但调试 async/await 就非常的简单，调试器会像调试同步代码一样来处理它。
 
-Async/await makes this very easy because to the compiler it’s just like synchronous code.
+### 共享内存和原子
 
-### Shared Memory and Atomics
+WebWorkers 可以在浏览器中创建多线程程序。
 
-WebWorkers are used to create multithreaded programs in the browser.
+它们通过事件的方式来传递消息，从 ES2017 开始，你可以使用 `SharedArrayBuffer` 在每一个 Worker 中和它们的创建者之间共享内存数组.
 
-They offer a messaging protocol via events. Since ES2017, you can create a shared memory array between web workers and their creator, using a `SharedArrayBuffer`.
+由于不知道写入内存部分需要多长的周期来广播，因此在读取值时，任何类型的写入操作都会完成，`Atomics` 可以避免竞争条件的发生。
 
-Since it’s unknown how much time writing to a shared memory portion takes to propagate, **Atomics** are a way to enforce that when reading a value, any kind of writing operation is completed.
-
-Any more detail on this [can be found in the spec proposal](https://github.com/tc39/ecmascript_sharedmem/blob/master/TUTORIAL.md), which has since been implemented.
+关于它的更多细节可以在[proposal](https://github.com/tc39/ecmascript_sharedmem/blob/master/TUTORIAL.md)中找到。
 
 ------
 
-This was ES2017. Let me now introduce the ES2018 features
+这是 ES2017，接下来我将介绍 ES2018 的功能。
 
 ------
 
 ### Rest/Spread Properties
 
-ES2015 introduced the concept of a **rest element** when working with **array destructuring**:
+ES2015 引入了解构数组的方法，当你使用时：
 
-```
+```javascript
 const numbers = [1, 2, 3, 4, 5]
 [first, second, ...others] = numbers
 ```
 
-and **spread elements**:
+and **展开参数**:
 
-```
+```javascript
 const numbers = [1, 2, 3, 4, 5]
 const sum = (a, b, c, d, e) => a + b + c + d + e
 const sum = sum(...numbers)
 ```
 
-ES2018 introduces the same but for objects.
+ES2018 为对象引入了同样的功能。
 
-**Rest properties**:
+**解构**:
 
-```
+```javascript
 const { first, second, ...others } = { first: 1, second: 2, third: 3, fourth: 4, fifth: 5 }
 first // 1
 second // 2
 others // { third: 3, fourth: 4, fifth: 5 }
 ```
 
-**Spread properties** allow to create a new object by combining the properties of the object passed after the spread operator:
+**展开属性** 允许通过组合在展开运算符之后传递的对象属性而创建新对象：
 
-```
+```javascript
 const items = { first, second, ...others }
 items //{ first: 1, second: 2, third: 3, fourth: 4, fifth: 5 }
 ```
 
-### Asynchronous iteration
+### 异步迭代器
 
-The new construct `for-await-of` allows you to use an async iterable object as the loop iteration:
+`for-await-of` 允许你使用异步可迭代对象做为循环迭代：
 
-```
+
+```javascript
 for await (const line of readLines(filePath)) {
   console.log(line)
 }
 ```
 
-Since this uses `await`, you can use it only inside `async` functions, like a normal `await`.
+因为它使用的了 `await`，因此你只能在 `async` 函数中使用它。
 
 ### Promise.prototype.finally()
 
-When a promise is fulfilled, successfully it calls the `then()` methods, one after another.
+当一个 Promise 是 fulfilled 时，它会一个接一个的调用 then。
 
-If something fails during this, the `then()` methods are jumped and the `catch()` method is executed.
+如果在这个过程中发生了错误，则会跳过 `then` 而执行 `catch`。
 
-`finally()` allow you to run some code regardless of the successful or not successful execution of the promise:
+而 `finally()` 允许你运行一些代码，无论是成功还是失败：
 
-```
+```javascript
 fetch('file.json')
   .then(data => data.json())
   .catch(error => console.error(error))
   .finally(() => console.log('finished'))
 ```
 
-### Regular Expression improvements
+### 正则表达式改进
 
-ES2018 introduced a number of improvements regarding Regular Expressions. I recommend my tutorial on them, available at <https://flaviocopes.com/javascript-regular-expressions/>.
+ES2018 对正则表达式引入了许多改进，这些都可以在 <https://flaviocopes.com/javascript-regular-expressions/> 上找到。
 
-Here are the ES2018 specific additions.
+以下是关于 ES2018 正则表达式改进的具体补充：
 
-#### RegExp lookbehind assertions: match a string depending on what precedes it
+#### RegExp lookbehind assertions: 根据前面的内容匹配字符串
 
-This is a lookahead: you use `?=` to match a string that's followed by a specific substring:
+这是一个 lookahead: 你可以使用 `?=` 来匹配字符串，后面跟随一个特定的字符串：
 
-```
+```javascript
 /Roger(?=Waters)/
 /Roger(?= Waters)/.test('Roger is my dog') //false
 /Roger(?= Waters)/.test('Roger is my dog and Roger Waters is a famous musician') //true
 ```
 
-`?!` performs the inverse operation, matching if a string is **not** followed by a specific substring:
+`?!` 可以执行逆操作，如果匹配的字符串是**no**而不是在此后跟随特定的子字符串的话：
 
-```
+```javascript
 /Roger(?!Waters)/
 /Roger(?! Waters)/.test('Roger is my dog') //true
 /Roger(?! Waters)/.test('Roger Waters is a famous musician') //false
 ```
 
-Lookaheads use the `?=` symbol. They were already available.
 
-**Lookbehinds**, a new feature, uses `?<=`.
+Lookaheads 使用 `?=` Symbol，它们已经可以用了。
 
-```
+**Lookbehinds**, 是一个新功能使用`?<=`.
+
+```javascript
 /(?<=Roger) Waters/
 /(?<=Roger) Waters/.test('Pink Waters is my dog') //false
 /(?<=Roger) Waters/.test('Roger is my dog and Roger Waters is a famous musician') //true
 ```
 
-A lookbehind is negated using `?<!`:
+如果一个 lookbehind 是否定，那么使用 `?>!`:
 
-```
+```javascript
 /(?<!Roger) Waters/
 /(?<!Roger) Waters/.test('Pink Waters is my dog') //true
 /(?<!Roger) Waters/.test('Roger is my dog and Roger Waters is a famous musician') //false
 ```
 
-#### Unicode property escapes `\p{…}` and `\P{…}`
+#### Unicode属性转义 `\p{…}` and `\P{…}`
 
-In a regular expression pattern you can use `\d` to match any digit, `\s` to match any character that's not a white space, `\w` to match any alphanumeric character, and so on.
+在正则表达式模式中，你可以使用 `\d` 来匹配任意的数字，`\s` 来匹配任意不是空格的字符串，`\w` 来匹配任意字母数字字符串，以此类推。
 
 This new feature extends this concept to all Unicode characters introducing `\p{}` and is negation `\P{}`.
 
-Any unicode character has a set of properties. For example `Script`determines the language family, `ASCII` is a boolean that's true for ASCII characters, and so on. You can put this property in the graph parentheses, and the regex will check for that to be true:
+这个新功能扩展了unicode字符，引入了 `\p{}` 来处理
 
-```
+任何 unicode 字符都有一组属性，例如 `script` 确认语言，`ASCII` 是一个布尔值用于检查 ASCII 字符。你可以将此属性方在() 中，正则表达式将来检查是否为真。 
+
+```javascript
 /^\p{ASCII}+$/u.test('abc')   //✅
 /^\p{ASCII}+$/u.test('ABC@')  //✅
 /^\p{ASCII}+$/u.test('ABC🙃') //❌
 ```
 
-`ASCII_Hex_Digit` is another boolean property, that checks if the string only contains valid hexadecimal digits:
+`ASCII_Hex_Digit` 是另一个布尔值，用于检查字符串是否包含有效的十六进制数字：
 
-```
+```javascript
 /^\p{ASCII_Hex_Digit}+$/u.test('0123456789ABCDEF') //✅
 /^\p{ASCII_Hex_Digit}+$/u.test('h')                //❌
 ```
 
-There are many other boolean properties, which you just check by adding their name in the graph parentheses, including `Uppercase`, `Lowercase`, `White_Space`, `Alphabetic`, `Emoji` and more:
+此外，还有很多其他的属性。你可以在()中添加它们的名字来检查它们，包括 `Uppercase`, `Lowercase`, `White_Space`, `Alphabetic`, `Emoji`等等：
 
-```
+```javascript
 /^\p{Lowercase}$/u.test('h') //✅
 /^\p{Uppercase}$/u.test('H') //✅
 /^\p{Emoji}+$/u.test('H')   //❌
 /^\p{Emoji}+$/u.test('🙃🙃') //✅
 ```
 
-In addition to those binary properties, you can check any of the unicode character properties to match a specific value. In this example, I check if the string is written in the greek or latin alphabet:
+除了二进制属性外，你还可以检查任何 unicode 字符属性以匹配特定的值，在这个例子中，我检查字符串是用希腊语还是拉丁字母写的：
 
-```
+```javascript
 /^\p{Script=Greek}+$/u.test('ελληνικά') //✅
 /^\p{Script=Latin}+$/u.test('hey') //✅
 ```
 
-Read more about all the properties you can use [directly on the proposal](https://github.com/tc39/proposal-regexp-unicode-property-escapes).
+阅读[ttps://github.com/tc39/proposal-regexp-unicode-property-escapes](ttps://github.com/tc39/proposal-regexp-unicode-property-escapes) 获取使用所有属性的详细信息。
 
 #### Named capturing groups
 
 In ES2018 a capturing group can be assigned to a name, rather than just being assigned a slot in the result array:
 
-```
+```javascript
 const re = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/
 const result = re.exec('2015-01-02')
 // result.groups.year === '2015';
@@ -2233,38 +2228,38 @@ The `s` flag, short for *single line*, causes the `.` to match new line characte
 
 ### ESNext
 
-What’s next? ESNext.
+什么是 ESNext ？
 
-ESNext is a name that always indicates the next version of JavaScript.
+ESNext 是一个始终指向下一个版本 JavaScript 的名称。
 
-The current ECMAScript version is **ES2018**. It was released in June 2018.
+当前的 ECMAScript 版本是 **ES2018**，它于2018年6月被发布。
 
-Historically JavaScript editions have been standardized during the summer, so we can expect **ECMAScript 2019** to be released in summer 2019.
+历史上 JavaScript 标准化的版本都是在夏季被发布，因此我们可以预期 **ECMAScript 2019** 将于 2019 年的夏季被发布。
 
-So at the time of writing, ES2018 has been released, and **ESNext is ES2019**
+所以在编写本文时 ES2018 已经被发布，因此 ESNext 指的是 ES2019。
 
-Proposals to the ECMAScript standard are organized in stages. Stages 1–3 are an incubator of new features, and features reaching Stage 4 are finalized as part of the new standard.
+ECMAScript 标准的提案是分阶段组织的，第一到第三阶段属于功能性的孵化，第四阶段的功能才最终确定为新标准的一部分。
 
-At the time of writing we have a number of features at **Stage 4**. I will introduce them in this section. The latest versions of the major browsers should already implement most of those.
+在编写本文时主要浏览器都实现了第四阶段大部分的功能，因此我将在本文中介绍它们。
 
-Some of those changes are mostly for internal use, but it’s also good to know what is going on.
+其中一些变化主要在内部使用，但知道发生了什么这也很好。
 
-There are other features at Stage 3, which might be promoted to Stage 4 in the next few months, and you can check them out on this GitHub repository: <https://github.com/tc39/proposals>.
+第三阶段还有一些其他功能，可能会在接下来的几个月内升级到第四阶段，你可以在这个 Github 仓库中查看它们：<https://github.com/tc39/proposals>。
 
 ### Array.prototype.{flat,flatMap}
 
-`flat()` is a new array instance method that can create a one-dimensional array from a multidimensional array.
+`flat()` 是一个新的数组实例方法，它可以将多维数组转化成一维数组。
 
-Example:
+例子:
 
-```
+```javascript
 ['Dog', ['Sheep', 'Wolf']].flat()
 //[ 'Dog', 'Sheep', 'Wolf' ]
 ```
 
-By default it only “flats” up to one level, but you can add a parameter to set the number of levels you want to flat the array to. Set it to `Infinity` to have unlimited levels:
+默认情况下它只能将二维的数组转化成一维的数组，但你可以添加一个参数来确定要展开的级别，如果你将这个参数设置为 `Infinity` 那么它将展开无限的级别到一维数组：
 
-```
+```javascript
 ['Dog', ['Sheep', ['Wolf']]].flat()
 //[ 'Dog', 'Sheep', [ 'Wolf' ] ]
 ['Dog', ['Sheep', ['Wolf']]].flat(2)
@@ -2273,11 +2268,11 @@ By default it only “flats” up to one level, but you can add a parameter to s
 //[ 'Dog', 'Sheep', 'Wolf' ]
 ```
 
-If you are familiar with the JavaScript `map()` method of an array, you know that using it you can execute a function on every element of an array.
+如果你熟悉数组的 `map` 方法，那么你就知道使用它可以对数组的每个元素执行一个函数。
 
-`flatMap()` is a new Array instance method that combines `flat()` with `map()`. It's useful when calling a function that returns an array in the map() callback, but you want your resulted array to be flat:
+`flatMap()` 是一个新的数组实例方法，它将 `flat()` 和 `map` 结合了起来，当你期望在`map`函数中做一些处理时这非常有用，同时又希望结果如同 `flat` ：
 
-```
+```javascript
 ['My dog', 'is awesome'].map(words => words.split(' '))
 //[ [ 'My', 'dog' ], [ 'is', 'awesome' ] ]
 ['My dog', 'is awesome'].flatMap(words => words.split(' '))
@@ -2286,11 +2281,11 @@ If you are familiar with the JavaScript `map()` method of an array, you know tha
 
 ### Optional catch binding
 
-Sometimes we don’t need to have a parameter bound to the catch block of a try/catch.
+有时候我们并不需要将参数绑定到 try/catch 中。
 
-We previously had to do:
+在以前我们不得不这样做：
 
-```
+```javascript
 try {
   //...
 } catch (e) {
@@ -2298,9 +2293,9 @@ try {
 }
 ```
 
-Even if we never had to use `e` to analyze the error. We can now simply omit it:
+即使我们从来没有通过 `e` 来分析错误，但现在我们可以简单的省略它：
 
-```
+```javascript
 try {
   //...
 } catch {
@@ -2312,16 +2307,18 @@ try {
 
 Objects have an `entries()` method, since ES2017.
 
-It returns an array containing all the object own properties, as an array of `[key, value]` pairs:
+从 ES2017 开始 Object将有一个 `entries()` 方法。
 
-```
+它将返回一个包含所有对象自身属性的数组的数组，如`[key, value]`：
+
+```javascript
 const person = { name: 'Fred', age: 87 }
 Object.entries(person) // [['name', 'Fred'], ['age', 87]]
 ```
 
-ES2019 introduces a new `Object.fromEntries()` method, which can create a new object from such array of properties:
+ES2019 引入了一个新的 `Object.fromEntries()` 方法，它可以从上述的属性数组中创建一个新的对象：
 
-```
+```javascript
 const person = { name: 'Fred', age: 87 }
 const entries = Object.entries(person)
 const newPerson = Object.fromEntries(entries)
@@ -2331,13 +2328,13 @@ person !== newPerson //true
 
 ### String.prototype.{trimStart,trimEnd}
 
-This feature has been part of v8/Chrome for almost a year now, and it’s going to be standardized in ES2019.
+这些功能已经被 v8/Chrome 实现了近一年的时间，它将在 ES2019 中实现标准化。
 
 #### `trimStart()`
 
-Return a new string with removed white space from the start of the original string
+删除字符串首部的空格并返回一个新的字符串：
 
-```
+```javascript
 'Testing'.trimStart() //'Testing'
 ' Testing'.trimStart() //'Testing'
 ' Testing '.trimStart() //'Testing '
@@ -2346,9 +2343,9 @@ Return a new string with removed white space from the start of the original stri
 
 #### `trimEnd()`
 
-Return a new string with removed white space from the end of the original string
+删除字符串尾部的空格并返回一个新的字符串：
 
-```
+```javascript
 'Testing'.trimEnd() //'Testing'
 ' Testing'.trimEnd() //' Testing'
 ' Testing '.trimEnd() //' Testing'
@@ -2357,46 +2354,48 @@ Return a new string with removed white space from the end of the original string
 
 ### Symbol.prototype.description
 
-You can now retrieve the description of a symbol by accessing its `description`property instead of having to use the `toString()` method:
+现在你可以使用 `description` 来获取 Symbol 的值，而不必使用 `toString()` 方法：
 
-```
+```javascript
 const testSymbol = Symbol('Test')
 testSymbol.description // 'Test'
 ```
 
 ### JSON improvements
 
-Before this change, the line separator (\u2028) and paragraph separator (\u2029) symbols were not allowed in strings parsed as JSON.
+在此之前 JSON 字符串中不允许使用分隔符（\u2028）和分隔符（\u2029）。
 
-Using JSON.parse(), those characters resulted in a `SyntaxError` but now they parse correctly, as defined by the JSON standard.
+使用 JSON.parse 时，这些字符会导致一个 `SyntaxError` 错误，但现在它们可以正确的解析并如 JSON 标准定义的那样。
 
 ### Well-formed JSON.stringify()
 
-Fixes the `JSON.stringify()` output when it processes surrogate UTF-8 code points (U+D800 to U+DFFF).
+修复 `JSON.stringify()` 在处理 UTF-8 code points (U+D800 to U+DFFF)。
 
-Before this change calling `JSON.stringify()` would return a malformed Unicode character (a "�").
+在修复之前，调用 `JSON.stringify()` 将返回格式错误的 Unicode 字符，如（a "�")。
 
-Now those surrogate code points can be safely represented as strings using `JSON.stringify()`, and transformed back into their original representation using `JSON.parse()`.
+现在你可以安全放心的使用 `JSON.stringify()` 转成字符串，也可以使用 `JSON.parse()` 将它转换回原始表示的形态。
 
 ### Function.prototype.toString()
 
-Functions have always had an instance method called `toString()` which return a string containing the function code.
+函数总会有一个 `toString` 方法，它将返回一个包含函数代码的字符串。
 
-ES2019 introduced a change to the return value to avoid stripping comments and other characters like whitespace, exactly representing the function as it was defined.
+ES2019 对返回值做了修改，以避免剥离注释和其他字符串（如：空格），将更准确的表示函数的定义。
 
 If previously we had
 
-```
+以前也许我们这样过：
+
+```javascript
 function /* this is bar */ bar () {}
 ```
 
-The behavior was this:
+当时的行为：
 
 ```
 bar.toString() //'function bar() {}
 ```
 
-now the new behavior is:
+现在的行为：
 
 ```
 bar.toString(); // 'function /* this is bar */ bar () {}'
@@ -2404,6 +2403,6 @@ bar.toString(); // 'function /* this is bar */ bar () {}'
 
 ------
 
-Wrapping up, I hope this article helped you catch up on some of the latest JavaScript additions, and the new features we’ll see in 2019.
+总结一下，我希望这篇文章可以帮助你了解一些最新的 JavaScript 以及我们在 2019 年即将看见的内容。
 
 [**Click here to get a PDF / ePub / Mobi version of this post to read offline**](https://flaviocopes.com/es5-to-next/)
