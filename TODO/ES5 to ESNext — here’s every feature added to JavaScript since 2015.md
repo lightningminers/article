@@ -1498,14 +1498,11 @@ A WeakSet is generally used by framework-level code, and only exposes these meth
 - delete()
 
 ### Map
-
-A Map data structure allows us to associate data to a key.
-Map数据结构允许我们保留数据和key值的关系
+一份map结构的数据允许我们建立数据和key的关系
 
 #### 在ES6之前
 
-Before its introduction, people generally used objects as maps, by associating some object or value to a specific key value:
-在引入Map数据结构之前，开发者通常把对象(Object)当作Map使用，把某个object或value值与特定的key值相关联:
+在引入Map之前，开发者通常把对象(Object)当Map使用，把某个object或value值与指定的key进行关联:
 
 ```
 const car = {}
@@ -1519,20 +1516,16 @@ console.log(car['owner']) //Flavio
 
 #### 引入Map之后
 
-ES6 introduced the Map data structure, providing us a proper tool to handle this kind of data organization.
-ES6引入了Map数据结构，为我们处理这种数据结构提供了一种合适的工具
+ES6引入了Map数据结构，它为我们处理这种数据结构提供了一种合适的工具
 
-A Map is initialized by calling:
 Map的初始化:
 
 ```
 const m = new Map()
 ```
 
-#### Add items to a Map
 #### 添加条目到Map中
 
-You can add items to the map by using the `set` method:
 你可以通过`set()`方法把条目设定到map中：
 
 ```
@@ -1540,61 +1533,49 @@ m.set('color', 'red')
 m.set('age', 2)
 ```
 
-#### Get an item from a map by key
 #### 通过key值从map中获取条目
 
-And you can get items out of a map by using `get`:
-你可以通过`get()`方法把条目从map中取出来:
+你可以通过`get()`方法从map中取出条目:
 
 ```
 const color = m.get('color')
 const age = m.get('age')
 ```
 
-#### Delete an item from a map by key
 #### 通过key值从map中删除条目
 
-Use the `delete()` method:
 使用`delete()`方法：
 
 ```
 m.delete('color')
 ```
 
-#### Delete all items from a map
 #### 从map中删除所有条目
 
-Use the `clear()` method:
 使用`clear()`方法：
 
 ```
 m.clear()
 ```
 
-#### Check if a map contains an item by key
-#### 通过key值检查map中是否含有特定条目
+#### 通过key值检查map中是否含有某个条目
 
-Use the `has()` method:
 使用`has()`方法
 
 ```
 const hasColor = m.has('color')
 ```
 
-#### Find the number of items in a map
 #### 获取map中的条目数量
 
-Use the `size` property:
 使用 `size` 属性:
 
 ```
 const size = m.size
 ```
 
-#### Initialize a map with values
 #### 用value值初始化一个map
 
-You can initialize a map with a set of values:
 你可以用一组value来初始化一个map：
 
 ```
@@ -1603,11 +1584,9 @@ const m = new Map([['color', 'red'], ['owner', 'Flavio'], ['age', 2]])
 
 #### Map 的key值 
 
-Just like any value (object, array, string, number) can be used as the value of the key-value entry of a map item, **any value can be used as the key**, even objects.
-任何值(对象，数组，字符串，数字)都可以用作一个map这种key-value键值对的value，**任何值也可以用作key**，即使是object对象。
+任何值(对象，数组，字符串，数字)都可以作为一个map的value值(使用key-value键值的形式)，**任何值也可以用作key**，即使是object对象。
 
-If you try to get a non-existing key using `get()` out of a map, it will return `undefined`.
-如果你想通过`get()`方法从map中获取不存在的key值，它将会返回`undefined`
+如果你想通过`get()`方法从map中获取不存在的key，它将会返回`undefined`
 
 #### 在真实世界中你几乎不可能找到的诡异情况
 
@@ -1622,7 +1601,6 @@ m.get(-0) //test
 
 #### 使用Iterate迭代器获取map的keys值
 
-Map offers the `keys()` method we can use to iterate on all the keys:
 Map提供了`keys()`方法，通过该方法我们可以迭代出所有的key值:
 
 ```
@@ -1669,71 +1647,60 @@ const a = [...m.values()]
 
 #### WeakMap
 
-A WeakMap is a special kind of map.
-WeakMap是一种特殊的map
+WeakMap是一种特殊的Map
 
 In a map object, items are never garbage collected. A WeakMap instead lets all its items be freely garbage collected. Every key of a WeakMap is an object. When the reference to this object is lost, the value can be garbage collected.
-在map对象中，它上面的数据永远不会被垃圾回收，WeakMap替而代之的是它允许在它上面定义的数据可以被自由的垃圾回收走，WeakMap的每一个key都是一个对象，当指向该对象的指针丢失，与之对应的value就会被垃圾回收走。
+在一个map对象中，定义在其上数据永远不会被垃圾回收，WeakMap替而代之的是它允许在它上面定义的数据可以自由的被垃圾回收走，WeakMap的每一个key都是一个对象，当指向该对象的指针丢失，与之对应的value就会被垃圾回收走。
 
-这是主要的不同之处：
+这是WeakMap的主要不同处：
 
 1. 你不可以在WeakMap上迭代keys值和values值(或者key-value键值对)
 2. 你不可以从WeakMap上清除所有条目
 3. 你不可以获取WeakMap的大小
 
-A WeakMap exposes those methods, which are equivalent to the Map ones:
-WeakMap提供了如下几种方法，这些方法和Map中的一致：
+WeakMap提供了如下几种方法，这些方法的使用和在Map中一样：
 
 - `get(k)`
 - `set(k, v)`
 - `has(k)`
 - `delete(k)`
 
-关于WeakMap的用例不如Map的用例那么明显，你可能永远也不会发现那里会用到它，但从实际出发来说，WeakMap可以构建不会干扰到垃圾回收机制的内存敏感性缓存，或者用于封装的严谨性及信息的隐藏性需求。
+关于WeakMap的用例不如Map的用例那么明显，你可能永远也不会在哪里会用到它，但从实际出发，WeakMap可以构建不会干扰到垃圾回收机制的内存敏感性缓存，还可以满足封装的严谨性及信息的隐藏性需求。
 
 ### Generators生成器
 
-Generators是一种特殊的函数，它能够暂停自身的执行并在一会后再继续运行，从而允许其它的代码在此期间运行。
+Generators是一种特殊的函数，它能够暂停自身的执行并在一段时间后再继续运行，从而允许其它的代码在此期间运行(有关该主题的详细说明，请参阅完整的“javascript生成器指南”)。
 
-有关该主题的详细说明，请参阅完整的“javascript生成器指南”
-
-代码决定它必须等待，因此它允许队列中的其它代码运行，并保留“当它等待的事情”完成时恢复其操作的权利。
+Generators的代码决定它必须等待，因此它允许队列中的其它代码运行，并保留“当它等待的事情”完成时恢复其操作的权力。
 
 所有这一切都是通过一个简单的关键字“yield`”完成的。当生成器包含该关键字时，将停止执行。
 
-generator生成器可以包含许多`yield`关键字，从而使自己能多次停止运行，它是由`*function`关键字标识，不要将其与C、C++或Go等低级语言中使用的取消指针引用操作符混淆。
+generator生成器可以包含许多`yield`关键字，从而使自己能多次停止运行，它是由`*function`关键字标识(不要将其与C、C++或Go等低级语言中使用的取消指针引用操作符混淆)。
 
-Generators enable whole new paradigms of programming in JavaScript, allowing:
 Generators支持JavaScript中全新的编程范式，包括：
 
-- 2-way communication while a generator is running
 - 在generator运行时支持双向通信
-- long-lived while loops which do not freeze your program
 - 不会“冻结”长期运行在程序中的while循环
 
-Here is an example of a generator which explains how it all works.
+这里有一个解释generator如何工作的例子：
 
 ```
 function *calculator(input) {
-    var doubleThat = 2 * (yield (input / 2))
-    var another = yield (doubleThat)
-    return (input * doubleThat * another)
+  var doubleThat = 2 * (yield (input / 2))
+  var another = yield (doubleThat)
+  return (input * doubleThat * another)
 }
 ```
-
-We initialize it with
-
+我们先初始化它：
 ```
 const calc = calculator(10)
 ```
-
-Then we start the iterator on our generator:
-
+然后我们在generator中开始进行iterator迭代：
 ```
 calc.next()
 ```
 
-This first iteration starts the iterator. The code returns this object:
+第一个迭代器开始了迭代，代码返回如下object对象：
 
 ```
 {
@@ -1742,15 +1709,14 @@ This first iteration starts the iterator. The code returns this object:
 }
 ```
 
-What happens is: the code runs the function, with `input = 10` as it was passed in the generator constructor. It runs until it reaches the `yield`, and returns the content of `yield`: `input / 2 = 5`. So we got a value of 5, and the indication that the iteration is not done (the function is just paused).
+具体过程如下：代码运行了函数，并把`input=10`传入到生成器构造函数中，该函数一直运行直到抵达`yield`，并返回`yield`输出的内容: `input / 2 = 5`，因此，我们得到的值为5，并告知迭代器还没有done(函数只是暂停了)。
 
-In the second iteration we pass the value `7`:
+在第二个迭代处，我们输入7：
 
 ```
 calc.next(7)
 ```
-
-and what we got back is:
+然后我们得到了结果：
 
 ```
 {
@@ -1759,17 +1725,17 @@ and what we got back is:
 }
 ```
 
-`7` was placed as the value of `doubleThat`. Important: you might read like `input / 2` was the argument, but that's just the return value of the first iteration. We now skip that, and use the new input value, `7`, and multiply it by 2.
+7被作为`doubleThat`的值，注意：你可能会把`input/2`作为输入参数，但这只是第一次迭代的返回值。现在我们忽略它，使用新的输入值`7`，并将其乘以2.
 
-We then reach the second yield, and that returns `doubleThat`, so the returned value is `14`.
+然后，我们得到第二个yield的值，它返回`doubleThat`，因此返回值为`14`。
 
-In the next, and last, iteration, we pass in 100
+在下一个，也是最后一个迭代器，我们输入100
 
 ```
 calc.next(100)
 ```
 
-and in return we got
+这样我们得到:
 
 ```
 {
@@ -1778,29 +1744,25 @@ and in return we got
 }
 ```
 
-As the iteration is done (no more yield keywords found) and we just return `(input * doubleThat * another)` which amounts to `10 * 14 * 100`.
+当迭代器完成时(没有更多的yield关键字)，我们返回`input * doubleThat * another`，这相当于`10 * 14 * 100`。
 
 ------
 
-Those were the features introduced in ES2015. Let’s now dive into ES2016 which is much smaller in scope.
+这些都是在2015年的ES2015引入的特性，现在我们深入了解下ES2016，它的作用域范围更小。
 
 ------
 
 ### Array.prototype.includes()
 
-This feature introduces a more readable syntax for checking if an array contains an element.
+该特性引入了一种更简洁的语法，同来检查数组中是否包含指定元素。
 
-With ES6 and lower, to check if an array contained an element you had to use `indexOf`, which checks the index in the array, and returns `-1` if the element is not there.
-
-Since `-1` is evaluated as a true value, you could **not** do for example
-
+对于ES6及更低版本，想要检查数组中是否包含指定元素，你不得不使用`indexOf`方法，它检查数组中的索引，如果元素不存在，它返回`-1`，由于`-1`被计算为true，你需对其进行取反操作，例子如下：
 ```
 if (![1,2].indexOf(3)) {
   console.log('Not found')
 }
 ```
-
-With this feature introduced in ES7 we can do
+通过ES7引入的新特性，我们可以如此做：
 
 ```
 if (![1,2].includes(3)) {
@@ -1808,57 +1770,50 @@ if (![1,2].includes(3)) {
 }
 ```
 
-### Exponentiation Operator
+### 求幂运算符
 
-The exponentiation operator `**` is the equivalent of `Math.pow()`, but brought into the language instead of being a library function.
-
+求幂运算符`**`相当于`Math.pow()`方法，但是它不是一个函数库，而是一种语言机制：
 ```
 Math.pow(4, 2) == 4 ** 2
 ```
 
-This feature is a nice addition for math intensive JS applications.
-
-The `**` operator is standardized across many languages including Python, Ruby, MATLAB, Lua, Perl and many others.
-
+对于需要进行密集数学运算的程序来说，这个特性是个很好的增强，在很多语言中，`**`运算符都是标准(包括Python、Ruby、MATLAB、Perl等其它多种语言)。
 
 
 ![img](https://cdn-images-1.medium.com/max/1600/1*ta8eBjBIGeJucahugjlopg.png)
 
 ------
 
-Those were the features introduced in 2016. Let’s now dive into 2017
+这些都是2016年引入的特性，现在让我们进入2017年。
 
 ------
 
-### String padding
+### 字符串填充
 
-The purpose of string padding is to **add characters to a string**, so it **reaches a specific length**.
+字符串填充的目的是**给字符串添加字符**，以使其**达到指定长度**。
 
-ES2017 introduces two `String` methods: `padStart()` and `padEnd()`.
+ES2017引入了两个`String`方法：`padStart()`和`padEnd()`。
 
 ```
 padStart(targetLength [, padString])
 padEnd(targetLength [, padString])
 ```
 
-Sample usage:
-
+使用例子：
 
 
 ![img](https://cdn-images-1.medium.com/max/1600/1*dn9xi0ABHBNXUClPtUMPEg.png)
 
 ### Object.values()
 
-This method returns an array containing all the object own property values.
-
-Usage:
+该方法返回一个数组，数组包含了对象自己的所有属性，使用如下：
 
 ```
 const person = { name: 'Fred', age: 87 }
 Object.values(person) // ['Fred', 87]
 ```
 
-`Object.values()` also works with arrays:
+`Object.values()`也可以作用于数组：
 
 ```
 const people = ['Fred', 'Tony']
@@ -1867,16 +1822,14 @@ Object.values(people) // ['Fred', 'Tony']
 
 ### Object.entries()
 
-This method returns an array containing all the object own properties, as an array of `[key, value]` pairs.
-
-Usage:
+该方法返回一个数组，数组包含了对象自己的所有属性键值对，是一个`[key, value]`形式的数组，使用如下：
 
 ```
 const person = { name: 'Fred', age: 87 }
 Object.entries(person) // [['name', 'Fred'], ['age', 87]]
 ```
 
-`Object.entries()` also works with arrays:
+`Object.entries()`也可以作用于数组：
 
 ```
 const people = ['Fred', 'Tony']
@@ -1885,31 +1838,24 @@ Object.entries(people) // [['0', 'Fred'], ['1', 'Tony']]
 
 ### Object.getOwnPropertyDescriptors()
 
-This method returns all own (non-inherited) properties descriptors of an object.
+该方法返回自己(非继承)的所有属性描述符，JavaScript中的任何对象都有一组属性，每个属性都有一个描述符，描述符是属性的一组属性(attributes)，由以下部分组成：
 
-Any object in JavaScript has a set of properties, and each of these properties has a descriptor.
+- **value**: 熟悉的value值
+- **writable**: 属性是否可以被更改
+- **get**: 属性的getter函数, 当属性读取时被调用
+- **set**: 属性的setter函数, 当属性设置值时被调用
+- **configurable**: 如果为false, 不能删除该属性，除了它的value值以为，也不能更改任何属性。
+- **enumerable**: 该属性是否能枚举
 
-A descriptor is a set of attributes of a property, and it’s composed by a subset of the following:
-
-- **value**: the value of the property
-- **writable**: true the property can be changed
-- **get**: a getter function for the property, called when the property is read
-- **set**: a setter function for the property, called when the property is set to a value
-- **configurable**: if false, the property cannot be removed nor any attribute can be changed, except its value
-- **enumerable**: true if the property is enumerable
-
-`Object.getOwnPropertyDescriptors(obj)` accepts an object, and returns an object with the set of descriptors.
+`Object.getOwnPropertyDescriptors(obj)`接受一个对象，并返回一个带有描述符集合的对象。
 
 #### In what way is this useful?
 
-ES6 gave us `Object.assign()`, which copies all enumerable own properties from one or more objects, and return a new object.
+ES6给我们提供了`Object.assign()`方法，它从一个一个或多个对象中复制所有可枚举的属性值，并返回一个新对象。
 
-However there is a problem with that, because it does not correctly copies properties with non-default attributes.
+但是，这也存在着一个问题，因为它不能正确的复制一个具有非默认属性值的属性。
 
-If an object for example has just a setter, it’s not correctly copied to a new object, using `Object.assign()`.
-
-For example with
-
+如果对象只有一个setter，那么它就不会正确的复制到一个新对象上，使用`Object.assign()`进行如下操作：
 ```
 const person1 = {
     set name(newName) {
@@ -1917,15 +1863,14 @@ const person1 = {
     }
 }
 ```
-
-This won’t work:
+这将不会起作用：
 
 ```
 const person2 = {}
 Object.assign(person2, person1)
 ```
 
-But this will work:
+但这将会起作用：
 
 ```
 const person3 = {}
@@ -1933,7 +1878,7 @@ Object.defineProperties(person3,
   Object.getOwnPropertyDescriptors(person1))
 ```
 
-As you can see with a simple console test:
+通过一个简单的console控制台，你可以查看以下代码：
 
 ```
 person1.name = 'x'
@@ -1943,44 +1888,36 @@ person3.name = 'x'
 "x"
 ```
 
-`person2` misses the setter, it was not copied over.
+`person2`没有setter，它没能复制进去，对象的浅复制限定也出现在**Object.create()**方法中。
 
-The same limitation goes for shallow cloning objects with **Object.create()**.
+### 尾逗号
 
-### Trailing commas
-
-This feature allows to have trailing commas in function declarations, and in functions calls:
-
+该特性允许在函数定义时有尾逗号，在函数使用时可以有尾逗号：
 ```
 const doSomething = (var1, var2,) => {
   //...
 }
 doSomething('test2', 'test2',)
 ```
+该改变将鼓励开发者停止“在一行开始时写逗号”的丑陋习惯
+### 异步函数
 
-This change will encourage developers to stop the ugly “comma at the start of the line” habit.
+JavaScript在很短的时间内从回调函数进化到Promise函数(ES2015)，并自从ES2017以来，异步JavaScript的async/wait语法变得更加简单。
+异步函数是Promise和generator的结合，基本上，它是比Promise更高级的抽象，我再重复一般：**async/await是基于Promise建立的**
 
-### Async functions
+#### 为什么要引入async/await?
+它减少了围绕promise的引用，并打破了Promise — “不要打断链式调用”的限制。
 
-JavaScript evolved in a very short time from callbacks to promises (ES2015), and since ES2017 asynchronous JavaScript is even simpler with the async/await syntax.
+当Promise在ES2015中引入时，它的本意是来解决异步代码的问题，它也确实做到了，但在ES2015和ES2017间隔的这两年中，大家意识到：*Promise不是解决问题的终极方案*。
 
-Async functions are a combination of promises and generators, and basically, they are a higher level abstraction over promises. Let me repeat: **async/await is built on promises**.
+Promise是为了解决著名的*回调地狱*而被引入的，但它本身也带来了使用复杂性和语法复杂性。
 
-#### Why were async/await introduced?
+Promise是很好的原生特性，围绕着它开发人员可以探索出更好的语法，因此当时机成熟后，我们得到了**async函数**
 
-They reduce the boilerplate around promises, and the “don’t break the chain” limitation of chaining promises.
+async函数使代码看起来像是同步函数一样，但其背后却是异步和非堵塞的。
+#### 它如何工作
 
-When Promises were introduced in ES2015, they were meant to solve a problem with asynchronous code, and they did, but over the 2 years that separated ES2015 and ES2017, it was clear that *promises could not be the final solution*.
-
-Promises were introduced to solve the famous *callback hell* problem, but they introduced complexity on their own, and syntax complexity.
-
-They were good primitives around which a better syntax could be exposed to developers, so when the time was right we got **async functions**.
-
-They make the code look like it’s synchronous, but it’s asynchronous and non-blocking behind the scenes.
-
-#### How it works
-
-An async function returns a promise, like in this example:
+一个async函数会返回一个promise，如下例：
 
 ```
 const doSomethingAsync = () => {
@@ -1989,19 +1926,16 @@ const doSomethingAsync = () => {
   })
 }
 ```
-
-When you want to **call** this function you prepend `await`, and **the calling code will stop until the promise is resolved or rejected**. One caveat: the client function must be defined as `async`. Here's an example:
-
+当你想要**调用**该函数时，你在前面加上了一个`wait`，这样**调用就会被停止，直到该promise进行resolve或reject**，需注意的是：外层函数必须定义为`async`，这是例子：
 ```
 const doSomething = async () => {
   console.log(await doSomethingAsync())
 }
 ```
 
-#### A quick example
+#### 一个上手示例
 
-This is a simple example of async/await used to run a function asynchronously:
-
+这是一个使用async/await进行异步函数的简单示例：
 ```
 const doSomethingAsync = () => {
   return new Promise(resolve => {
@@ -2016,8 +1950,7 @@ doSomething()
 console.log('After')
 ```
 
-The above code will print the following to the browser console:
-
+上面的代码将会在浏览器的console中打印出如下结果：
 ```
 Before
 After
