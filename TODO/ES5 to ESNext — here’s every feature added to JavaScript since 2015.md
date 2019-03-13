@@ -18,60 +18,60 @@ JavaScript 在未来有着极好的发展空间，跟上它的变化不会比现
 
 #### 目录
 
-[**ECMAScript 简介**](https://medium.com/p/d0c255e13c6e#3641)
+<a href="#a00" >ECMAScript 简介</a>
 
 **ES2015**
 
-- [let 和 const](#let和const)
-- [箭头函数](https://medium.com/p/d0c255e13c6e#1d7c)
-- [类](https://medium.com/p/d0c255e13c6e#5609)
-- [默认参数](https://medium.com/p/d0c255e13c6e#679e)
-- [模板字符串](https://medium.com/p/d0c255e13c6e#1676)
-- [结构赋值](https://medium.com/p/d0c255e13c6e#c962)
-- [增强的对象字面量](https://medium.com/p/d0c255e13c6e#438e)
-- [For-of 循环](https://medium.com/p/d0c255e13c6e#3189)
-- [Promises](https://medium.com/p/d0c255e13c6e#6295)
-- [模块](https://medium.com/p/d0c255e13c6e#1250)
-- [String 的新方法](https://medium.com/p/d0c255e13c6e#b1bc)
-- [Object 的新方法](https://medium.com/p/d0c255e13c6e#928f)
-- [展开运算符](https://medium.com/p/d0c255e13c6e#c80e)
-- [Set](https://medium.com/p/d0c255e13c6e#62ad)
-- [Map](https://medium.com/p/d0c255e13c6e#c981)
-- [Generators](https://medium.com/p/d0c255e13c6e#c668)
+- <a href="#a01" >let 和 const</a>
+- <a href="#a02" >箭头函数</a>
+- <a href="#a03" >类</a>
+- <a href="#a04" >默认参数</a>
+- <a href="#a05" >模板字符串</a>
+- <a href="#a06" >结构赋值</a>
+- <a href="#a07" >增强的对象字面量</a>
+- <a href="#a08" >For-of 循环</a>
+- <a href="#a09" >Promises</a>
+- <a href="#a10" >模块</a>
+- <a href="#a11" >String 新方法</a>
+- <a href="#a12" >Object 新方法</a>
+- <a href="#a13" >展开运算符</a>
+- <a href="#a14" >Set</a>
+- <a href="#a15" >Map</a>
+- <a href="#a16" >Generators</a>
 
 **ES2016**
 
-- [Array.prototype.includes()](https://medium.com/p/d0c255e13c6e#b599)
-- [求幂运算符](https://medium.com/p/d0c255e13c6e#2050)
+-  <a href="#a17" >Array.prototype.includes()</a>
+-  <a href="#a18" >求幂运算符</a>
 
 **ES2017**
 
-- [String 填充 padding](https://medium.com/p/d0c255e13c6e#95af)
-- [Object.values()](https://medium.com/p/d0c255e13c6e#21cc)
-- [Object.entries()](https://medium.com/p/d0c255e13c6e#b188)
-- [Object.getOwnPropertyDescriptors()](https://medium.com/p/d0c255e13c6e#4d8c)
-- [尾后逗号](https://medium.com/p/d0c255e13c6e#9e68)
-- [共享内存 and 原子操作](https://medium.com/p/d0c255e13c6e#6bc5)
+-  <a href="#a19" >字符串填充</a>
+-  <a href="#a20" >Object.values()</a>
+-  <a href="#a21" >Object.entries()</a>
+-  <a href="#a22" >Object.getOwnPropertyDescriptors()</a>
+-  <a href="#a23" >尾逗号</a>
+-  <a href="#a24" >共享内存 and 原子操作</a>
 
 **ES2018**
 
-- [Rest/Spread Properties](https://medium.com/p/d0c255e13c6e#63f6)
-- [Asynchronous iteration](https://medium.com/p/d0c255e13c6e#301d)
-- [Promise.prototype.finally()](https://medium.com/p/d0c255e13c6e#d396)
-- [正则表达式改进](https://medium.com/p/d0c255e13c6e#3fa1)
+-  <a href="#a25" >Rest/Spread Properties</a>
+-  <a href="#a26" >Asynchronous iteration</a>
+-  <a href="#a27" >Promise.prototype.finally()</a>
+-  <a href="#a28" >正则表达式改进</a>
 
-[**ESNext**](https://medium.com/p/d0c255e13c6e#241b)
+**ESNext**
 
-- [Array.prototype.{flat,flatMap}](https://medium.com/p/d0c255e13c6e#24dc)
-- [try/catch 可选的参数绑定](https://medium.com/p/d0c255e13c6e#7b25)
-- [Object.fromEntries()](https://medium.com/p/d0c255e13c6e#8aed)
-- [String.prototype.{trimStart,trimEnd}](https://medium.com/p/d0c255e13c6e#ae63)
-- [Symbol.prototype.description](https://medium.com/p/d0c255e13c6e#4954)
-- [JSON improvements](https://medium.com/p/d0c255e13c6e#b93d)
-- [Well-formed JSON.stringify()](https://medium.com/p/d0c255e13c6e#835a)
-- [Function.prototype.toString()](https://medium.com/p/d0c255e13c6e#b38b)
+-  <a href="#a29" >Array.prototype.{flat,flatMap}</a>
+-  <a href="#a30" >try/catch 可选的参数绑定</a>
+-  <a href="#a31" >Object.fromEntries()</a>
+-  <a href="#a32" >String.prototype.{trimStart,trimEnd}</a>
+-  <a href="#a33" >Symbol.prototype.description</a>
+-  <a href="#a34" >JSON improvements</a>
+-  <a href="#a35" >Well-formed JSON.stringify()</a>
+-  <a href="#a36" >Function.prototype.toString()</a>
 
-### ECMAScript 简介
+### ECMAScript 简介 <span id='a00'></span>
 
 每当阅读 JavaScript 相关的文章时，我都会经常遇到如下术语： ES3, ES5, ES6, ES7, ES8, ES2015, ES2016, ES2017, ECMAScript 2017, ECMAScript 2016, ECMAScript 2015 等等，那么它们是指代的是什么？
 
@@ -118,15 +118,13 @@ C39的成员是 它的成员包括各个主流浏览器厂商以及业务与浏�
 
 Why does this happen? During the process that led to ES2015, the name was changed from ES6 to ES2015, but since this was done late, people still referenced it as ES6, and the community has not left the edition naming behind — *the world is still calling ES releases by edition number*.
 
-This table should clear things up a bit:
-
-
+下图比较清晰的展示了版本号与年份的关联:
 
 ![img](https://cdn-images-1.medium.com/max/1600/1*ta8eBjBIGeJucahugjlopg.png)
 
 接下啦我们来深入了解 JavaScript 自 ES5 以来增加的特性。
 
-### let和const
+### let和const <span id='a01'></span>
 
 ES2015 之前, `var` 是唯一可以用来声明变量的语句。
 
@@ -194,7 +192,7 @@ const a = 'test'
 
 现代 JavaScript 开发者在遇到不会进行二次赋值的变量声明时，应该尽量使用 `const`。
 
-### 箭头函数
+### 箭头函数<span id='a02'></span>
 
 箭头函数的引入极大的改变了代码的书写风格和一些工作机制。
 
@@ -234,7 +232,6 @@ const myFunction = (param1, param2) => doSomething(param1, param2)
 const myFunction = param => doSomething(param)
 ```
 
-Thanks to this short syntax, arrow functions **encourage the use of small functions**.
 由于这种简短的语法，使得我们可以更便捷的使用**比较简短的函数**
 
 #### 隐式返回
@@ -306,15 +303,14 @@ link.addEventListener('click', function() {
 })
 ```
 
-### Classes
+### Classes<span id='a03'></span>
 
 JavaScript 实现继承的方式比较罕见：[原型继承]((https://flaviocopes.com/javascript-prototypal-inheritance/))。原型继承虽然在我看来很棒，但与其他大多数流行的编程语言的继承实现机制不同，后者是基于类的。
 
 因此 Java、Python 或其他语言的开发者很难理解原型继承的方式，因此 ECMAScript 委员会决定在原型继承之上实现 class 的语法糖，这样便于就跟其他基于类的继承语言的开发者更好的理解 JavaScript 代码。
 
-This is important: JavaScript under the hood is still the same, and you can access an object prototype in the usual way.
-
 注意：class 并没有对 JavaScript 底层做修改，你仍然可以直接访问对象原型。
+
 #### class 定义
 
 如下是一个 class  的例子：
@@ -428,7 +424,7 @@ class Person {
 }
 ```
 
-### 默认参数
+### 默认参数<span id='a04'></span>
 
 函数 `doSomething`  接收一个 `param1` 参数。
 
@@ -481,7 +477,7 @@ const spin = ({ color = 'yellow' } = {}) => {
 }
 ```
 
-### 模板字符串
+### 模板字符串<span id='a05'></span>
 
 模板字符串不同于 ES5 以前的版本，你可以用新颖的方式使用字符串。
 
@@ -677,7 +673,7 @@ function interpolate(literals, ...expressions) {
 }
 ```
 
-### 解构赋值
+### 解构赋值<span id='a06'></span>
 
 给定一个object，你可以抽取其中的一些值并且赋值给命名的变量：
 
@@ -706,7 +702,7 @@ const [first, second] = a
 const [first, second, , , fifth] = a
 ```
 
-### 更强大的对象字面量
+### 更强大的对象字面量<span id='a07'></span>
 
 ES2015赋予了对象字面量更大的威力。
 
@@ -763,7 +759,7 @@ const x = {
 x.a_b //z
 ```
 
-### For-of循环
+### For-of循环<span id='a08'></span>
 
 2009年的ES5引入了`forEach()`循环。虽然很好用，但是它跟`for`循环一样，没法break。
 
@@ -788,7 +784,7 @@ for (const [i, v] of ['a', 'b', 'c'].entries()) {
 - `for...of` **遍历属性值**
 - `for...in` **遍历属性名**
 
-### Promises
+### Promises<span id='a09'></span>
 
 promise的一般定义： **它是一个代理，通过它可以最终得到一个值**.
 
@@ -991,7 +987,7 @@ Promise.race([promiseOne, promiseTwo]).then(result => {
 })
 ```
 
-### 模块
+### 模块<span id='a10'></span>
 
 ES Module是一个关于多模块的ECMAScript标准。
 
@@ -1135,7 +1131,7 @@ ES 模块是现代浏览器中的一大特性。这些特性是 ES6 规范中的
 
 Webpack 可能仍然会被大量使用，即使 ES 模块可以在浏览器中执行。但是语言内置这个特性对于客户端和 nodejs 在使用模块的时候是一种巨大的统一。
 
-### 新的字符串方法
+### 新的字符串方法<span id='a11'></span>
 
 任何字符串有了一些实例方法：
 
@@ -1185,7 +1181,7 @@ Webpack 可能仍然会被大量使用，即使 ES 模块可以在浏览器中�
 
 更多关于 Unicode 的使用方法，参考我的[Unicode guide](https://flaviocopes.com/unicode/)。
 
-### 新的对象方法
+### 新的对象方法<span id='a12'></span>
 
 ES2015 在 Object 类下引入了一些静态方法：
 
@@ -1280,7 +1276,7 @@ dog.isAnimal //true
 dog.isMammal //true
 ```
 
-### 展开操作符
+### 展开操作符<span id='a13'></span>
 
 你可以展开一个数组、一个对象甚至是一个字符串，通过使用展开操作符 `...`。
 
@@ -1364,7 +1360,7 @@ const items = { first, second, ...others }
 items //{ first: 1, second: 2, third: 3, fourth: 4, fifth: 5 }
 ```
 
-### Set
+### Set<span id='a14'></span>
 
 一个 Set 数据结构允许我们在一个容器里面增加数据。
 
@@ -1493,7 +1489,7 @@ const a = [...s.values()]
 - has()
 - delete()
 
-### Map
+### Map<span id='a15'></span>
 一份map结构的数据允许我们建立数据和key的关系
 
 #### 在ES6之前
@@ -1663,7 +1659,7 @@ WeakMap提供了如下几种方法，这些方法的使用和在Map中一样：
 
 关于WeakMap的用例不如Map的用例那么明显，你可能永远也不会在哪里会用到它，但从实际出发，WeakMap可以构建不会干扰到垃圾回收机制的内存敏感性缓存，还可以满足封装的严谨性及信息的隐藏性需求。
 
-### Generators生成器
+### Generators生成器<span id='a16'></span>
 
 Generators是一种特殊的函数，它能够暂停自身的执行并在一段时间后再继续运行，从而允许其它的代码在此期间运行(有关该主题的详细说明，请参阅完整的“javascript生成器指南”)。
 
@@ -1748,7 +1744,7 @@ calc.next(100)
 
 ------
 
-### Array.prototype.includes()
+### Array.prototype.includes()<span id='a17'></span>
 
 该特性引入了一种更简洁的语法，同来检查数组中是否包含指定元素。
 
@@ -1766,7 +1762,7 @@ if (![1,2].includes(3)) {
 }
 ```
 
-### 求幂运算符
+### 求幂运算符<span id='a18'></span>
 
 求幂运算符`**`相当于`Math.pow()`方法，但是它不是一个函数库，而是一种语言机制：
 ```
@@ -1784,7 +1780,7 @@ Math.pow(4, 2) == 4 ** 2
 
 ------
 
-### 字符串填充
+### 字符串填充<span id='a19'></span>
 
 字符串填充的目的是**给字符串添加字符**，以使其**达到指定长度**。
 
@@ -1800,7 +1796,7 @@ padEnd(targetLength [, padString])
 
 ![img](https://cdn-images-1.medium.com/max/1600/1*dn9xi0ABHBNXUClPtUMPEg.png)
 
-### Object.values()
+### Object.values()<span id='a20'></span>
 
 该方法返回一个数组，数组包含了对象自己的所有属性，使用如下：
 
@@ -1816,7 +1812,7 @@ const people = ['Fred', 'Tony']
 Object.values(people) // ['Fred', 'Tony']
 ```
 
-### Object.entries()
+### Object.entries()<span id='a21'></span>
 
 该方法返回一个数组，数组包含了对象自己的所有属性键值对，是一个`[key, value]`形式的数组，使用如下：
 
@@ -1832,7 +1828,7 @@ const people = ['Fred', 'Tony']
 Object.entries(people) // [['0', 'Fred'], ['1', 'Tony']]
 ```
 
-### Object.getOwnPropertyDescriptors()
+### Object.getOwnPropertyDescriptors()<span id='a22'></span>
 
 该方法返回自己(非继承)的所有属性描述符，JavaScript中的任何对象都有一组属性，每个属性都有一个描述符，描述符是属性的一组属性(attributes)，由以下部分组成：
 
@@ -1886,7 +1882,7 @@ person3.name = 'x'
 
 `person2`没有setter，它没能复制进去，对象的浅复制限定也出现在**Object.create()**方法中。
 
-### 尾逗号
+### 尾逗号<span id='a23'></span>
 
 该特性允许在函数定义时有尾逗号，在函数使用时可以有尾逗号：
 ```
@@ -2040,7 +2036,7 @@ I did something and I watched and I watched as well
 
 调试 Promise 就很困难，因为调试器无法跨越异步代码，但调试 async/await 就非常的简单，调试器会像调试同步代码一样来处理它。
 
-### 共享内存和原子
+### 共享内存和原子<span id='a24'></span>
 
 WebWorkers 可以在浏览器中创建多线程程序。
 
@@ -2056,7 +2052,7 @@ WebWorkers 可以在浏览器中创建多线程程序。
 
 ------
 
-### Rest/Spread Properties
+### Rest/Spread Properties<span id='a25'></span>
 
 ES2015 引入了解构数组的方法，当你使用时：
 
@@ -2091,7 +2087,7 @@ const items = { first, second, ...others }
 items //{ first: 1, second: 2, third: 3, fourth: 4, fifth: 5 }
 ```
 
-### 异步迭代器
+### 异步迭代器<span id='a26'></span>
 
 `for-await-of` 允许你使用异步可迭代对象做为循环迭代：
 
@@ -2104,7 +2100,7 @@ for await (const line of readLines(filePath)) {
 
 因为它使用的了 `await`，因此你只能在 `async` 函数中使用它。
 
-### Promise.prototype.finally()
+### Promise.prototype.finally()<span id='a27'></span>
 
 当一个 Promise 是 fulfilled 时，它会一个接一个的调用 then。
 
@@ -2119,7 +2115,7 @@ fetch('file.json')
   .finally(() => console.log('finished'))
 ```
 
-### 正则表达式改进
+### 正则表达式改进<span id='a28'></span>
 
 ES2018 对正则表达式引入了许多改进，这些都可以在 <https://flaviocopes.com/javascript-regular-expressions/> 上找到。
 
@@ -2246,7 +2242,7 @@ ECMAScript 标准的提案是分阶段组织的，第一到第三阶段属于功
 
 第三阶段还有一些其他功能，可能会在接下来的几个月内升级到第四阶段，你可以在这个 Github 仓库中查看它们：<https://github.com/tc39/proposals>。
 
-### Array.prototype.{flat,flatMap}
+### Array.prototype.{flat,flatMap}<span id='a29'></span>
 
 `flat()` 是一个新的数组实例方法，它可以将多维数组转化成一维数组。
 
@@ -2279,7 +2275,7 @@ ECMAScript 标准的提案是分阶段组织的，第一到第三阶段属于功
 //[ 'My', 'dog', 'is', 'awesome' ]
 ```
 
-### Optional catch binding
+### Optional catch binding<span id='a30'></span>
 
 有时候我们并不需要将参数绑定到 try/catch 中。
 
@@ -2303,7 +2299,7 @@ try {
 }
 ```
 
-### Object.fromEntries()
+### Object.fromEntries()<span id='a31'></span>
 
 Objects have an `entries()` method, since ES2017.
 
@@ -2326,7 +2322,7 @@ const newPerson = Object.fromEntries(entries)
 person !== newPerson //true 
 ```
 
-### String.prototype.{trimStart,trimEnd}
+### String.prototype.{trimStart,trimEnd}<span id='a32'></span>
 
 这些功能已经被 v8/Chrome 实现了近一年的时间，它将在 ES2019 中实现标准化。
 
@@ -2352,7 +2348,7 @@ person !== newPerson //true
 'Testing '.trimEnd() //'Testing'
 ```
 
-### Symbol.prototype.description
+### Symbol.prototype.description<span id='a33'></span>
 
 现在你可以使用 `description` 来获取 Symbol 的值，而不必使用 `toString()` 方法：
 
@@ -2361,13 +2357,13 @@ const testSymbol = Symbol('Test')
 testSymbol.description // 'Test'
 ```
 
-### JSON improvements
+### JSON improvements<span id='a34'></span>
 
 在此之前 JSON 字符串中不允许使用分隔符（\u2028）和分隔符（\u2029）。
 
 使用 JSON.parse 时，这些字符会导致一个 `SyntaxError` 错误，但现在它们可以正确的解析并如 JSON 标准定义的那样。
 
-### Well-formed JSON.stringify()
+### Well-formed JSON.stringify()<span id='a35'></span>
 
 修复 `JSON.stringify()` 在处理 UTF-8 code points (U+D800 to U+DFFF)。
 
@@ -2375,7 +2371,7 @@ testSymbol.description // 'Test'
 
 现在你可以安全放心的使用 `JSON.stringify()` 转成字符串，也可以使用 `JSON.parse()` 将它转换回原始表示的形态。
 
-### Function.prototype.toString()
+### Function.prototype.toString()<span id='a36'></span>
 
 函数总会有一个 `toString` 方法，它将返回一个包含函数代码的字符串。
 
