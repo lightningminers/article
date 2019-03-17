@@ -29,7 +29,7 @@ JavaScript 在未来有着极好的发展空间，跟上它的变化不会比现
 - <a href="#a03" >类</a>
 - <a href="#a04" >默认参数</a>
 - <a href="#a05" >模板字符串</a>
-- <a href="#a06" >结构赋值</a>
+- <a href="#a06" >解构赋值</a>
 - <a href="#a07" >增强的对象字面量</a>
 - <a href="#a08" >For-of 循环</a>
 - <a href="#a09" >Promises</a>
@@ -2426,3 +2426,7 @@ bar.toString(); // 'function /* this is bar */ bar () {}'
 总结一下，我希望这篇文章可以帮助你了解一些最新的 JavaScript 以及我们在 2019 年即将看见的内容。
 
 [**Click here to get a PDF / ePub / Mobi version of this post to read offline**](https://flaviocopes.com/es5-to-next/)
+
+## Copyright
+
+> **版权声明：** [闪电矿工翻译组](https://github.com/lightningminers/article) 译文仅用于学习、研究和交流。版权归 [闪电矿工翻译组](https://github.com/lightningminers/article)、文章作者和译者所有，欢迎非商业转载。转载前请联系译者或 [管理员](https://github.com/icepy) 获取授权，并在文章开头明显位置注明本文出处、译者、校对者和闪电矿工翻译组的完整链接，违者必究。
