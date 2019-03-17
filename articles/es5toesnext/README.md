@@ -2219,7 +2219,7 @@ This new feature extends this concept to all Unicode characters introducing `\p{
 /^\p{Script=Latin}+$/u.test('hey') //✅
 ```
 
-阅读[ttps://github.com/tc39/proposal-regexp-unicode-property-escapes](ttps://github.com/tc39/proposal-regexp-unicode-property-escapes) 获取使用所有属性的详细信息。
+阅读[https://github.com/tc39/proposal-regexp-unicode-property-escapes](https://github.com/tc39/proposal-regexp-unicode-property-escapes) 获取使用所有属性的详细信息。
 
 #### Named capturing groups
 
