@@ -77,20 +77,20 @@ JavaScript 在未来有着极好的发展空间，跟上它的变化不会比现
 
 每当阅读 JavaScript 相关的文章时，我都会经常遇到如下术语： ES3, ES5, ES6, ES7, ES8, ES2015, ES2016, ES2017, ECMAScript 2017, ECMAScript 2016, ECMAScript 2015 等等，那么它们是指代的是什么？
 
-它们指代的都是一个名为 ECMAScript 的标准。
+它们都是指代一个名为 ECMAScript 的标准。
 
 JavaScript 就是基于这个标准实现的，ECMAScript 经常缩写为 ES。
 
 除了 JavaScript 以外，其它基于 ECMAScript 实现语言包括：
 
 - *ActionScript* ( Flash 脚本语言)，由于 Adobe 将于 2020 年末停止对 Flash 的支持而逐渐失去热度。
-- *JScript* (微软开发的脚本语言)，在第一次浏览器大战最激烈的时期，JavaScript 只被Netscape所支持，微软必须为 Internet Explorer 构建自己的脚本语言。
+- *JScript* (微软开发的脚本语言),在第一次浏览器大战最激烈的时期，JavaScript 只被Netscape所支持，微软必须为 Internet Explorer 构建自己的脚本语言。
 
 但是现在**流传最广**、影响最大的基于 ES 标准的语言实现无疑就是 JavaScript了
 
-ECMAScript 这个奇怪的名称起源是什么呢？**Ecma International** 是瑞士标准协会，负责制定国际标准。
+为啥要用这个奇怪的名字呢？**Ecma International** 是瑞士标准协会，负责制定国际标准。
 
-JavaScript 被创建以后，经由 Netscape 和 Sun Microsystems 公司提交给欧洲计算机制造商协会进行标准化，被采纳的 ECMA-262 又被称为  **ECMAScript**。
+JavaScript 被创建以后，经由 Netscape 和 Sun Microsystems 公司提交给欧洲计算机制造商协会进行标准化，被采纳的 ECMA-262 别名叫  **ECMAScript**。
 
 [This press release by Netscape and Sun Microsystems](https://web.archive.org/web/20070916144913/http://wp.netscape.com/newsref/pr/newsrelease67.html) (the maker of Java) might help figure out the name choice, which might include legal and branding issues by Microsoft which was in the committee, [according to Wikipedia](https://en.wikipedia.org/wiki/ECMAScript).
 
@@ -119,6 +119,7 @@ TC39的成员包括各个主流浏览器厂商以及业务与浏览器紧密相�
 在 ES2015 之前，ECMAScript 各个版本的命名规范通常与跟着标准的版本更新保持一致。因此，2009年 ECMAScript 规范更新以后的的正式版本是 ES5。
 
 Why does this happen? During the process that led to ES2015, the name was changed from ES6 to ES2015, but since this was done late, people still referenced it as ES6, and the community has not left the edition naming behind — *the world is still calling ES releases by edition number*.
+为什么会发生这一切？在ES2015诞生的过程中，名称由ES6更改为ES2015，但由于最终完成太晚，人们仍然称其为ES6，社区也没有将版本号完全抛之于后 — 世界仍然使用 ES 来定义版本号。
 
 下图比较清晰的展示了版本号与年份的关联:
 
@@ -144,7 +145,7 @@ var a = 0
 var a //typeof a === 'undefined'
 ```
 
-你可以对一个变量进行多次变量，后面声明语句会覆盖之前的：
+你可以对一个变量进行多次重新声明，并覆盖它：
 
 ```js
 var a = 1
@@ -157,9 +158,9 @@ var a = 2
 var a = 1, b = 2
 ```
 
-**作用域**是可访问变量的集合。
+**作用域**是变量可访问的代码部分。
 
-在函数外部用声明 `var` 声明的变量会成为全局变量的属性，这种变量可以在全局作用域中被访问到。而在函数内部声明的变量只能在函数局部作用域被访问到，在这点上类似于函数参数。
+在函数之外用 `var` 声明的会分配给全局对象，这种变量可以在全局作用域中被访问到。而在函数内部声明的变量只能在函数局部作用域被访问到，这类似于函数参数。
 
 在函数中定义的局部变量名如何跟全局变量重名，那么局部变量的优先级更高，在函数内无法访问到同名的全局变量。
 
@@ -176,7 +177,7 @@ var a = 1, b = 2
 
 > 如果 `let` 看起来是一个很抽象的术语，当你阅读到 `let color = 'red'` 这一段，因为使用 `let` 定义了color 为红色，那么这一切就变的有意义了。
 
-在任何函数之外用 `let` 声明变量，它和 `var` 相反并不会创建全局变量。
+在任何函数之外用 `let` 声明变量，和 `var`相反的是 它并不会创建全局变量。
 
 #### Using `const`
 
@@ -200,7 +201,7 @@ const a = 'test'
 
 在我看来，箭头函数很受开发者欢迎，现在很少在比较新的代码库中看到 `function` 关键字了，虽然它并未被废弃。
 
-箭头函数看起来会更加的简洁，因为它允许您你使用更短的语法来书写函数：
+箭头函数看起来会更加的简洁，因为它允许你使用更短的语法来书写函数：
 
 ```js
 const myFunction = function() {
@@ -216,7 +217,7 @@ const myFunction = () => {
 }
 ```
 
-如果函数体重只包含一条语句，你甚至可以省略括号并直接书写这条语句：
+如果函数体中只包含一条语句，你甚至可以省略大括号并直接书写这条语句：
 
 ```js
 const myFunction = () => doSomething()
@@ -305,11 +306,11 @@ link.addEventListener('click', function() {
 })
 ```
 
-### 类<span id='a03'></span>
+### Classes类<span id='a03'></span>
 
-JavaScript 实现继承的方式比较罕见：[原型继承]((https://flaviocopes.com/javascript-prototypal-inheritance/))。原型继承虽然在我看来很棒，但与其他大多数流行的编程语言的继承实现机制不同，后者是基于类的。
+JavaScript 实现继承的方式比较罕见：[原型继承]((https://flaviocopes.com/javascript-prototypal-inheritance/))。原型继承虽然在我看来很棒，但与其它大多数流行的编程语言的继承实现机制不同，后者是基于类的。
 
-因此 Java、Python 或其他语言的开发者很难理解原型继承的方式，因此 ECMAScript 委员会决定在原型继承之上实现 class 的语法糖，这样便于就跟其他基于类的继承语言的开发者更好的理解 JavaScript 代码。
+因此 Java、Python 或其它语言的开发者很难理解原型继承的方式，因此 ECMAScript 委员会决定在原型继承之上实现 class 的语法糖，这样便于让其它基于类实现继承的语言的开发者更好的理解 JavaScript 代码。
 
 注意：class 并没有对 JavaScript 底层做修改，你仍然可以直接访问对象原型。
 
@@ -328,7 +329,7 @@ class Person {
 }
 ```
 
- class 具有一个标识符，我们可以使用 `new ClassIdentifier()` 来创建一个对象实例。
+class 具有一个标识符，我们可以使用 `new ClassIdentifier()` 来创建一个对象实例。
 
 初始化对象时，调用 `constructor`方法，并将参数传递给此方法。
 
@@ -341,7 +342,7 @@ flavio.hello()
 
 #### Class 继承
 
-一个类还可以通过 `extends` 创建子类，通过子类实例化出来的对象可以继承这两个类的所有方法。
+一个子类可以 extend 另一个类，通过子类实例化出来的对象可以继承这两个类的所有方法。
 
 如果子类中的方法与父类中的方法名重复，那么子类中的同名方法优先级更高：
 
@@ -400,7 +401,7 @@ class Person {
 }
 ```
 
-如果你只有一个 getter，则无法设置该属性，并且设置此属性的操作都会被忽略：
+如果你只有 getter，该属性无法被设置，并且设置此属性的操作都会被忽略：
 
 ```js
 class Person {
@@ -442,7 +443,7 @@ const doSomething = (param1 = 'test') => {
 }
 ```
 
-当然，这中机制同样适用于多个参数：
+当然，这种机制同样适用于多个参数：
 
 ```js
 const doSomething = (param1 = 'test', param2 = 'test2') => {
@@ -463,7 +464,7 @@ const colorize = (options) => {
 }
 ```
 
-通过解构，你可以给队形的特定属性提供默认值，而这样则可以大大简化代码。
+通过解构，你可以给特定属性提供默认值，如此可以大大简化代码：
 
 ```js
 const colorize = ({ color = 'yellow' }) => {
@@ -808,7 +809,7 @@ Promise是处理异步代码的一种方式，可以少写很多回调。
 - [Fetch API](https://flaviocopes.com/fetch-api/)
 - [Service Workers](https://flaviocopes.com/service-workers/)
 
-在现代的JavaScript中，不使用promise是太可能的，所以我们来深入研究下promise吧。
+在现代的JavaScript中，不使用promise是不太可能的，所以我们来深入研究下promise吧。
 
 #### 创建一个promise
 
@@ -853,7 +854,7 @@ const checkIfItsDone = () => {
 
 #### 链式promise
 
-一个promise可以返回另一个promise，从而创建promise链接（chain）。
+一个promise可以返回另一个promise，从而创建promise链条（chain）。
 
 一个很好的例子就是[Fetch API](https://flaviocopes.com/fetch-api)，它是基于XMLHttpRequest API的一个上层API，我们可以用它来获取资源，并且在获取到资源的时候链式执行一系列promise。
 
@@ -973,7 +974,7 @@ Promise.all([f1, f2]).then(([res1, res2]) => {
 
 #### `Promise.race()`
 
-`Promise.race()`运行所有传递进去的promise，但是只要有其中一个resolve了，就会运行后面的回调，并且只执行一次回调，回调的参数就是第一个resolve的promise返回的结果。
+`Promise.race()`运行所有传递进去的promise，但是只要有其中一个resolve了，就会运行回调函数，并且只执行一次回调，回调的参数就是第一个resolve的promise返回的结果。
 
 例子：
 
@@ -997,7 +998,7 @@ ES Module是用于处理模块的ECMAScript标准。
 
 这个标准化已经完成在 ES2015中，浏览器也开始实施实现这个标准，大家试图保持一致，以相同的方式工作。现在 ES Module 可以在 Chrome Safari Edge 和 Firefox（从60版本开始） 中使用。
 
-模块非常酷，他们可以让你封装各种各样的功能，同时将这些功能作为库暴露给其他 JavaScript 文件使用。
+模块非常酷，他们可以让你封装各种各样的功能，同时将这些功能作为库暴露给其它 JavaScript 文件使用。
 
 #### ES 模块语法
 
@@ -1021,9 +1022,9 @@ const package = require('module-name')
 export default str => str.toUpperCase()
 ```
 
-在这个例子中，这个模块定义了唯一一个 **default export**，因此可以是一个匿名函数。否则，需要一个名称来和其他 **导出** 做区分。
+在这个例子中，这个模块定义了唯一一个 **default export**，因此可以是一个匿名函数。否则，需要一个名称来和其它 **导出** 做区分。
 
-现在，**任何其他的 JavaScript 模块** 可以通过 **import** 导入 **uppercase.js** 的这个功能。
+现在，**任何其它的 JavaScript 模块** 可以通过 **import** 导入 **uppercase.js** 的这个功能。
 
 一个 HTML 页面可以通过使用了特殊的 `type=module` 属性的 `<script>` 标签添加一个模块。
 
@@ -1047,7 +1048,7 @@ import toUpperCase from './uppercase.js'
 toUpperCase('test') //'TEST'
 ```
 
-你也可以通过一个绝对路径来导入模块，下面是一个引用来自其他域底下定义的模块的例子：
+你也可以通过一个绝对路径来导入模块，下面是一个引用来自其它域底下定义的模块的例子：
 
 ```js
 import toUpperCase from 'https://flavio-es-modules-example.glitch.me/uppercase.js'
@@ -1467,7 +1468,7 @@ for (const k of s) {
 const s = new Set([1, 2, 3, 4])
 ```
 
-#### 将 set 转换位一个数组
+#### 将 set 转换为一个数组
 
 ```js
 const a = [...s.keys()]
@@ -2204,7 +2205,7 @@ This new feature extends this concept to all Unicode characters introducing `\p{
 /^\p{ASCII_Hex_Digit}+$/u.test('h')                //❌
 ```
 
-此外，还有很多其他的属性。你可以在()中添加它们的名字来检查它们，包括 `Uppercase`, `Lowercase`, `White_Space`, `Alphabetic`, `Emoji`等等：
+此外，还有很多其它的属性。你可以在()中添加它们的名字来检查它们，包括 `Uppercase`, `Lowercase`, `White_Space`, `Alphabetic`, `Emoji`等等：
 
 ```javascript
 /^\p{Lowercase}$/u.test('h') //✅
@@ -2263,7 +2264,7 @@ ECMAScript 标准的提案是分阶段组织的，第一到第三阶段属于功
 
 其中一些变化主要在内部使用，但知道发生了什么这也很好。
 
-第三阶段还有一些其他功能，可能会在接下来的几个月内升级到第四阶段，你可以在这个 Github 仓库中查看它们：<https://github.com/tc39/proposals>。
+第三阶段还有一些其它功能，可能会在接下来的几个月内升级到第四阶段，你可以在这个 Github 仓库中查看它们：<https://github.com/tc39/proposals>。
 
 ### Array.prototype.{flat,flatMap}<span id='a29'></span>
 
@@ -2398,7 +2399,7 @@ testSymbol.description // 'Test'
 
 函数总会有一个 `toString` 方法，它将返回一个包含函数代码的字符串。
 
-ES2019 对返回值做了修改，以避免剥离注释和其他字符串（如：空格），将更准确的表示函数的定义。
+ES2019 对返回值做了修改，以避免剥离注释和其它字符串（如：空格），将更准确的表示函数的定义。
 
 If previously we had
 
