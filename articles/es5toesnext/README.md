@@ -6,8 +6,6 @@ author: [Flavio Copes](https://medium.freecodecamp.org/@flaviocopes)
 ---
 # ES5 to ESNext —  自 2015 以来 JavaScript 新增的所有新特性
 
-> 原标题：ES5 to ESNext — here’s every feature added to JavaScript since 2015
-
 ![img](./assets/i_1.png)
 
 这篇文章的出发点是为了帮助前端开发者串联 ES6前后的 JavaScript 知识，并且可以快速了解 JavaScript 语言的最新进展。
