@@ -762,7 +762,7 @@ x.a_b //z
 
 ### For-of循环<span id='a08'></span>
 
-2009年的ES5引入了`forEach()`循环。虽然很好用，但是它跟`for`循环一样，没法break。
+2009年的ES5引入了`forEach()`循环，虽然很好用，但是它跟`for`循环不一样，没法break。
 
 ES2015引入了`**for-of**` **循环**，就是在`forEach`的基础上加上了break的功能：
 
