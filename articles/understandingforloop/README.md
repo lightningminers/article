@@ -5,34 +5,33 @@ link: https://blog.bitsrc.io/understanding-the-for-of-loop-in-javascript-8aded97
 author: [kurtwanger40](https://blog.bitsrc.io/@kurtwanger40)
 ---
 
-InJavaScript, we have so many looping statements:
+在`JavaScript`的世界中，我们可以使用很多种循环表达式：
 
-- `while` statement
-- `do...while` statement
-- `for` statement
-- `for...in` statement
-- `for...of` statement
+- `while` 表达式
+- `do...while` 表达式
+- `for` 表达式
+- `for...in` 表达式
+- `for...of` 表达式
 
-All these have one basic function: they repeat until a certain condition is met.
+所有这些表达式都有一个基本的功能：它们会重复一件事情知道一个具体的条件出现。
 
-In this article, we will look into the `for...of` statement to see how it works and where it can be used to write better code in our JS applications.
+在这篇文章中，我们将深入 `for...of` 表达式，去了解它是如何工作的，以及在我们的应用中可以使用它来优化代码的地方。
 
-**Tip**: Build JS apps faster with [**Bit** (open-source)](https://github.com/teambit/bit). It lets you quickly discover, share and install components/modules across your apps. Give it a try.
+<!-- **Tip**: 使用 [**Bit** (open-source)](https://github.com/teambit/bit) 快速构建 `JS` 应用。它可以让你快速发现、分享和跨应用安装组件/模块。试试吧。
 
 
 
 ![img](https://cdn-images-1.medium.com/max/1600/1*Yhkh7jbS5Mx9uP96Y88pZg.gif)
 
-React spinner components: choose, learn use.
+React spinner 组件：选择一个 spinner，学习如何使用。
 
 [**Component Discovery and Collaboration · Bit**
-*Bit is where developers share components and collaborate to build amazing software together. Discover components shared…*bit.dev](https://bit.dev/)
+*Bit is where developers share components and collaborate to build amazing software together. Discover components shared…*bit.dev](https://bit.dev/) -->
 
 ### for…of
 
-`for...of` is a type of `for` statement to cycles through `iterables(iterable objects)` until it reaches the end of the line.
-
-Let’s look at a basic example:
+`for...of` 是一种 `for` 表达式，用来迭代 `iterables(iterable objects)`直到迭代终止。
+下面是一个基础的例子：
 
 ```
 let arr = [2,4,6,8,10]
@@ -47,7 +46,7 @@ for(let a of arr) {
 // 10
 ```
 
-With much less code than the `for` statement, we looped through the `arr`array.
+使用比`for`循环更好的代码，我们遍历了`arr`数组。
 
 ```
 let myname = "Nnamdi Chidume"
@@ -70,40 +69,39 @@ for (let a of myname) {
 // m
 // e
 ```
+你知道如果我们使用`for`循环，我们将必须使用数学和逻辑去判断何时我们将会达到`myname`的末尾并且停止循环。但是正如你所见的，使用`for...of`循环之后，我们将会避免这些烦人的事情。
 
-You know if we used for loop, we will have to employ some mathematics and logic to know when we reached the end of `myname` and quit. But you see with for..of loop we save ourselves some headache :).
-
-As we can see `for...of` has the following general definition:
+正如我们所见的，`for...of`有以下通用的使用方法：
 
 ```
 for ( variable of iterable) {
     //...
 }
 ```
+`variable` - 保存每次迭代过程中的迭代对象的属性值
+`iterable` - 我们进行迭代的对象
 
-`variable` - holds the value of each property of the iterable on each iteration. `iterable` - is the object to be iterated upon.
+### Iterables（可迭代的对象） and Iterator（迭代器）
 
-### Iterables and Iterator
+在`for...of`循环的定义中，我们说它是“迭代 *iterables(iterable objects)*”。这个定义告诉我们`for...of`循环只能用于可迭代对象。
 
-At the definition of for…of loop, we said it “cycles through *iterables(iterable objects)*”. So with this, it means to tell us that `for...of` loop could not be used unless the item it is going to try to loop over is an iterable.
+那么， 什么是可迭代的对象（`iterables`）？
 
-Then, what are iterables?
+简单来说的话，Iterables 是可以用于迭代的对象。在`ES6`中增加了几个特性。这些特性包含了新的协议,其中就有迭代器（Iterator）协议和可迭代（Iterable）协议。
 
-Simply put, Iterables are objects that iteration could be performed on. In ECMAScript 2015 a coupla additions were made. These additions were new protocols. And among the protocols were the Iterator protocol and Iterable protocol.
+参考`MDN`的描述，“可迭代协议允许`JS`对象定义或者修改它们的迭代行为，比如哪些值可以被`for...of`循环到。”同时“为了变成可迭代的，对象必须实现`@@iterator`方法，这意味着这个对象（或者其原型链上的对象）必须包含一个可以使用`Symbol.iterator`常量访问的`@@iterator`的属性”
 
-According to Mozilla Developer, “The iterable protocol allows JavaScript objects to define or customize their iteration behavior, such as what values are looped over in a for..of construct.” and “In order to be iterable, an object must implement the `@@iterator` method, meaning that the object (or one of the objects up its prototype chain) must have a property with a `@@iterator` key which is available via constant `Symbol.iterator`."
+说人话就是，对于可以使用`for...of`循环的对象来说，它必须是可迭代的，换句话就是它必须有`@@iterator`属性。这就是符合可迭代协议的。
 
-What this actually means is that, for your objects to be able to be looped through by `for...of` it must be iterable in other words it must have the weird `@@iterator` as property. That's conforming to the iterable protocol.
+所以当对象有`@@iterator`属性的时候就可以被`for...of`循环迭代，`@@iterator`方法被`for...of`调用，并且返回一个迭代器。
 
-So when the object with the `@@iterator` property is to be iterated by `for...of`, the @@iterator method is called by the same `for...of`. The @@iterator must return an iterator.
+现在，迭代器协议定义了一种对象中的值如何返回的方式。一个迭代器对象必须实现`next`方法，next 方法需要遵循以下准则：
 
-Now, the Iterator protocol defines a way by which a stream of values could be returned from an object. An iterator must implement the `next` method. The next method has a set of rules to follow:
+- 必须返回一个包含 done, value 属性的对象
+- done 是一个布尔值，用来表示循环是否结束
+- value 是当前循环的值
 
-- It must return an object with properties done, value {done, value}
-- The done is Boolean that denotes when the end of the stream is reached.
-- The value holds the value of the current cycle.
-
-Example:
+举个例子:
 
 ```
 const createIterator = function () {
