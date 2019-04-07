@@ -13,7 +13,7 @@ author: [kurtwanger40](https://blog.bitsrc.io/@kurtwanger40)
 - `for...in` 表达式
 - `for...of` 表达式
 
-所有这些表达式都有一个基本的功能：它们会重复一件事情知道一个具体的条件出现。
+所有这些表达式都有一个基本的功能：它们会重复一件事情直到一个具体的条件出现。
 
 在这篇文章中，我们将深入 `for...of` 表达式，去了解它是如何工作的，以及在我们的应用中可以使用它来优化代码的地方。
 
@@ -30,7 +30,7 @@ React spinner 组件：选择一个 spinner，学习如何使用。
 
 ### for…of
 
-`for...of` 是一种 `for` 表达式，用来迭代 `iterables(iterable objects)`直到迭代终止。
+`for...of` 是一种 `for` 表达式，用来迭代 `iterables(iterable objects)`直到终止条件出现。
 下面是一个基础的例子：
 
 ```
@@ -71,7 +71,7 @@ for (let a of myname) {
 ```
 你知道如果我们使用`for`循环，我们将必须使用数学和逻辑去判断何时我们将会达到`myname`的末尾并且停止循环。但是正如你所见的，使用`for...of`循环之后，我们将会避免这些烦人的事情。
 
-正如我们所见的，`for...of`有以下通用的使用方法：
+`for...of`有以下通用的使用方法：
 
 ```
 for ( variable of iterable) {
@@ -87,15 +87,15 @@ for ( variable of iterable) {
 
 那么， 什么是可迭代的对象（`iterables`）？
 
-简单来说的话，Iterables 是可以用于迭代的对象。在`ES6`中增加了几个特性。这些特性包含了新的协议,其中就有迭代器（Iterator）协议和可迭代（Iterable）协议。
+简单来说的话，可迭代对象（Iterables）是可以用于迭代的对象。在`ES6`中增加了几个特性。这些特性包含了新的协议,其中就有迭代器（Iterator）协议和可迭代（Iterable）协议。
 
 参考`MDN`的描述，“可迭代协议允许`JS`对象定义或者修改它们的迭代行为，比如哪些值可以被`for...of`循环到。”同时“为了变成可迭代的，对象必须实现`@@iterator`方法，这意味着这个对象（或者其原型链上的对象）必须包含一个可以使用`Symbol.iterator`常量访问的`@@iterator`的属性”
 
-说人话就是，对于可以使用`for...of`循环的对象来说，它必须是可迭代的，换句话就是它必须有`@@iterator`属性。这就是符合可迭代协议的。
+说人话就是，对于可以使用`for...of`循环的对象来说，它必须是可迭代的，换句话就是它必须有`@@iterator`属性。这就是可迭代协议。
 
 所以当对象有`@@iterator`属性的时候就可以被`for...of`循环迭代，`@@iterator`方法被`for...of`调用，并且返回一个迭代器。
 
-现在，迭代器协议定义了一种对象中的值如何返回的方式。一个迭代器对象必须实现`next`方法，next 方法需要遵循以下准则：
+同时，迭代器协议定义了一种对象中的值如何返回的方式。一个迭代器对象必须实现`next`方法，next 方法需要遵循以下准则：
 
 - 必须返回一个包含 done, value 属性的对象
 - done 是一个布尔值，用来表示循环是否结束
@@ -124,7 +124,7 @@ log(iterator.next()) // Nnamdi
 log(iterator.next()) // Chidume
 ```
 
-Basically, the @@iterator method returns an iterator which the `for...of`uses to cycle through the implementing object to get the values. So, if an object doesn't have the `@@iterator` method and/or returns an iterator, the `for...of` statement on it won't work.
+基本上，`@@iterator` 方法回返回一个迭代器，`for...of` 循环正是使用这个迭代器去循环操作目标对象从而得到值。因此，如果一个对象没有`@@iterator`方法同时这个返回值是一个迭代器，`for...of` 循环将不会生效。
 
 ```
 const nonIterable = //...
@@ -136,7 +136,7 @@ for( let a of nonIterable) {
 TypeError: nonIterable is not iterable
 ```
 
-Examples of Iterables are:
+内置的可迭代对象有有以下这些：
 
 - String
 - Map
@@ -145,7 +145,7 @@ Examples of Iterables are:
 - Set
 - Generator
 
-Notice that Object is missing. Object is not an iterable. If we try to use loop through an object’s properties using the for…of loop:
+注意，Object 不是可迭代的。如果我们尝试使用`for...of`去迭代对象的属性：
 
 ```
 let obj {
@@ -157,7 +157,7 @@ for(const a of obj) {
 }
 ```
 
-It will throw an error:
+将会抛出一个异常：
 
 ```
 for(const a of obj) {
@@ -165,7 +165,7 @@ for(const a of obj) {
 TypeError: obj is not iterable
 ```
 
-We can check if an object is iterable by doing this:
+我们可以用下面的方式检查一个对象是否可迭代：
 
 ```
 const str = new String('Chidume');
@@ -173,7 +173,7 @@ log(typeof str[Symbol.iterator]);
 function
 ```
 
-See, it logs a `function`, that shows @@iterator property is present in String. If we try Object:
+看到了吧，打印的结果是`function`, 这意味着`@@iterator`属性存在，并且是函数类型。如果我们在 Object 上面进行尝试：
 
 ```
 const obj = {
@@ -183,18 +183,18 @@ log(typeof obj[Symbol.iterator]);
 undefined
 ```
 
-Woo!! `undefined` means not present.
+哇！`undefined` 表示不存在。
 
 ### for…of: Array
 
-An Array is an iterable.
+数组是可迭代对象。
 
 ```
 log(typeof new Array("Nnamdi", "Chidume")[Symbol.iterator]);
 // function
 ```
 
-That’s why we can perform `for...of` on it.
+这是我们可以对它使用`for...of`循环的原因。
 
 ```
 const arr = ["Chidume", "Nnamdi", "loves", "JS"]
@@ -219,7 +219,7 @@ for(const a of arr) {
 
 ### for…of: String
 
-String is also iterable.
+字符串也是可迭代的。
 
 ```
 const myname = "Chidume Nnamdi"
