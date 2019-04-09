@@ -5,6 +5,8 @@ link: https://blog.bitsrc.io/understanding-the-for-of-loop-in-javascript-8aded97
 author: [kurtwanger40](https://blog.bitsrc.io/@kurtwanger40)
 ---
 
+## 理解 JavaScript 中的循环
+
 在`JavaScript`的世界中，我们可以使用很多种循环表达式：
 
 - `while` 表达式
@@ -19,8 +21,6 @@ author: [kurtwanger40](https://blog.bitsrc.io/@kurtwanger40)
 
 <!-- **Tip**: 使用 [**Bit** (open-source)](https://github.com/teambit/bit) 快速构建 `JS` 应用。它可以让你快速发现、分享和跨应用安装组件/模块。试试吧。
 
-
-
 ![img](https://cdn-images-1.medium.com/max/1600/1*Yhkh7jbS5Mx9uP96Y88pZg.gif)
 
 React spinner 组件：选择一个 spinner，学习如何使用。
@@ -33,7 +33,7 @@ React spinner 组件：选择一个 spinner，学习如何使用。
 `for...of` 是一种 `for` 表达式，用来迭代 `iterables(iterable objects)`直到终止条件出现。
 下面是一个基础的例子：
 
-```
+```js
 let arr = [2,4,6,8,10]
 for(let a of arr) {
     log(a)
@@ -48,7 +48,7 @@ for(let a of arr) {
 
 使用比`for`循环更好的代码，我们遍历了`arr`数组。
 
-```
+```js
 let myname = "Nnamdi Chidume"
 for (let a of myname) {
     log(a)
@@ -69,15 +69,17 @@ for (let a of myname) {
 // m
 // e
 ```
+
 你知道如果我们使用`for`循环，我们将必须使用数学和逻辑去判断何时我们将会达到`myname`的末尾并且停止循环。但是正如你所见的，使用`for...of`循环之后，我们将会避免这些烦人的事情。
 
 `for...of`有以下通用的使用方法：
 
-```
+```js
 for ( variable of iterable) {
     //...
 }
 ```
+
 `variable` - 保存每次迭代过程中的迭代对象的属性值
 `iterable` - 我们进行迭代的对象
 
@@ -103,7 +105,7 @@ for ( variable of iterable) {
 
 举个例子:
 
-```
+```js
 const createIterator = function () {
     var array = ['Nnamdi','Chidume']
     return  {
@@ -126,7 +128,7 @@ log(iterator.next()) // Chidume
 
 基本上，`@@iterator` 方法回返回一个迭代器，`for...of` 循环正是使用这个迭代器去循环操作目标对象从而得到值。因此，如果一个对象没有`@@iterator`方法同时这个返回值是一个迭代器，`for...of` 循环将不会生效。
 
-```
+```js
 const nonIterable = //...
  for( let a of nonIterable) {
      // ...
@@ -147,7 +149,7 @@ TypeError: nonIterable is not iterable
 
 注意，Object 不是可迭代的。如果我们尝试使用`for...of`去迭代对象的属性：
 
-```
+```js
 let obj {
     firstname: "Nnamdi",
     surname: "Chidume"
@@ -159,7 +161,7 @@ for(const a of obj) {
 
 将会抛出一个异常：
 
-```
+```js
 for(const a of obj) {
                ^
 TypeError: obj is not iterable
@@ -167,7 +169,7 @@ TypeError: obj is not iterable
 
 我们可以用下面的方式检查一个对象是否可迭代：
 
-```
+```js
 const str = new String('Chidume');
 log(typeof str[Symbol.iterator]);
 function
@@ -175,7 +177,7 @@ function
 
 看到了吧，打印的结果是`function`, 这意味着`@@iterator`属性存在，并且是函数类型。如果我们在 Object 上面进行尝试：
 
-```
+```js
 const obj = {
     surname: "Chidume"
 }
@@ -189,14 +191,14 @@ undefined
 
 数组是可迭代对象。
 
-```
+```js
 log(typeof new Array("Nnamdi", "Chidume")[Symbol.iterator]);
 // function
 ```
 
 这是我们可以对它使用`for...of`循环的原因。
 
-```
+```js
 const arr = ["Chidume", "Nnamdi", "loves", "JS"]
 for(const a of arr) {
     log(a)
@@ -221,7 +223,7 @@ for(const a of arr) {
 
 字符串也是可迭代的。
 
-```
+```js
 const myname = "Chidume Nnamdi"
 for(const a of myname) {
     log(a)
@@ -259,7 +261,7 @@ for(const a of str) {
 
 ### for…of: Map
 
-```
+```js
 const map = new Map([["surname", "Chidume"],["firstname","Nnamdi"]])
 for(const a of map) {
     log(a)
@@ -277,7 +279,7 @@ for(const [key, value] of map) {
 
 ### for…of: Set
 
-```
+```js
 const set = new Set(["Chidume","Nnamdi"])
 for(const a of set) {
     log(a)
@@ -289,7 +291,7 @@ for(const a of set) {
 
 ### for…of: TypedArray
 
-```
+```js
 const typedarray = new Uint8Array([0xe8, 0xb4, 0xf8, 0xaa]);
 for (const a of typedarray) {
   log(a);
@@ -305,7 +307,7 @@ for (const a of typedarray) {
 
 arguments is iterable? Well, let’s check it out:
 
-```
+```js
 // testFunc.js
 function testFunc(arg) {
     log(typeof arguments[Symbol.iterator])
@@ -317,7 +319,7 @@ function
 
 Well, that settles it. If we investigate further, arguments is actually of type IArguments and the class implementing the IArguments interface has the @@iterator property which makes arguments iterable.
 
-```
+```js
 // testFunc.js
 function testFunc(arg) {
     log(typeof arguments[Symbol.iterator])
@@ -334,7 +336,7 @@ testFunc("Chidume")
 
 Like we demonstrated in the previous sections we can create a custom iterable that can be iterated by `for..of`.
 
-```
+```js
 var obj = {}
 obj[Symbol.iterator] = function() {
     var array = ["Chidume", "Nnamdi"]
@@ -362,7 +364,7 @@ obj[Symbol.iterator] = function() {
 
 I created an object `obj` and to make it iterable, I assigned a `@@iterator`property to it using the `[Symbol.iterator]`. Then, I made the function to return an iterator.
 
-```
+```js
 //...
 return {
     next: function() {...}
@@ -376,7 +378,7 @@ Inside the next function, I implemented the values will be returning to for..of 
 
 Let’s test this our `obj` against a for..of to see what will happen:
 
-```
+```js
 // customIterableTest.js
 //...
 for (let a of obj) {
@@ -395,7 +397,7 @@ Plain objects are not iterable and also objects from `Object` are not iterable.
 
 We can by-pass this by adding @@iterator to the Object.prototype with a custom iterator.
 
-```
+```js
 Object.prototype[Symbol.iterator] = function() {
     let properties = Object.keys(this)
     let count = 0
@@ -416,7 +418,7 @@ The `properties` variable holds the properties of the object gotten using the `O
 
 Testing using Object:
 
-```
+```js
 let o = new Object()
 o.s = "SK"
 o.me = 'SKODA'
@@ -431,7 +433,7 @@ It works!!!
 
 With plain objects:
 
-```
+```js
 let dd = {
     shit: 900,
     opp: 800
@@ -451,7 +453,7 @@ So we can add this as a polyfill so we can use for..of on objects where ever we 
 
 We can use for..of to iterate through a list of data in an instance of a class.
 
-```
+```js
 class Profiles {
     constructor(profiles) {
         this.profiles = profiles
@@ -471,7 +473,7 @@ const profiles = new Profiles([
 
 The class Profiles has a property `profile` that holds an array of users. We may need to display this data in our app using for...of. If we do this:
 
-```
+```js
 //...
 for(const a of profiles) {
     log(a)
@@ -480,7 +482,7 @@ for(const a of profiles) {
 
 Obviously, it won’t work
 
-```
+```js
 for(const a of profiles) {
                ^
 TypeError: profiles is not iterable
@@ -494,7 +496,7 @@ To make `profiles` iterable remember the rules:
 
 We define the @@iterator property using the familiar constant `[Symbol.iterator]`.
 
-```
+```js
 class Profiles {
     constructor(profiles) {
             this.profiles = profiles
@@ -517,9 +519,9 @@ class Profiles {
 }
 ```
 
-Then, if we run:
+然后，如果我们这样运行：
 
-```
+```js
 //...
 for(const a of profiles) {
     log(a)
@@ -529,15 +531,15 @@ $ node profile.js
 { firstname: 'Philip', surname: 'David' }
 ```
 
-We have our profiles property displayed.
+我们可以显示 profiles 的属性
 
 ### Async Iterator
 
-A new construct was introduced to ECMAScript 2018 to be able to loop through an array of Promises, this new construct is `for-await-of` and a new Symbol `Symbol.asyncIterator`.
+ECMAScript 2018 引入了一个新的语法，可以循环遍历一个 Promise 数组，它就是 `for-await-of` 和新的 Symbol `Symbol.asyncIterator`。
 
-The `Symbol.asyncIterator` function in an iterable returns an iterator that returns a Promise.
+iterable 中的 `Symbol.asyncIterator` 函数需要返回一个返回 Promise 的迭代器。
 
-```
+```js
 const f = {
     [Symbol.asyncIterator]() {
         return new Promise(...)
@@ -545,11 +547,11 @@ const f = {
 }
 ```
 
-The difference between `[Symbol.iterator]` and `[Symbol.asyncIterator]` is that the former returns `{ value, done }` while the latter returns a `Promise`that resolves to `{ value, done }`.
+`[Symbol.iterator]` 和 `[Symbol.asyncIterator]` 的区别在于前者返回的是 `{ value, done }` 而后者返回的是一个 `Promise`，只不过当 Promise resolve 的时候传入了 `{ value, done }`。
 
-Our f above will look like this:
+我们上面的那个 f 例子将如下所示：
 
-```
+```js
 const f = {
     [Symbol.asyncIterator]() {
         return {
@@ -566,11 +568,11 @@ const f = {
 }
 ```
 
-The `f` is an async iterable. You see it always returns a Promise, the Promise has a resolve function that returns a value at each iteration.
+这个 `f` 是可异步迭代的，你看它总是返回一个 Promise ，而只有在迭代时 Promise 的 resolve 才返回真正的值。
 
-To iterate through `f`, we will not use `for..of` rather we will use the new `for-await-of` like this:
+要遍历 `f` ，我们不能使用 `for..of` 而是要使用新的 `for-await-of`，它看起来会是这样：
 
-```
+```js
 // ...
 async function fAsyncLoop(){
     for await (const _f of f) {
@@ -582,9 +584,9 @@ $ node fAsyncLoop.js
 900
 ```
 
-We can also use this `for-await-of` to loop through an array of Promises:
+我们也可以使用 `for-await-of` 来循环遍历一个 Promise 数组：
 
-```
+```js
 const arrayOfPromises = [
     new Promise(res => res("Nnamdi")),
     new Promise(res => res("Chidume"))
@@ -602,8 +604,4 @@ Chidume
 
 ### Conclusion
 
-In this post we dug deep into `for...of`loop. We started by defining what for..of is, and went on to see what makes what iterable. Then, we looked at the complete list of iterables in JS and went through each of them to see how to work with `for...of` loop on them.
-
-Like I said in the beginning, for..of saves us a lot of complexities and logic and helps make our code looks cleaner and readable. If you haven’t tried this awesome for- loop mutation, I think now will be the right time to do so.
-
-If you have any question regarding this or anything I should add, correct or remove, feel free to comment below, and anything or DM me. Thanks for reading! :)
+在这篇文章中我们深入研究了 `for...of` 循环，我们首先定义理解什么是 `for...of`，然后看看什么是可迭代的。`for...of` 为我们节省了许多复杂性和逻辑，并有助于使我们的代码看起来很清晰易读，如果你还没有尝试过，我认为现在正是时候。
