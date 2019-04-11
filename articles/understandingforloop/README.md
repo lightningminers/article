@@ -492,8 +492,7 @@ TypeError: profiles is not iterable
 - 这个`@@iterator`的方法一定要返回一个遍历器(iterator).
 - 这个`iterator`一定要实现`next()`方法。
 
-我们通过一个熟悉的常量
-——`[Symbol.iterator]`来定义这个@@iterator属性。
+我们通过一个熟悉的常量`[Symbol.iterator]`来定义这个@@iterator
 
 ```
 class Profiles {
@@ -518,7 +517,7 @@ class Profiles {
 }
 ```
 
-然后，当我们运行：
+Then, if we run:
 
 ```
 //...
@@ -530,9 +529,9 @@ $ node profile.js
 { firstname: 'Philip', surname: 'David' }
 ```
 
-就可以显示我们的profiles属性了。
+We have our profiles property displayed.
 
-### 异步遍历器(Async Iterator)
+### Async Iterator
 
 A new construct was introduced to ECMAScript 2018 to be able to loop through an array of Promises, this new construct is `for-await-of` and a new Symbol `Symbol.asyncIterator`.
 
