@@ -247,7 +247,7 @@ const str = new String("The Young")
 for(const a of str) {
     log(a)
 }
-// It logs:
+// 打印结果是:
 // T
 // h
 // e
@@ -259,53 +259,53 @@ for(const a of str) {
 // g
 ```
 
-### for…of: Map
+### for…of: Map类型
 
 ```js
 const map = new Map([["surname", "Chidume"],["firstname","Nnamdi"]])
 for(const a of map) {
     log(a)
 }
-// It logs:
+// 打印结果是:
 // ["surname", "Chidume"]
 // ["firstname","Nnamdi"]
 for(const [key, value] of map) {
     log(`key: ${key}, value: ${value}`)
 }
-// It logs:
+// 打印结果是:
 // key: surname, value: Chidume
 // key: firstname, value: Nnamdi
 ```
 
-### for…of: Set
+### for…of: Set类型
 
 ```js
 const set = new Set(["Chidume","Nnamdi"])
 for(const a of set) {
     log(a)
 }
-// It logs:
+// 打印结果是:
 // Chidume
 // Nnamdi
 ```
 
-### for…of: TypedArray
+### for…of: TypedArray类型
 
 ```js
 const typedarray = new Uint8Array([0xe8, 0xb4, 0xf8, 0xaa]);
 for (const a of typedarray) {
   log(a);
 }
-// It logs:
+// 打印结果是:
 // 232
 // 180
 // 248
 // 170
 ```
 
-### for…of: arguments
+### for…of: arguments对象
 
-arguments is iterable? Well, let’s check it out:
+arguments对象是可遍历的吗？我们先来看：
 
 ```js
 // testFunc.js
@@ -317,7 +317,7 @@ $ node testFunc
 function
 ```
 
-Well, that settles it. If we investigate further, arguments is actually of type IArguments and the class implementing the IArguments interface has the @@iterator property which makes arguments iterable.
+答案出来了。如果进一步探讨，arguments其实是IArguments类型的对象，而且实现了IArguments接口的class都有一个@@iterator属性，使得arguments对象可遍历。
 
 ```js
 // testFunc.js
@@ -332,9 +332,9 @@ testFunc("Chidume")
 // Chidume
 ```
 
-### for…of: Custom Iterables
+### for…of: 自定义可遍历对象(Iterables)
 
-Like we demonstrated in the previous sections we can create a custom iterable that can be iterated by `for..of`.
+正如上一节那样，我们可以创建一个自定义的可以通过`for..of`遍历的可遍历对象。
 
 ```js
 var obj = {}
@@ -362,7 +362,7 @@ obj[Symbol.iterator] = function() {
 };
 ```
 
-I created an object `obj` and to make it iterable, I assigned a `@@iterator`property to it using the `[Symbol.iterator]`. Then, I made the function to return an iterator.
+这里创建了一个可遍历的`obj`对象，通过`[Symbol.iterator]`赋予它一个`@@iterator`属性，然后创建一个返回遍历器的方法。
 
 ```js
 //...
@@ -372,9 +372,9 @@ return {
 //...
 ```
 
-Remember, an iterator must have a `next()` function.
+记住，遍历器一定要有一个`next()`方法。
 
-Inside the next function, I implemented the values will be returning to for..of during iteration. Looking at it above, you will see that what I did is quite clear.
+在next方法里面，我们实现了在for...of遍历过程中会返回的值，这个过程很清晰。
 
 Let’s test this our `obj` against a for..of to see what will happen:
 
@@ -389,13 +389,13 @@ Chidume
 Nnamdi
 ```
 
-Yea!!! You see it worked!
+耶！成功了！
 
-### Making Object and plain objects iterable
+### 把Object和普通对象(plain objects)变成可遍历
 
-Plain objects are not iterable and also objects from `Object` are not iterable.
+简单对象是不可遍历的，通过`Object`得到的对象也是不可遍历的。
 
-We can by-pass this by adding @@iterator to the Object.prototype with a custom iterator.
+我们可以通过自定义遍历器把@@iterator添加到Object.prototype来实现这个目标。
 
 ```js
 Object.prototype[Symbol.iterator] = function() {
@@ -414,9 +414,9 @@ Object.prototype[Symbol.iterator] = function() {
 }
 ```
 
-The `properties` variable holds the properties of the object gotten using the `Object.keys()` call. In the next function, we simply return each value from the properties variable and update the count so as to get the next value from the properties variable using the count variable as the index. When the count equals the length of the properties we set done to true, so the iteration stops.
+`properties`变量里面包含了通过调用`Object.keys()`得到的object的所有属性。在next方法里面，我们只需要返回properties里面的每一个值，并且通过更新作为索引的count变量来获取下一个值。当count达到properties的长度的时候，就把done设为true，遍历就结束了。
 
-Testing using Object:
+用Object来测试一下:
 
 ```js
 let o = new Object()
@@ -429,9 +429,9 @@ SK
 SKODA
 ```
 
-It works!!!
+成功了！！！
 
-With plain objects:
+用简单对象来测试一下：
 
 ```js
 let dd = {
@@ -445,13 +445,13 @@ for (let a of dd) {
 800
 ```
 
-Tada!! :)
+也成功了！！ :)
 
-So we can add this as a polyfill so we can use for..of on objects where ever we want in our app.
+所以我们可以把这个添加到polyfill里面，然后就可以在app里面使用for...of来遍历对象了。
 
-### Using for…of on ES6 classes
+### 在ES6的类(class)中使用for…of
 
-We can use for..of to iterate through a list of data in an instance of a class.
+我们可以用for...of来遍历class的实例中的数据列表。
 
 ```js
 class Profiles {
@@ -471,7 +471,7 @@ const profiles = new Profiles([
 ])
 ```
 
-The class Profiles has a property `profile` that holds an array of users. We may need to display this data in our app using for...of. If we do this:
+Profiles类有一个`profile`属性，包含一个用户列表。当我们需要在app中用for...of来展示这个列表的时候，如果这样做：
 
 ```js
 //...
@@ -480,7 +480,7 @@ for(const a of profiles) {
 }
 ```
 
-Obviously, it won’t work
+显然是不行的。
 
 ```js
 for(const a of profiles) {
@@ -488,13 +488,13 @@ for(const a of profiles) {
 TypeError: profiles is not iterable
 ```
 
-To make `profiles` iterable remember the rules:
+为了把`profiles`变成可遍历，请记住以下规则：
 
-- The object must have the `@@iterator` property.
-- The `@@iterator` function must return an iterator.
-- The `iterator` must implement the `next()` function.
+- 这个对象一定要有`@@iterator`属性。
+- 这个`@@iterator`的方法一定要返回一个遍历器(iterator).
+- 这个`iterator`一定要实现`next()`方法。
 
-We define the @@iterator property using the familiar constant `[Symbol.iterator]`.
+我们通过一个熟悉的常量`[Symbol.iterator]`来定义这个@@iterator
 
 ```js
 class Profiles {
