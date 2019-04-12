@@ -31,6 +31,7 @@ React spinner 组件：选择一个 spinner，学习如何使用。
 ### for…of
 
 `for...of` 是一种 `for` 表达式，用来迭代 `iterables(iterable objects)`直到终止条件出现。
+
 下面是一个基础的例子：
 
 ```js
