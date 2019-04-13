@@ -252,9 +252,9 @@ test('open a code editor', () => {
 });
 ```
 
-#### Testing event handlers
+#### 测试事件处理
 
-Similar to events testing but instead of testing component’s rendered output with a snapshot use Jest’s mock function to test an event handler itself:
+类似于在事件测试中，由使用快照测试组件的输出呈现替换为使用Jest的mock函数来测试事件处理程序本身：
 
 ```
 test('pass a selected value to the onChange handler', () => {
@@ -274,10 +274,9 @@ test('pass a selected value to the onChange handler', () => {
 });
 ```
 
-#### Not only JSX
+#### 不仅仅是JSX
 
-Jest snapshots work with JSON so you can test any function that returns JSON the same way you test your components:
-
+Jest使用JSON进行快照测试，因此你可以测试返回JSON的任何函数，方法与测试组件相同：
 ```
 test('accept custom properties', () => {
     const wrapper = shallow(
@@ -295,50 +294,49 @@ test('accept custom properties', () => {
 });
 ```
 
-#### Debugging and troubleshooting
+#### 调试与故障排除
 
-**Debugging shallow renderer output**
+**调试浅层渲染器输出**
 
 Use Enzyme’s debug method to print shallow renderer’s output:
+使用Enzyme的调试方法打印千层渲染器的输出：
 
 ```
 const wrapper = shallow(/*~*/);
 console.log(wrapper.debug());
 ```
 
-**Failing tests with enabled coverage**
+**启用覆盖范围的失败测试**
 
-When your tests fail with — coverage flag with diff like this:
+当你的测试失败时，带有覆盖范围标志的diff如下所示：
 
 ```
 -<Button
 +<Component
 ```
 
-Try to replace arrow function component with regular function:
+尝试将箭头函数组件替换为常规函数组建：
 
 ```
 - export default const Button = ({ children }) => {
 + export default function Button({ children }) {
 ```
 
-**requestAnimationFrame error**
+**requestAnimationFrame 错误**
 
-You may see an error like this when you run your tests:
+当你运行你的测试时，你可能会看到如下错误：
 
 ```
 console.error node_modules/fbjs/lib/warning.js:42
   Warning: React depends on requestAnimationFrame. Make sure that you load a polyfill in older browsers. http://fb.me/react-polyfills
 ```
-
-React 16 [depends on ](https://reactjs.org/docs/javascript-environment-requirements.html)`requestAnimationFrame`, so you need to add [a polyfill](https://github.com/chrisdickinson/raf) to your tests:
-
+React 16[依赖于](https://reactjs.org/docs/javascript-environment-requirements.html)`requestAnimationFrame`，因此你需要在你的测试代码中添加一个[plyfill](https://github.com/chrisdickinson/raf)
 ```
 // test/jestsetup.js
 import 'raf/polyfill';
 ```
 
-#### Resources
+#### 参考来源
 
 - [Jest cheat sheet](https://github.com/sapegin/jest-cheat-sheet)
 - [Testing React Applications](https://youtu.be/59Ndb3YkLKA) by Max Stoiber
