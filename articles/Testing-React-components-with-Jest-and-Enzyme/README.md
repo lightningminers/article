@@ -106,11 +106,15 @@ Jest stores snapshots besides your tests in files like **snapshots**/Label.spec.
 
 First install all the dependencies including peer dependencies:
 
+第一步安装所有的依赖包括同版本依赖:
+
 ```
 npm install --save-dev jest react-test-renderer enzyme enzyme-adapter-react-16 enzyme-to-json
 ```
 
 You’ll also need [babel-jest](https://github.com/facebook/jest/tree/master/packages/babel-jest) for Babel and [ts-jest](https://github.com/kulshekhar/ts-jest) for TypeScript.
+
+你也需要安装 Babel 插件 [babel-jest](https://github.com/facebook/jest/tree/master/packages/babel-jest) 或者 TypeScript 插件 [ts-jest](https://github.com/kulshekhar/ts-jest)
 
 Update your package.json:
 
