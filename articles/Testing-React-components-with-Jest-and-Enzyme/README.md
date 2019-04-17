@@ -101,7 +101,8 @@ Jest stores snapshots besides your tests in files like **snapshots**/Label.spec.
 - Convenient utilities to work with shallow rendering, static rendered markup or DOM rendering.
 - jQuery-like API to find elements, read props, etc.
 
-#### Setting up
+#### 配置
+
 
 First install all the dependencies including peer dependencies:
 
@@ -330,7 +331,7 @@ console.log(wrapper.debug());
 console.error node_modules/fbjs/lib/warning.js:42
   Warning: React depends on requestAnimationFrame. Make sure that you load a polyfill in older browsers. http://fb.me/react-polyfills
 ```
-React 16[依赖于](https://reactjs.org/docs/javascript-environment-requirements.html)`requestAnimationFrame`，因此你需要在你的测试代码中添加一个[plyfill](https://github.com/chrisdickinson/raf)
+React 16[依赖于](https://reactjs.org/docs/javascript-environment-requirements.html)`requestAnimationFrame`，因此你需要在你的测试代码中添加一个[polyfill](https://github.com/chrisdickinson/raf)
 ```
 // test/jestsetup.js
 import 'raf/polyfill';
