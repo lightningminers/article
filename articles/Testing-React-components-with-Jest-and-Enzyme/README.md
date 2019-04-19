@@ -118,6 +118,8 @@ You’ll also need [babel-jest](https://github.com/facebook/jest/tree/master/pac
 
 Update your package.json:
 
+更新工程的 package.json 文件:
+
 ```
 "scripts": {
   "test": "jest",
