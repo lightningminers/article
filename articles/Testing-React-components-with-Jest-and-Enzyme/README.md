@@ -134,7 +134,11 @@ Update your package.json:
 
 snapshotSerializers allows you to pass Enzyme wrappers directly to Jest’s snapshot matcher, without converting them manually by calling enzyme-to-json’s toJson function.
 
+配置项 'snapshotSerializers' 允许你直接传递 Enzyme 的封装类型 'enzyme-to-json' 到 'Jest' 的快照匹配项中，从而不需要手动进行转化。
+
 Create a test/jestsetup.js file to customize Jest environment (see setupFiles above):
+
+创建一个 test/jestsetup.js 的文件来自定义 Jest 的运行环境（上面的 setupFiles 配置项）
 
 ```
 import Enzyme, { shallow, render, mount } from 'enzyme';
@@ -149,6 +153,8 @@ global.mount = mount;
 
 For CSS Modules also add to jest section in your package.json:
 
+针对 css 模块也可以添加下面的配置到package.json
+
 ```
 "jest": {
   "moduleNameMapper": {
@@ -159,17 +165,27 @@ For CSS Modules also add to jest section in your package.json:
 
 And run:
 
+同时安装依赖:
+
 ```
 npm install --save-dev identity-obj-proxy
 ```
 
 Note that [identity-obj-proxy](https://github.com/keyanzhang/identity-obj-proxy) requires node — harmony-proxies flag for Node 4 and 5.
 
+注意 [identity-obj-proxy](https://github.com/keyanzhang/identity-obj-proxy) 依赖的 node 版本是 Node 4或者 Node 5需要开启 'harmony-proxies'
+
 #### Writing tests
+
+#### 单元测试
 
 #### Testing basic component rendering
 
+#### 测试组件的渲染
+
 That’s enough for most non-interactive components:
+
+对于大部分没有交互的组件，下面的测试用例已经足够:
 
 ```
 test('render a label', () => {
@@ -196,7 +212,11 @@ test('render a grayish label', () => {
 
 #### Testing props
 
+#### Props 测试
+
 Sometimes you want to be more explicit and see real values in tests. In that case use Enzyme API with regular Jest assertions:
+
+有的时候如果你想测试的更精确和看到真实的值。那样的话需要在 Enzyme API 中使用 Jest的 断言。
 
 ```
 test('render a document title', () => {
@@ -216,6 +236,8 @@ test('render a document title and a parent title', () => {
 
 In some cases you just can’t use snapshots. For example if you have random IDs or something like that:
 
+有的时候你不能用快照。比如组件里面有随机ID像下面的代码:
+
 ```
 test('render a popover with a random ID', () => {
     const wrapper = shallow(
@@ -227,7 +249,11 @@ test('render a popover with a random ID', () => {
 
 #### Testing events
 
+#### 事件测试
+
 You can simulate an event like click or change and then compare component to a snapshot:
+
+你可以模拟类似 'click' 或者 'change'这样的事件然后把组件比作一个快照:
 
 ```
 test('render Markdown in preview mode', () => {
@@ -244,6 +270,8 @@ test('render Markdown in preview mode', () => {
 ```
 
 Sometimes you want to interact with an element in a child component to test effect in your component. For that you need a proper DOM rendering with Enzyme’s mount method:
+
+有的时候你想要测试一个子组件中一个元素是怎样影响组件的。你需要使用 Enzyme的 mount 方法来渲染一个真实的 DOM。
 
 ```
 test('open a code editor', () => {
