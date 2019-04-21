@@ -160,11 +160,7 @@ npm install --save-dev identity-obj-proxy
 
 注意 [identity-obj-proxy](https://github.com/keyanzhang/identity-obj-proxy) 依赖的 node 版本是 Node 4或者 Node 5需要开启 'harmony-proxies'
 
-#### Writing tests
-
 #### 单元测试
-
-#### Testing basic component rendering
 
 #### 测试组件的渲染
 
@@ -192,8 +188,6 @@ test('render a grayish label', () => {
     expect(wrapper).toMatchSnapshot();
 });
 ```
-
-#### Testing props
 
 #### Props 测试
 
@@ -225,8 +219,6 @@ test('render a popover with a random ID', () => {
     expect(wrapper.prop('id')).toMatch(/Popover\d+/);
 });
 ```
-
-#### Testing events
 
 #### 事件测试
 
