@@ -5,32 +5,32 @@ link: https://hackernoon.com/testing-react-components-with-jest-and-enzyme-41d59
 author: [Artem Sapegin](https://hackernoon.com/@sapegin)
 ---
 
-# Testing React components with Jest and Enzyme
+# 使用 Jest 和 Enzyme 测试 React 组件
+#### 引言
+有人说在通常情况下测试 React 组件是没有太大用处的，但是我觉着在一些场景下是很有必要的：
 
-Some people say that testing React components is useless and in many cases it is, but there are a few cases when I think it’s useful:
-
-- component libraries,
-- open source projects,
-- integration with 3rd party components,
+- 组件库,
+- 开源项目,
+- 与第三方组件集成,
 - bugs, to prevent regressions.
 
-I’ve tried many tools and finally have found a combination that I like enough to suggest to other developers:
+我尝试过很多的工具组合，但是最终如果会推荐给别的开发者，我更乐意去择推荐如下组合：
 
-- [Jest](https://facebook.github.io/jest/), a test runner;
-- [Enzyme](http://airbnb.io/enzyme/), a testing utility for React;
+- [Jest](https://facebook.github.io/jest/), 一个测试框架;
+- [Enzyme](http://airbnb.io/enzyme/), React的 测试类库;
 - [enzyme-to-json](https://github.com/adriantoine/enzyme-to-json) to convert Enzyme wrappers for Jest snapshot matcher.
 
-For the most of my tests I use shallow rendering with Jest snapshots.
+我经常在测试中使用的是浅渲染和 Jest 快照测试。
 
 ![img](../Testing-React-components-with-Jest-and-Enzyme/assets/i_1.png)
 
-Snapshot testing in Jest
+ 在 Jest 进行快照测试
 
 #### Shallow rendering
 
-Shallow rendering renders only component itself without its children. So if you change something in a child component it won’t change shallow output of your component. Or a bug, introduced to a child component, won’t break your component’s test. It also doesn’t require DOM.
+浅渲染指的是将一个组件渲染成虚拟 DOM 对象，但是只渲染第一层，不渲染所有子组件。所以即使你对子组件做了一下改动却不会影响浅渲染的输出结果。或者是引入的子组件中发生了 bug,也不会对父组件的浅渲染结果产生影响。浅渲染是不依赖 DOM 环境的。
 
-For example this component:
+举个例子:
 
 ```
 const ButtonWithIcon = ({icon, children}) => (
@@ -38,7 +38,7 @@ const ButtonWithIcon = ({icon, children}) => (
 );
 ```
 
-Will be rendered by React like this:
+在 React 中将会被渲染成如下:
 
 ```
 <button>
@@ -47,7 +47,7 @@ Will be rendered by React like this:
 </button>
 ```
 
-But like this with shallow rendering:
+但是在浅渲染中只会被渲染成如下结果:
 
 ```
 <button>
@@ -56,15 +56,14 @@ But like this with shallow rendering:
 </button>
 ```
 
-Note that the Icon component was not rendered.
+需要注意的是 Icon 组件并未被渲染出来。
 
-#### Snapshot testing
+#### 快照测试 
 
-Jest snapshots are like those old text UIs with windows and buttons made of text characters: it’s a rendered output of your component stored in a text file.
+Jest 快照就像那些带有由文本字符组合而成表达窗口和按钮的静态UI：它是存储在文本文件中的组件的渲染输出。
 
-You tell Jest that you want to be sure that output of this component should never change accidentally and Jest saves it to a file that looks like this:
-
-```
+你可以告诉 Jest 哪些组件输出的 UI 不会有意外的改变，那么 Jest 在运行时会将其保存到如下所示的文件中：
+```js
 exports[`test should render a label 1`] = `
 <label
   className="isBlock">
@@ -80,26 +79,26 @@ exports[`test should render a small label 1`] = `
 `;
 ```
 
-Every time you change your markup Jest will show you a diff and ask you to update a snapshot if the change was intended.
+每次更改组件时，Jest 都会与当前测试的值进行比较并显示差异，并且会在你做出修改是要求你更新快照。
 
-Jest stores snapshots besides your tests in files like **snapshots**/Label.spec.js.snap and you need to commit them with your code.
+除了测试之外，Jest 将快照存储在 `__snapshots __ / Label.spec.js.snap` 等文件中。
 
-#### Why Jest
+#### 为什么选择 Jest
 
-- Very fast.
-- Snapshot testing.
-- Awesome interactive watch mode that reruns only tests that are relevant to your changes.
-- Helpful fail messages.
-- Simple configuration.
-- Mocks and spies.
-- Coverage report with a single command line switch.
-- Active development.
+- 运行速度非常快。
+- 可以进行快照测试。
+- 在 watch 模式下只会重新测试有过修改的部分。
+- fail messages 很有帮助。
+- 配置简单。
+- Mocks 和 spies 支持.
+- 通过命令行可以生成测试报告.
+- 发展前景很好。
 - Impossible to write silently wrong asserts like expect(foo).to.be.a.function instead of expect(foo).to.be.a(‘function’) in Chai because it’s the only natural thing to write after (correct) expect(foo).to.be.true.
 
-#### Why Enzyme
+#### 为什么选择 Enzyme
 
-- Convenient utilities to work with shallow rendering, static rendered markup or DOM rendering.
-- jQuery-like API to find elements, read props, etc.
+- 便利的工具函数库封装，可以处理浅渲染，静态渲染标记以及DOM渲染。
+- jQuery 风格的API，便于使用和直观。
 
 #### 配置
 
