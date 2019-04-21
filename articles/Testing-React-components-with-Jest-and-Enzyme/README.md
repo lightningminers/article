@@ -12,13 +12,13 @@ author: [Artem Sapegin](https://hackernoon.com/@sapegin)
 - 组件库,
 - 开源项目,
 - 与第三方组件集成,
-- bugs, to prevent regressions.
+- bugs, 防止复现.
 
 我尝试过很多的工具组合，但是最终如果会推荐给别的开发者，我更乐意去择推荐如下组合：
 
 - [Jest](https://facebook.github.io/jest/), 一个测试框架;
 - [Enzyme](http://airbnb.io/enzyme/), React的 测试类库;
-- [enzyme-to-json](https://github.com/adriantoine/enzyme-to-json) to convert Enzyme wrappers for Jest snapshot matcher.
+- [enzyme-to-json](https://github.com/adriantoine/enzyme-to-json) 转换 Enzyme 包装类型匹配 Jest 的快照
 
 我经常在测试中使用的是浅渲染和 Jest 快照测试。
 
@@ -81,19 +81,19 @@ exports[`test should render a small label 1`] = `
 
 每次更改组件时，Jest 都会与当前测试的值进行比较并显示差异，并且会在你做出修改是要求你更新快照。
 
-除了测试之外，Jest 将快照存储在 `__snapshots __ / Label.spec.js.snap` 等文件中。
+除了测试之外，Jest 将快照存储在类似 `__snapshots __ / Label.spec.js.snap` 这样的文件中，同时你需要提交这些文件。
 
 #### 为什么选择 Jest
 
 - 运行速度非常快。
 - 可以进行快照测试。
-- 在 watch 模式下只会重新测试有过修改的部分。
-- fail messages 很有帮助。
+- 交互式的监控模式，只会测试有过修改的部分。
+- 错误信息很详细。
 - 配置简单。
 - Mocks 和 spies 支持.
 - 通过命令行可以生成测试报告.
 - 发展前景很好。
-- Impossible to write silently wrong asserts like expect(foo).to.be.a.function instead of expect(foo).to.be.a(‘function’) in Chai because it’s the only natural thing to write after (correct) expect(foo).to.be.true.
+- 不会写出像 Chai 框架 'expect(foo).to.be.a(‘function’)' 一样很容易出错的断言 'expect(foo).to.be.a.function' 因为 Jest 只会写 'expect(foo).to.be.true' 这样确定正确的断言。
 
 #### 为什么选择 Enzyme
 
@@ -113,7 +113,7 @@ npm install --save-dev jest react-test-renderer enzyme enzyme-adapter-react-16 e
 
 You’ll also need [babel-jest](https://github.com/facebook/jest/tree/master/packages/babel-jest) for Babel and [ts-jest](https://github.com/kulshekhar/ts-jest) for TypeScript.
 
-你也需要安装 Babel 插件 [babel-jest](https://github.com/facebook/jest/tree/master/packages/babel-jest) 或者 TypeScript 插件 [ts-jest](https://github.com/kulshekhar/ts-jest)
+还需要安装 Babel 插件 [babel-jest](https://github.com/facebook/jest/tree/master/packages/babel-jest) 或者 TypeScript 插件 [ts-jest](https://github.com/kulshekhar/ts-jest)
 
 Update your package.json:
 
@@ -133,7 +133,7 @@ Update your package.json:
 
 snapshotSerializers allows you to pass Enzyme wrappers directly to Jest’s snapshot matcher, without converting them manually by calling enzyme-to-json’s toJson function.
 
-配置项 'snapshotSerializers' 允许你直接传递 Enzyme 的封装类型 'enzyme-to-json' 到 'Jest' 的快照匹配项中，从而不需要手动进行转化。
+配置项 'snapshotSerializers' 允许你通过配置 'enzyme-to-json'，把 Enzyme 的封装类型传给 'Jest' 的快照匹配项中，从而不需要手动进行转化。
 
 Create a test/jestsetup.js file to customize Jest environment (see setupFiles above):
 
@@ -252,7 +252,7 @@ test('render a popover with a random ID', () => {
 
 You can simulate an event like click or change and then compare component to a snapshot:
 
-你可以模拟类似 'click' 或者 'change'这样的事件然后把组件比作一个快照:
+你可以模拟类似 'click' 或者 'change'这样的事件然后把组件和快照做比较:
 
 ```
 test('render Markdown in preview mode', () => {
