@@ -102,20 +102,14 @@ exports[`test should render a small label 1`] = `
 
 #### 配置
 
-
-First install all the dependencies including peer dependencies:
-
 第一步安装所有的依赖包括同版本依赖:
 
 ```
 npm install --save-dev jest react-test-renderer enzyme enzyme-adapter-react-16 enzyme-to-json
 ```
 
-You’ll also need [babel-jest](https://github.com/facebook/jest/tree/master/packages/babel-jest) for Babel and [ts-jest](https://github.com/kulshekhar/ts-jest) for TypeScript.
-
 还需要安装 Babel 插件 [babel-jest](https://github.com/facebook/jest/tree/master/packages/babel-jest) 或者 TypeScript 插件 [ts-jest](https://github.com/kulshekhar/ts-jest)
 
-Update your package.json:
 
 更新工程的 package.json 文件:
 
@@ -131,11 +125,7 @@ Update your package.json:
 }
 ```
 
-snapshotSerializers allows you to pass Enzyme wrappers directly to Jest’s snapshot matcher, without converting them manually by calling enzyme-to-json’s toJson function.
-
 配置项 'snapshotSerializers' 允许你通过配置 'enzyme-to-json'，把 Enzyme 的封装类型传给 'Jest' 的快照匹配项中，从而不需要手动进行转化。
-
-Create a test/jestsetup.js file to customize Jest environment (see setupFiles above):
 
 创建一个 test/jestsetup.js 的文件来自定义 Jest 的运行环境（上面的 setupFiles 配置项）
 
@@ -149,8 +139,6 @@ global.shallow = shallow;
 global.render = render;
 global.mount = mount;
 ```
-
-For CSS Modules also add to jest section in your package.json:
 
 针对 css 模块也可以添加下面的配置到package.json
 
@@ -170,8 +158,6 @@ And run:
 npm install --save-dev identity-obj-proxy
 ```
 
-Note that [identity-obj-proxy](https://github.com/keyanzhang/identity-obj-proxy) requires node — harmony-proxies flag for Node 4 and 5.
-
 注意 [identity-obj-proxy](https://github.com/keyanzhang/identity-obj-proxy) 依赖的 node 版本是 Node 4或者 Node 5需要开启 'harmony-proxies'
 
 #### Writing tests
@@ -181,8 +167,6 @@ Note that [identity-obj-proxy](https://github.com/keyanzhang/identity-obj-proxy)
 #### Testing basic component rendering
 
 #### 测试组件的渲染
-
-That’s enough for most non-interactive components:
 
 对于大部分没有交互的组件，下面的测试用例已经足够:
 
@@ -213,8 +197,6 @@ test('render a grayish label', () => {
 
 #### Props 测试
 
-Sometimes you want to be more explicit and see real values in tests. In that case use Enzyme API with regular Jest assertions:
-
 有的时候如果你想测试的更精确和看到真实的值。那样的话需要在 Enzyme API 中使用 Jest的 断言。
 
 ```
@@ -233,8 +215,6 @@ test('render a document title and a parent title', () => {
 });
 ```
 
-In some cases you just can’t use snapshots. For example if you have random IDs or something like that:
-
 有的时候你不能用快照。比如组件里面有随机ID像下面的代码:
 
 ```
@@ -249,8 +229,6 @@ test('render a popover with a random ID', () => {
 #### Testing events
 
 #### 事件测试
-
-You can simulate an event like click or change and then compare component to a snapshot:
 
 你可以模拟类似 'click' 或者 'change'这样的事件然后把组件和快照做比较:
 
@@ -267,8 +245,6 @@ test('render Markdown in preview mode', () => {
     expect(wrapper).toMatchSnapshot();
 });
 ```
-
-Sometimes you want to interact with an element in a child component to test effect in your component. For that you need a proper DOM rendering with Enzyme’s mount method:
 
 有的时候你想要测试一个子组件中一个元素是怎样影响组件的。你需要使用 Enzyme的 mount 方法来渲染一个真实的 DOM。
 
