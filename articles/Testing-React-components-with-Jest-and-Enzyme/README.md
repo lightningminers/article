@@ -12,13 +12,13 @@ author: [Artem Sapegin](https://hackernoon.com/@sapegin)
 - 组件库,
 - 开源项目,
 - 与第三方组件集成,
-- bugs, to prevent regressions.
+- bugs, 防止复现.
 
 我尝试过很多的工具组合，但是最终如果会推荐给别的开发者，我更乐意去择推荐如下组合：
 
 - [Jest](https://facebook.github.io/jest/), 一个测试框架;
 - [Enzyme](http://airbnb.io/enzyme/), React的 测试类库;
-- [enzyme-to-json](https://github.com/adriantoine/enzyme-to-json) to convert Enzyme wrappers for Jest snapshot matcher.
+- [enzyme-to-json](https://github.com/adriantoine/enzyme-to-json) 转换 Enzyme 包装类型匹配 Jest 的快照
 
 我经常在测试中使用的是浅渲染和 Jest 快照测试。
 
@@ -81,19 +81,19 @@ exports[`test should render a small label 1`] = `
 
 每次更改组件时，Jest 都会与当前测试的值进行比较并显示差异，并且会在你做出修改是要求你更新快照。
 
-除了测试之外，Jest 将快照存储在 `__snapshots __ / Label.spec.js.snap` 等文件中。
+除了测试之外，Jest 将快照存储在类似 `__snapshots __ / Label.spec.js.snap` 这样的文件中，同时你需要提交这些文件。
 
 #### 为什么选择 Jest
 
 - 运行速度非常快。
 - 可以进行快照测试。
-- 在 watch 模式下只会重新测试有过修改的部分。
-- fail messages 很有帮助。
+- 交互式的监控模式，只会测试有过修改的部分。
+- 错误信息很详细。
 - 配置简单。
 - Mocks 和 spies 支持.
 - 通过命令行可以生成测试报告.
 - 发展前景很好。
-- Impossible to write silently wrong asserts like expect(foo).to.be.a.function instead of expect(foo).to.be.a(‘function’) in Chai because it’s the only natural thing to write after (correct) expect(foo).to.be.true.
+- 不会写出像 Chai 框架 'expect(foo).to.be.a(‘function’)' 一样很容易出错的断言 'expect(foo).to.be.a.function' 因为 Jest 只会写 'expect(foo).to.be.true' 这样确定正确的断言。
 
 #### 为什么选择 Enzyme
 
@@ -102,20 +102,14 @@ exports[`test should render a small label 1`] = `
 
 #### 配置
 
-
-First install all the dependencies including peer dependencies:
-
 第一步安装所有的依赖包括同版本依赖:
 
 ```
 npm install --save-dev jest react-test-renderer enzyme enzyme-adapter-react-16 enzyme-to-json
 ```
 
-You’ll also need [babel-jest](https://github.com/facebook/jest/tree/master/packages/babel-jest) for Babel and [ts-jest](https://github.com/kulshekhar/ts-jest) for TypeScript.
+还需要安装 Babel 插件 [babel-jest](https://github.com/facebook/jest/tree/master/packages/babel-jest) 或者 TypeScript 插件 [ts-jest](https://github.com/kulshekhar/ts-jest)
 
-你也需要安装 Babel 插件 [babel-jest](https://github.com/facebook/jest/tree/master/packages/babel-jest) 或者 TypeScript 插件 [ts-jest](https://github.com/kulshekhar/ts-jest)
-
-Update your package.json:
 
 更新工程的 package.json 文件:
 
@@ -131,11 +125,7 @@ Update your package.json:
 }
 ```
 
-snapshotSerializers allows you to pass Enzyme wrappers directly to Jest’s snapshot matcher, without converting them manually by calling enzyme-to-json’s toJson function.
-
-配置项 'snapshotSerializers' 允许你直接传递 Enzyme 的封装类型 'enzyme-to-json' 到 'Jest' 的快照匹配项中，从而不需要手动进行转化。
-
-Create a test/jestsetup.js file to customize Jest environment (see setupFiles above):
+配置项 'snapshotSerializers' 允许你通过配置 'enzyme-to-json'，把 Enzyme 的封装类型传给 'Jest' 的快照匹配项中，从而不需要手动进行转化。
 
 创建一个 test/jestsetup.js 的文件来自定义 Jest 的运行环境（上面的 setupFiles 配置项）
 
@@ -149,8 +139,6 @@ global.shallow = shallow;
 global.render = render;
 global.mount = mount;
 ```
-
-For CSS Modules also add to jest section in your package.json:
 
 针对 css 模块也可以添加下面的配置到package.json
 
@@ -170,19 +158,11 @@ And run:
 npm install --save-dev identity-obj-proxy
 ```
 
-Note that [identity-obj-proxy](https://github.com/keyanzhang/identity-obj-proxy) requires node — harmony-proxies flag for Node 4 and 5.
-
 注意 [identity-obj-proxy](https://github.com/keyanzhang/identity-obj-proxy) 依赖的 node 版本是 Node 4或者 Node 5需要开启 'harmony-proxies'
-
-#### Writing tests
 
 #### 单元测试
 
-#### Testing basic component rendering
-
 #### 测试组件的渲染
-
-That’s enough for most non-interactive components:
 
 对于大部分没有交互的组件，下面的测试用例已经足够:
 
@@ -209,11 +189,7 @@ test('render a grayish label', () => {
 });
 ```
 
-#### Testing props
-
 #### Props 测试
-
-Sometimes you want to be more explicit and see real values in tests. In that case use Enzyme API with regular Jest assertions:
 
 有的时候如果你想测试的更精确和看到真实的值。那样的话需要在 Enzyme API 中使用 Jest的 断言。
 
@@ -233,8 +209,6 @@ test('render a document title and a parent title', () => {
 });
 ```
 
-In some cases you just can’t use snapshots. For example if you have random IDs or something like that:
-
 有的时候你不能用快照。比如组件里面有随机ID像下面的代码:
 
 ```
@@ -246,13 +220,9 @@ test('render a popover with a random ID', () => {
 });
 ```
 
-#### Testing events
-
 #### 事件测试
 
-You can simulate an event like click or change and then compare component to a snapshot:
-
-你可以模拟类似 'click' 或者 'change'这样的事件然后把组件比作一个快照:
+你可以模拟类似 'click' 或者 'change'这样的事件然后把组件和快照做比较:
 
 ```
 test('render Markdown in preview mode', () => {
@@ -267,8 +237,6 @@ test('render Markdown in preview mode', () => {
     expect(wrapper).toMatchSnapshot();
 });
 ```
-
-Sometimes you want to interact with an element in a child component to test effect in your component. For that you need a proper DOM rendering with Enzyme’s mount method:
 
 有的时候你想要测试一个子组件中一个元素是怎样影响组件的。你需要使用 Enzyme的 mount 方法来渲染一个真实的 DOM。
 
