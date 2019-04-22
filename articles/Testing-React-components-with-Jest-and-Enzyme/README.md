@@ -6,7 +6,9 @@ author: [Artem Sapegin](https://hackernoon.com/@sapegin)
 ---
 
 # 使用 Jest 和 Enzyme 测试 React 组件
-#### 引言
+
+## 引言
+
 有人说在通常情况下测试 React 组件是没有太大用处的，但是我觉着在一些场景下是很有必要的：
 
 - 组件库,
@@ -26,13 +28,13 @@ author: [Artem Sapegin](https://hackernoon.com/@sapegin)
 
  在 Jest 进行快照测试
 
-#### Shallow rendering
+## Shallow rendering
 
 浅渲染指的是将一个组件渲染成虚拟 DOM 对象，但是只渲染第一层，不渲染所有子组件。所以即使你对子组件做了一下改动却不会影响浅渲染的输出结果。或者是引入的子组件中发生了 bug,也不会对父组件的浅渲染结果产生影响。浅渲染是不依赖 DOM 环境的。
 
 举个例子:
 
-```
+```js
 const ButtonWithIcon = ({icon, children}) => (
     <button><Icon icon={icon} />{children}</button>
 );
@@ -40,7 +42,7 @@ const ButtonWithIcon = ({icon, children}) => (
 
 在 React 中将会被渲染成如下:
 
-```
+```js
 <button>
     <i class="icon icon_coffee"></i>
     Hello Jest!
@@ -49,7 +51,7 @@ const ButtonWithIcon = ({icon, children}) => (
 
 但是在浅渲染中只会被渲染成如下结果:
 
-```
+```js
 <button>
     <Icon icon="coffee" />
     Hello Jest!
@@ -58,11 +60,12 @@ const ButtonWithIcon = ({icon, children}) => (
 
 需要注意的是 Icon 组件并未被渲染出来。
 
-#### 快照测试 
+## 快照测试
 
 Jest 快照就像那些带有由文本字符组合而成表达窗口和按钮的静态UI：它是存储在文本文件中的组件的渲染输出。
 
 你可以告诉 Jest 哪些组件输出的 UI 不会有意外的改变，那么 Jest 在运行时会将其保存到如下所示的文件中：
+
 ```js
 exports[`test should render a label 1`] = `
 <label
@@ -83,7 +86,7 @@ exports[`test should render a small label 1`] = `
 
 除了测试之外，Jest 将快照存储在类似 `__snapshots __ / Label.spec.js.snap` 这样的文件中，同时你需要提交这些文件。
 
-#### 为什么选择 Jest
+## 为什么选择 Jest
 
 - 运行速度非常快。
 - 可以进行快照测试。
@@ -95,25 +98,24 @@ exports[`test should render a small label 1`] = `
 - 发展前景很好。
 - 不会写出像 Chai 框架 'expect(foo).to.be.a(‘function’)' 一样很容易出错的断言 'expect(foo).to.be.a.function' 因为 Jest 只会写 'expect(foo).to.be.true' 这样确定正确的断言。
 
-#### 为什么选择 Enzyme
+## 为什么选择 Enzyme
 
 - 便利的工具函数库封装，可以处理浅渲染，静态渲染标记以及DOM渲染。
 - jQuery 风格的API，便于使用和直观。
 
-#### 配置
+## 配置
 
 第一步安装所有的依赖包括同版本依赖:
 
-```
+```bash
 npm install --save-dev jest react-test-renderer enzyme enzyme-adapter-react-16 enzyme-to-json
 ```
 
 还需要安装 Babel 插件 [babel-jest](https://github.com/facebook/jest/tree/master/packages/babel-jest) 或者 TypeScript 插件 [ts-jest](https://github.com/kulshekhar/ts-jest)
 
-
 更新工程的 package.json 文件:
 
-```
+```json
 "scripts": {
   "test": "jest",
   "test:watch": "jest --watch",
@@ -129,7 +131,7 @@ npm install --save-dev jest react-test-renderer enzyme enzyme-adapter-react-16 e
 
 创建一个 test/jestsetup.js 的文件来自定义 Jest 的运行环境（上面的 setupFiles 配置项）
 
-```
+```js
 import Enzyme, { shallow, render, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 // React 16 Enzyme adapter
@@ -142,7 +144,7 @@ global.mount = mount;
 
 针对 css 模块也可以添加下面的配置到package.json
 
-```
+```json
 "jest": {
   "moduleNameMapper": {
     "^.+\\.(css|scss)$": "identity-obj-proxy"
@@ -154,19 +156,17 @@ And run:
 
 同时安装依赖:
 
-```
+```bash
 npm install --save-dev identity-obj-proxy
 ```
 
 注意 [identity-obj-proxy](https://github.com/keyanzhang/identity-obj-proxy) 依赖的 node 版本是 Node 4或者 Node 5需要开启 'harmony-proxies'
 
-#### 单元测试
-
-#### 测试组件的渲染
+## 测试组件的渲染
 
 对于大部分没有交互的组件，下面的测试用例已经足够:
 
-```
+```js
 test('render a label', () => {
     const wrapper = shallow(
         <Label>Hello Jest!</Label>
@@ -189,11 +189,11 @@ test('render a grayish label', () => {
 });
 ```
 
-#### Props 测试
+## Props 测试
 
 有的时候如果你想测试的更精确和看到真实的值。那样的话需要在 Enzyme API 中使用 Jest的 断言。
 
-```
+```js
 test('render a document title', () => {
     const wrapper = shallow(
         <DocumentTitle title="Events" />
@@ -211,7 +211,7 @@ test('render a document title and a parent title', () => {
 
 有的时候你不能用快照。比如组件里面有随机ID像下面的代码:
 
-```
+```js
 test('render a popover with a random ID', () => {
     const wrapper = shallow(
         <Popover>Hello Jest!</Popover>
@@ -220,11 +220,11 @@ test('render a popover with a random ID', () => {
 });
 ```
 
-#### 事件测试
+## 事件测试
 
 你可以模拟类似 'click' 或者 'change'这样的事件然后把组件和快照做比较:
 
-```
+```js
 test('render Markdown in preview mode', () => {
     const wrapper = shallow(
         <MarkdownEditor value="*Hello* Jest!" />
@@ -240,7 +240,7 @@ test('render Markdown in preview mode', () => {
 
 有的时候你想要测试一个子组件中一个元素是怎样影响组件的。你需要使用 Enzyme的 mount 方法来渲染一个真实的 DOM。
 
-```
+```js
 test('open a code editor', () => {
     const wrapper = mount(
         <Playground code={code} />
@@ -254,11 +254,11 @@ test('open a code editor', () => {
 });
 ```
 
-#### 测试事件处理
+## 测试事件处理
 
 类似于在事件测试中，由使用快照测试组件的输出呈现替换为使用Jest的mock函数来测试事件处理程序本身：
 
-```
+```js
 test('pass a selected value to the onChange handler', () => {
     const value = '2';
     const onChange = jest.fn();
@@ -276,10 +276,11 @@ test('pass a selected value to the onChange handler', () => {
 });
 ```
 
-#### 不仅仅是JSX
+## 不仅仅是JSX
 
 Jest使用JSON进行快照测试，因此你可以测试返回JSON的任何函数，方法与测试组件相同：
-```
+
+```js
 test('accept custom properties', () => {
     const wrapper = shallow(
         <Layout
@@ -296,14 +297,14 @@ test('accept custom properties', () => {
 });
 ```
 
-#### 调试与故障排除
+## 调试与故障排除
 
 **调试浅层渲染器输出**
 
 Use Enzyme’s debug method to print shallow renderer’s output:
 使用Enzyme的调试方法打印千层渲染器的输出：
 
-```
+```js
 const wrapper = shallow(/*~*/);
 console.log(wrapper.debug());
 ```
@@ -312,14 +313,14 @@ console.log(wrapper.debug());
 
 当你的测试失败时，带有覆盖范围标志的diff如下所示：
 
-```
+```js
 -<Button
 +<Component
 ```
 
 尝试将箭头函数组件替换为常规函数组建：
 
-```
+```js
 - export default const Button = ({ children }) => {
 + export default function Button({ children }) {
 ```
@@ -328,17 +329,19 @@ console.log(wrapper.debug());
 
 当你运行你的测试时，你可能会看到如下错误：
 
-```
+```js
 console.error node_modules/fbjs/lib/warning.js:42
   Warning: React depends on requestAnimationFrame. Make sure that you load a polyfill in older browsers. http://fb.me/react-polyfills
 ```
+
 React 16[依赖于](https://reactjs.org/docs/javascript-environment-requirements.html)`requestAnimationFrame`，因此你需要在你的测试代码中添加一个[polyfill](https://github.com/chrisdickinson/raf)
-```
+
+```js
 // test/jestsetup.js
 import 'raf/polyfill';
 ```
 
-#### 参考来源
+## 参考来源
 
 - [Jest cheat sheet](https://github.com/sapegin/jest-cheat-sheet)
 - [Testing React Applications](https://youtu.be/59Ndb3YkLKA) by Max Stoiber
