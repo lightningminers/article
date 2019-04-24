@@ -16,6 +16,7 @@
 
 - [ES5 to ESNext —  自 2015 以来 JavaScript 新增的所有新特性](./articles/es5toesnext/README.md)
 - [理解 JavaScript 中的循环](./articles/understandingforloop/README.md)
+- [使用 Jest 和 Enzyme 测试 React 组件](https://zhuanlan.zhihu.com/p/63297384)
 
 ## Copyright
 
