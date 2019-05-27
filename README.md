@@ -4,8 +4,9 @@
 
 [![Issues](https://img.shields.io/github/issues/lightningminers/article.svg)](https://github.com/lightningminers/article/issues) ![License](https://img.shields.io/github/license/lightningminers/article.svg)
 
-官方网站: [https://lightningminers.github.io/articles/](https://lightningminers.github.io/articles/)
-知乎专栏: [https://zhuanlan.zhihu.com/fed-talk](https://zhuanlan.zhihu.com/fed-talk)
+> 官方网站: [https://lightningminers.github.io/articles/](https://lightningminers.github.io/articles/)
+> 
+> 知乎专栏: [https://zhuanlan.zhihu.com/fed-talk](https://zhuanlan.zhihu.com/fed-talk)
 
 ## 翻译列表
 
