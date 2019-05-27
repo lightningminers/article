@@ -1,8 +1,11 @@
 # 闪电矿工翻译组
 
-一群有趣的灵魂从翻译出发，探索点前端的那些事儿。
+前端（front end developer）
 
 [![Issues](https://img.shields.io/github/issues/lightningminers/article.svg)](https://github.com/lightningminers/article/issues) ![License](https://img.shields.io/github/license/lightningminers/article.svg)
+
+官方网站: [https://lightningminers.github.io/articles/](https://lightningminers.github.io/articles/)
+知乎专栏: [https://zhuanlan.zhihu.com/fed-talk](https://zhuanlan.zhihu.com/fed-talk)
 
 ## 翻译列表
 
@@ -17,6 +20,7 @@
 - [前端组件设计原则](https://github.com/lightningminers/article/issues/36)
 - [CSS中z-index的工作原理解析](https://github.com/lightningminers/article/issues/32)
 - [创造性的使用 Console API！](https://github.com/lightningminers/article/issues/31)
+- [React Hooks Tutorial](https://github.com/lightningminers/article/issues/29)
 - [v8 release v7.5](https://github.com/lightningminers/article/issues/30)
 - [7 Useful JavaScript Tricks](https://github.com/lightningminers/article/issues/28)
 - [理解 JavaScript 中的循环](https://github.com/lightningminers/article/issues/33)
