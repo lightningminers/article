@@ -14,10 +14,14 @@
 
 ### articles
 
-- [ES5 to ESNext —  自 2015 以来 JavaScript 新增的所有新特性](https://zhuanlan.zhihu.com/p/59535309)
-- [理解 JavaScript 中的循环](https://zhuanlan.zhihu.com/p/62246809)
-- [使用 Jest 和 Enzyme 测试 React 组件](https://zhuanlan.zhihu.com/p/63297384)
-- [七个 JavaScript 技巧](https://zhuanlan.zhihu.com/p/65775445)
+- [前端组件设计原则](https://github.com/lightningminers/article/issues/36)
+- [CSS中z-index的工作原理解析](https://github.com/lightningminers/article/issues/32)
+- [创造性的使用 Console API！](https://github.com/lightningminers/article/issues/31)
+- [v8 release v7.5](https://github.com/lightningminers/article/issues/30)
+- [7 Useful JavaScript Tricks](https://github.com/lightningminers/article/issues/28)
+- [理解 JavaScript 中的循环](https://github.com/lightningminers/article/issues/33)
+- [使用 Jest 和 Enzyme 测试 React 组件](https://github.com/lightningminers/article/issues/34)
+- [ES5 to ESNext —  自 2015 以来 JavaScript 新增的所有新特性](https://github.com/lightningminers/article/issues/35)
 
 ## Copyright
 
