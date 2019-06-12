@@ -18,6 +18,7 @@
 
 ### articles
 
+- [A Guide to Node.js Logging](https://github.com/lightningminers/article/issues/39)
 - [前端组件设计原则](https://github.com/lightningminers/article/issues/36)
 - [CSS中z-index的工作原理解析](https://github.com/lightningminers/article/issues/32)
 - [创造性的使用 Console API！](https://github.com/lightningminers/article/issues/31)
