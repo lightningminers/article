@@ -7,6 +7,8 @@
 > 官方网站: [https://lightningminers.github.io/articles/](https://lightningminers.github.io/articles/)
 > 
 > 知乎专栏: [https://zhuanlan.zhihu.com/fed-talk](https://zhuanlan.zhihu.com/fed-talk)
+>
+> 掘金专栏: [https://juejin.im/user/57923afe165abd005856f6a3)
 
 ## 翻译列表
 
