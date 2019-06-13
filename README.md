@@ -8,7 +8,7 @@
 > 
 > 知乎专栏: [https://zhuanlan.zhihu.com/fed-talk](https://zhuanlan.zhihu.com/fed-talk)
 >
-> 掘金专栏: [https://juejin.im/user/57923afe165abd005856f6a3)
+> 掘金专栏: [https://juejin.im/user/57923afe165abd005856f6a3](https://juejin.im/user/57923afe165abd005856f6a3)
 
 ## 翻译列表
 
