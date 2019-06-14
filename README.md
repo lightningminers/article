@@ -9,6 +9,8 @@
 > 知乎专栏: [https://zhuanlan.zhihu.com/fed-talk](https://zhuanlan.zhihu.com/fed-talk)
 >
 > 掘金专栏: [https://juejin.im/user/57923afe165abd005856f6a3](https://juejin.im/user/57923afe165abd005856f6a3)
+>
+> 新浪微博: [https://www.weibo.com/u/5983841444?topnav=1&wvr=6](https://www.weibo.com/u/5983841444?topnav=1&wvr=6)
 
 ## 翻译列表
 
