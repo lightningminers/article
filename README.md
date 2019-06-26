@@ -11,6 +11,10 @@
 > 掘金专栏: [https://juejin.im/user/57923afe165abd005856f6a3](https://juejin.im/user/57923afe165abd005856f6a3)
 >
 > 新浪微博: [https://www.weibo.com/u/5983841444?topnav=1&wvr=6](https://www.weibo.com/u/5983841444?topnav=1&wvr=6)
+>
+> segmentfault: [https://segmentfault.com/u/icepy/articles](https://segmentfault.com/u/icepy/articles)
+>
+> 今日头条: [https://www.toutiao.com/c/user/6726953625/#mid=6726992720](https://www.toutiao.com/c/user/6726953625/#mid=6726992720)
 
 ## 翻译列表
 
@@ -22,6 +26,7 @@
 
 ### articles
 
+- [async/await应知应会](https://zhuanlan.zhihu.com/p/70556182)
 - [一行css代码搞定响应式布局](https://zhuanlan.zhihu.com/p/69809343)
 - [Using SVG](https://zhuanlan.zhihu.com/p/69306347)
 - [A Guide to Node.js Logging](https://github.com/lightningminers/article/issues/39)
