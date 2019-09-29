@@ -26,6 +26,8 @@
 
 ### articles
 
+- [CSS selectors level 4](https://zhuanlan.zhihu.com/p/84766862)
+- [如何更优雅的编写CSS代码](https://zhuanlan.zhihu.com/p/84766471)
 - [async/await应知应会](https://zhuanlan.zhihu.com/p/70556182)
 - [一行css代码搞定响应式布局](https://zhuanlan.zhihu.com/p/69809343)
 - [Using SVG](https://zhuanlan.zhihu.com/p/69306347)
